@@ -1,0 +1,3 @@
+*.run
+.DS_Store
+*.pyc
