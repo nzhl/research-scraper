@@ -1,0 +1,8 @@
+MANIFEST.in
+florida/__init__.py
+florida/florida.py
+florida.egg-info/PKG-INFO
+florida.egg-info/SOURCES.txt
+florida.egg-info/dependency_links.txt
+florida.egg-info/requires.txt
+florida.egg-info/top_level.txt
