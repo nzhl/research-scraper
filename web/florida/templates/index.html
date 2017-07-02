@@ -6,5 +6,19 @@
 			<input type=text name="query" />
 			<input type="submit" value="search" />
 		</form>
+		{% if articles %}
+		<table border="1">
+			{% for field in articles[0] %}
+			<th>{{ field }}</th>
+			{% endfor %}
+			{% for article in articles %}
+			<tr>
+				{% for k, v in article.items() %}
+				<td>{{v}}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
+		{% endif %}
 	</body>
 </html>
