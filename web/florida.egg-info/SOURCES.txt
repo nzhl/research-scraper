@@ -6,3 +6,7 @@ florida.egg-info/SOURCES.txt
 florida.egg-info/dependency_links.txt
 florida.egg-info/requires.txt
 florida.egg-info/top_level.txt
+florida/blueprints/__init__.py
+florida/blueprints/api.py
+florida/templates/a.html
+florida/templates/index.html
