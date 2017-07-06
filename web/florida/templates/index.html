@@ -1,24 +1,53 @@
 <html>
-	<title>Research-Scraper</title>
+	<title>Research Scraper</title>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<body>
-		<h1>Research_Scraper</h1>
-		<form>
-			<input type=text name="query" />
-			<input type="submit" value="search" />
-		</form>
-		{% if articles %}
-		<table border="1">
-			{% for field in articles[0] %}
-			<th>{{ field }}</th>
-			{% endfor %}
-			{% for article in articles %}
-			<tr>
-				{% for k, v in article.items() %}
-				<td>{{v}}</td>
-				{% endfor %}
-			</tr>
-			{% endfor %}
-		</table>
-		{% endif %}
+		{% raw %}
+		<h1>Research Scraper</h1>
+		<div id="search_tool">
+			<input v-model="query" type=text />
+			<button v-on:click="search" >search</button>
+		</div>
+		<div id="result_table" v-if="papers">
+			<h3>Searching Result : {{papers.length}} was found</h3>
+			<table border="1" >
+				<tr>
+					<th v-for="(value, field) in papers[0]">
+						{{field}}
+					</th>
+				<tr/>
+				<tr v-for="paper in papers">
+					<td v-for="value in paper">
+						{{value}}
+					</td>
+				</tr>
+			</table>
+		</div>
+		{% endraw %}
+		<script>
+			var result_table = new Vue({
+				el: '#result_table',
+				data: {
+					papers: undefined
+				},
+			})
+			var search_tool = new Vue({
+				el: '#search_tool',
+				data: {
+					query:""
+				},
+				methods: {
+					search: function(){
+						axios.get('/api/papers/?query=' + this.query)
+							.then(function (response){
+								result_table.papers = response.data.papers
+							}).catch(function (error){
+								console.log(error);
+							});
+					}
+				}
+			});
+		</script>
 	</body>
 </html>

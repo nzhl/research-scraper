@@ -1,4 +1,4 @@
-from flask import Flask, g, render_template, request
+from flask import Flask, g, render_template
 from florida.blueprints.api import api_bp
 
 app = Flask(__name__)
@@ -19,4 +19,8 @@ def close_db(error):
     '''Close mysql connection'''
     if hasattr(g, 'db'):
         g.db.close()
+
+@app.route("/", methods=['GET'])
+def index():
+    return render_template('index.html')
 
