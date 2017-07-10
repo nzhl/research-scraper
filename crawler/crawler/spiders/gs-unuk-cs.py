@@ -1,5 +1,5 @@
 import scrapy
-import centipede.items
+import crawler.items
 import re
 
 class GoogleSpider(scrapy.Spider):

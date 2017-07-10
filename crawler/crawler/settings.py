@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for centipede project
+# Scrapy settings for crawler project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,10 +9,10 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'centipede'
+BOT_NAME = 'crawler'
 
-SPIDER_MODULES = ['centipede.spiders']
-NEWSPIDER_MODULE = 'centipede.spiders'
+SPIDER_MODULES = ['crawler.spiders']
+NEWSPIDER_MODULE = 'crawler.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -47,14 +47,14 @@ DOWNLOAD_DELAY = 2
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'centipede.middlewares.CentipedeSpiderMiddleware': 543,
+#    'crawler.middlewares.CentipedeSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'centipede.middlewares.RotateUserAgentMiddleware': 543,
+    'crawler.middlewares.RotateUserAgentMiddleware': 543,
 }
 
 # Enable or disable extensions
@@ -66,7 +66,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'centipede.pipelines.CentipedePipeline': 300,
+    'crawler.pipelines.CentipedePipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

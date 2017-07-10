@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 import pymysql
-import centipede.items
 
-class CentipedePipeline(object):
+class CrawlerPipeline(object):
     def process_item(self, item, spider):
         db = pymysql.connect(host="localhost", user="root", password="nzhl", db="unnc_scholar", charset='utf8mb4')
         cursor = db.cursor()
