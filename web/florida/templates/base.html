@@ -17,7 +17,6 @@
                 <div class="cover-container">
 
                     <div class="masthead clearfix">
-
                         <div class="inner">
                             <h3 class="masthead-brand">Research Scraper</h3>
                             <nav>
@@ -55,8 +54,9 @@
                                 </ul>
                             </nav>
                         </div>
-
                     </div>
+
+                    {% block content %}{% endblock %}
 
                     {% if 'name' not in session %}
                     <div class="modal fade" id="login_tool" tabindex="-1" role="dialog" aria-labelledby="login_label" aria-hidden="true">
@@ -147,6 +147,7 @@
                             }
                         })
 
+                        {% if not 'name' in session %}
                         var register_tool = new Vue({
                             el: '#register_tool',
                             data: {
@@ -174,10 +175,10 @@
                                 }
                             }
                         })
+                        {% endif %}
                     </script>
 
 
-                    {% block content %}{% endblock %}
 
                     <div class="mastfoot">
                         <div class="inner">

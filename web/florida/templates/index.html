@@ -1,127 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-		    <div id="search_tool">
-			    <input v-model="query" type=text />
-			    <button v-on:click="search" >search</button>
-		    </div>
-{% endblock %}
+<div id="search_tool">
+    <h1>
+        <input v-on:keyup="increase_search" v-model="query" class="text-muted" type=text />
+    </h1>
+
+    <template v-for="author in result">
+        <a v-bind:href="'/authors/' + author['id']" class="list-group-item">
+            {% raw %}
+            {{author['name']}}
+            {% endraw %}
+        </a>
+    </template>
+</div>
 
 <script>
-    var login_tool = new Vue({
-        el: '#login_tool',
-        data: {
-            account: "",
-            password: ""
-        },
-        methods: {
-            login: function(){
-                axios.post('/api/sessions/',
-                    {
-                        "account": this.account,
-                        "password": this.password
-                    }
-                ).then(function(response){
-                    location.reload()
-                }).catch(function(error){
-                    alert("Unmatched account and password !")
-                })
-            }
-        }
-    })
-
-    var edit_tool = new Vue({
-        el: '#edit_tool',
-        data: {
-            index: 0,
-            title: "",
-            authors: "",
-            publication_date: "",
-            conference: "",
-            journal: "",
-            publisher: "",
-            total_citations: "",
-            url: ""
-        },
-        methods: {
-            edit: function(event){
-                this.index = event.target.getAttribute("index");
-                this.title = result_table.papers[this.index]['title']
-                this.authors = result_table.papers[this.index]['authors']
-                this.publication_date = result_table.papers[this.index]['publication_date']
-                this.conference = result_table.papers[this.index]['conference']
-                this.journal = result_table.papers[this.index]['journal']
-                this.publisher = result_table.papers[this.index]['publisher']
-                this.total_citations = result_table.papers[this.index]['total_citations']
-                this.url = result_table.papers[this.index]['url']
-            },
-            update: function(){
-                axios.put('/api/papers/' + result_table.papers[this.index]['id'],
-                    {
-                        title: this.title,
-                        authors: this.authors,
-                        publication_date: this.publication_date,
-                        conference: this.conference,
-                        journal: this.journal,
-                        publisher: this.publisher,
-                        total_citations: this.total_citations,
-                        is_pdf: this.url == "" ? "0":"1",
-                        url: this.url
-                    }
-                ).then(function(response){
-                    if(response.status == "200"){
-                        alert("Update Success !")
-                    } else{
-                        alert("Update Fail !")
-                    }
-                    $('#edit_tool').modal('hide');
-                    search_tool.search()
-                }).catch(function(response){
-                    console.log(response)
-                })
-            },
-            delete_paper: function(){
-                axios.delete('/api/papers/' + result_table.papers[this.index]['id'])
-                    .then(function(response){
-                        if(response.status == "200"){
-                            alert("Delete Success !")
-                        } else{
-                            alert("Delete Fail !")
-                        }
-                        $('#edit_tool').modal('hide');
-                        search_tool.search()
-                    }).catch(function(response){
-                        console.log(response)
-                    })
-                ;
-            }
-        }
-    });
-    var result_table = new Vue({
-        el: '#result_table',
-        data: {
-            visible_fields: [
-                "title", "authors",
-                "publication_date",
-                "conference", "journal",
-                "publisher", "total_citations",
-            ],
-
-            papers: undefined
-        },
-        methods: {
-            edit: edit_tool.edit
-        }
-    });
     var search_tool = new Vue({
         el: '#search_tool',
         data: {
-            query:""
+            query:"",
+            result: []
         },
         methods: {
-            search: function(){
-                axios.get('/api/papers/?query=' + this.query)
+            increase_search: function(){
+                axios.get('/api/authors/?query=' + this.query)
                     .then(function (response){
-                        result_table.papers = response.data.papers
+                        search_tool.result = response.data
+                    }).catch(function (error){
+                        console.log(error);
+                    });
+            },
+
+            search: function(){
+                axios.get('/api/authors/?query=' + this.query)
+                    .then(function (response){
+                        console.log(response.data)
+
                     }).catch(function (error){
                         console.log(error);
                     });
@@ -129,3 +43,4 @@
         }
     });
 </script>
+{% endblock %}

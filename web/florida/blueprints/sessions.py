@@ -17,7 +17,7 @@ from flask import Blueprint, request, g, session
 from flask.views import MethodView
 
 
-def select_author(account, password):
+def check_author(account, password):
     '''Check if the corresponding authors and password pair exists'''
 
     sql = "SELECT * FROM authors WHERE account=%s AND password=%s"
