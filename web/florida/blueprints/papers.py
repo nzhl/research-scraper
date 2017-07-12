@@ -1,4 +1,4 @@
-'''This is the blueprint file that defined restful api interface.
+'''This is the blueprint file that defined user api interface.
 
 GET http://host_name/api/papers?query=...
     - no body required
@@ -33,7 +33,7 @@ def select_paper(field, query):
     '''Search all the entry of which field contains the query.'''
 
     #field won't passed by client, so need not to be defensive
-    sql = "SELECT * FROM articles WHERE " + field + " LIKE %s" 
+    sql = "SELECT * FROM articles WHERE " + field + " LIKE %s"
     result = []
     if not hasattr(g, 'db'):
         connect_db()
@@ -67,13 +67,13 @@ def insert_paper(paper):
     with g.db.cursor() as cursor:
         #print(cursor.mogrify(sql), ...)
         affected_rows = cursor.execute(sql, (
-                            paper['title'], paper['authors'],
-                             paper['publication_date'], paper['conference'],
-                             paper['journal'], paper['publisher'],
-                             paper['total_citations'], paper['is_pdf'],
-                             paper['url']))
-    g.db.commit()
-    return affected_rows
+            paper['title'], paper['authors'],
+            paper['publication_date'], paper['conference'],
+            paper['journal'], paper['publisher'],
+            paper['total_citations'], paper['is_pdf'],
+            paper['url']))
+        g.db.commit()
+        return affected_rows
 
 def update_paper(paper_id, paper):
     '''Using delete then insert to have a ugly implementation'''
@@ -87,8 +87,8 @@ def delete_paper(paper_id):
     affected_rows = 0
     if not hasattr(g, 'db'):
         connect_db()
-    with g.db.cursor() as cursor:
-        affected_rows = cursor.execute(sql, (paper_id,))
+        with g.db.cursor() as cursor:
+            affected_rows = cursor.execute(sql, (paper_id,))
 
     g.db.commit()
     return affected_rows
@@ -102,13 +102,13 @@ class PaperAPI(MethodView):
             search_fields = ["authors", "title"]
             for field in search_fields:
                 papers += select_paper(field, query)
-        return jsonify({'count': len(papers), 'papers': papers })
+                return jsonify({'count': len(papers), 'papers': papers })
 
     def post(self):
         paper = request.get_json()
         if insert_paper(paper) == 0:
             abort(409)
-        return ("", 201, {})
+            return ("", 201, {})
 
 
     def put(self, paper_id):
@@ -120,7 +120,7 @@ class PaperAPI(MethodView):
     def delete(self, paper_id):
         if delete_paper(paper_id) == 0:
             abort(404)
-        return ("", 200, {})
+            return ("", 200, {})
 
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
@@ -128,3 +128,4 @@ api_bp = Blueprint('api', __name__, url_prefix='/api')
 paper_api_view = PaperAPI.as_view('papers')
 api_bp.add_url_rule('/papers/', view_func=paper_api_view, methods=['GET', 'POST'])
 api_bp.add_url_rule('/papers/<int:paper_id>', view_func=paper_api_view, methods=['PUT', 'DELETE'])
+

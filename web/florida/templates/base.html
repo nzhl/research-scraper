@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="UNNC Research Scraper">
+        <meta name="author" content="Fred">
+        <title> Research Scraper </title>
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/cover.css" rel="stylesheet">
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+
+                    <div class="masthead clearfix">
+
+                        <div class="inner">
+                            <h3 class="masthead-brand">Research Scraper</h3>
+                            <nav>
+                                <ul class="nav masthead-nav">
+                                    <li class="active"><a href="/">Home</a></li>
+                                    {% if 'name' not in session %}
+                                    <li >
+                                        <a data-toggle="modal" data-target="#login_tool">Login</a>
+                                    </li>
+                                    <li >
+                                        <a data-toggle="modal" data-target="#register_tool">Register</a>
+                                    </li>
+                                    {% else %}
+                                    <li>
+                                        <div class="dropdown" id="login_tool">
+                                            <a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                                                {{ session['name'] }}
+                                                <span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                <li role="presentation">
+                                                    <a role="menuitem" tabindex="-1" href="#">Profile</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a role="menuitem" tabindex="-1" href="#">Group</a>
+                                                </li>
+                                                <li role="presentation" class="divider"></li>
+                                                <li role="presentation">
+                                                    <a v-on:click="logout" role="menuitem" tabindex="-1" href="#">Logout</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                    {% if 'name' not in session %}
+                    <div class="modal fade" id="login_tool" tabindex="-1" role="dialog" aria-labelledby="login_label" aria-hidden="true">
+                        <div class="modal-dialog" >
+                            <div class="modal-content ">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                            <h4 class="modal-title" id="login_label">
+                                Login
+                            </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-success">Account :</p>
+                                    <input v-model="account" class="form-control" type="text" /><br/>
+                                    <p class="text-success">Password :</p>
+                                    <input v-model="password" class="form-control" type="password" /><br/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button v-on:click="login" type="button" class="btn btn-primary">
+                                        Login
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="register_tool" tabindex="-1" role="dialog" aria-labelledby="register_label" aria-hidden="true">
+                        <div class="modal-dialog" >
+                            <div class="modal-content ">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                            <h4 class="modal-title" id="register_label">
+                                Register
+                            </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-success">Name :</p>
+                                    <input v-model="name" class="form-control" type="text" /><br/>
+                                    <p class="text-success">Account :</p>
+                                    <input v-model="account" class="form-control" type="text" /><br/>
+                                    <p class="text-success">Password :</p>
+                                    <input v-model="password" class="form-control" type="password" /><br/>
+                                    <p class="text-success">Google Scholar Address :</p>
+                                    <input v-model="gs_link" class="form-control" type="url" /><br/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button v-on:click="register" type="button" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <script>
+                        var login_tool = new Vue({
+                            el: '#login_tool',
+                            data: {
+                                account: "",
+                                password: ""
+                            },
+                            methods: {
+                                login: function(){
+                                    axios.post('/api/sessions/',
+                                        {
+                                            "account": this.account,
+                                            "password": this.password
+                                        }
+                                    ).then(function(response){
+                                        location.reload()
+                                    }).catch(function(error){
+                                        alert("Unmatched account and password !")
+                                    })
+                                },
+
+                                logout: function(){
+                                    axios.delete('api/sessions/').
+                                        then(function(response){
+                                            location.reload()
+                                        }).catch(function(error){
+                                            alert("Unknown server error !")
+                                        })
+                                }
+                            }
+                        })
+
+                        var register_tool = new Vue({
+                            el: '#register_tool',
+                            data: {
+                                name: "",
+                                is_registered: "1",
+                                account: "",
+                                password: "",
+                                gs_link: ""
+                            },
+                            methods: {
+                                register: function(){
+                                    axios.post('api/authors/',
+                                        {
+                                            'name': this.name,
+                                            'is_registered': this.is_registered,
+                                            'account': this.account,
+                                            'password': this.password,
+                                            'gs_link': this.gs_link
+                                        }
+                                    ).then(function (response){
+                                        location.reload()
+                                    }).catch(function(error){
+                                        alert("Unknown server error !")
+                                    })
+                                }
+                            }
+                        })
+                    </script>
+
+
+                    {% block content %}{% endblock %}
+
+                    <div class="mastfoot">
+                        <div class="inner">
+                            <p>Papers manage tool for <a href="http://www.nottingham.ac.uk">Nottingham</a>, by <a href="https://twitter.com/mdo">@Fred</a>.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="../static/js/jquery-3.2.1.slim.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+    </body>
+</html>
