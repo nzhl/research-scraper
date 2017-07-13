@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% if 'id' in session %}
+{% raw %}
+    <table id="list_tool" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>description</th>
+                <th>authors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template v-for="group in groups">
+                <tr>
+                    <td >{{group['name']}}</td>
+                    <td >{{group['description']}}</td>
+                    <td >
+                        ---
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+{% endraw %}
+
+    <script>
+        var list_tool = new Vue({
+            el: "#list_tool",
+            data: {
+                groups: []
+            }
+        })
+
+        axios.get('/api/groups/?author_id=' + {{session['id']}})
+            .then(function(response){
+                list_tool.groups = response.data
+            }).catch(function (error){
+                console.log(error)
+            })
+    </script>
+
+{% else %}
+    <h3>Please login first !</h3>
+
+{% endif %}
+{% endblock %}

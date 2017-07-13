@@ -2,6 +2,7 @@ from flask import Flask, g, render_template, current_app, session
 from florida.blueprints.sessions import sessions_blueprint
 from florida.blueprints.authors import authors_blueprint
 from florida.blueprints.papers import papers_blueprint
+from florida.blueprints.groups import groups_blueprint
 import pymysql
 
 app = Flask(__name__)
@@ -18,6 +19,7 @@ app.config.update(dict(
 app.register_blueprint(sessions_blueprint)
 app.register_blueprint(authors_blueprint)
 app.register_blueprint(papers_blueprint)
+app.register_blueprint(groups_blueprint)
 
 
 @app.before_request
@@ -46,4 +48,9 @@ def index_page():
 @app.route("/papers/")
 def author_page():
     return render_template('papers.html')
+
+@app.route("/groups/")
+def group_page():
+    return render_template('groups.html')
+
 
