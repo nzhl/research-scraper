@@ -1,6 +1,6 @@
 '''This is the blueprint file that defined restful api interface for author data.
 
-GET http://host_name/api/authors/?query=
+GET http://host_name/api/authors/?keyword=
     - search authors which contain the keyword
     - return a json list.
 
@@ -15,12 +15,12 @@ from flask.views import MethodView
 from . import sessions
 
 
-def select_authors(query):
+def select_authors(keyword):
     sql = "SELECT name, id FROM authors WHERE name LIKE %s"
 
     result = []
     with g.db.cursor() as cursor:
-        cursor.execute(sql, ('%' + query + '%'))
+        cursor.execute(sql, ('%' + keyword + '%',))
         result = cursor.fetchall()
 
     return result
@@ -48,8 +48,11 @@ class AuthorView(MethodView):
     def get(self):
         '''search'''
 
-        query = request.args['query']
-        return jsonify(select_authors(query))
+        authors = []
+        keyword = request.args['keyword']
+        if keyword:
+            authors = select_authors(keyword)
+        return jsonify(authors)
 
     def post(self):
         '''Login'''

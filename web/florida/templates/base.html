@@ -9,8 +9,8 @@
         <link href="../static/css/cover.css" rel="stylesheet">
         <!--<script src="https://unpkg.com/vue"></script>-->
         <script src="../static/js/vue.js"></script>
-        <!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
-        <script src="../static/js/axios.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!--<script src="../static/js/axios.min.js"></script>-->
     </head>
 
     <body>
@@ -40,14 +40,14 @@
                                             </a>
                                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                                                 <li role="presentation">
-                                                    <a role="menuitem" tabindex="-1" href="#">Profile</a>
+                                                    <a role="menuitem" tabindex="-1" href="">Profile</a>
                                                 </li>
                                                 <li role="presentation">
-                                                    <a role="menuitem" tabindex="-1" href="#">Group</a>
+                                                    <a role="menuitem" tabindex="-1" href="/groups/">Group</a>
                                                 </li>
                                                 <li role="presentation" class="divider"></li>
                                                 <li role="presentation">
-                                                    <a v-on:click="logout" role="menuitem" tabindex="-1" href="#">Logout</a>
+                                                    <a v-on:click="logout" role="menuitem" tabindex="-1" href="">Logout</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -139,7 +139,7 @@
                                 },
 
                                 logout: function(){
-                                    axios.delete('api/sessions/').
+                                    axios.delete('/api/sessions/').
                                         then(function(response){
                                             location.reload()
                                         }).catch(function(error){
@@ -179,7 +179,6 @@
                         })
                         {% endif %}
                     </script>
-
 
 
                     <div class="mastfoot">

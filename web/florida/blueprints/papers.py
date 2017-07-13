@@ -20,6 +20,25 @@ def select_papers_by_author(author_id):
         for entry in result:
             cursor.execute(sql, (entry['paper_id'],))
             papers += cursor.fetchall()
+    return papers
+
+
+def select_papers_by_group(group_id):
+    '''Search papers by group id.'''
+
+    papers = []
+    sql = "SELECT * FROM authors_and_groups WHERE group_id=%s"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (group_id,))
+        result = cursor.fetchall()
+        sql1 = "SELECT * FROM authors_and_papers WHERE author_id=%s"
+        for entry in result:
+            cursor.execute(sql1, (entry['author_id'],))
+            result = cursor.fetchall()
+            sql2 = "SELECT * FROM papers WHERE id=%s"
+            for entry in result:
+                cursor.execute(sql2, (entry['paper_id'],))
+                papers += cursor.fetchall()
 
     return papers
 
@@ -77,8 +96,11 @@ class PaperAPI(MethodView):
     def get(self):
         papers = []
         author_id = request.args.get("author_id", None)
+        group_id = request.args.get("group_id", None)
         if author_id:
             papers = select_papers_by_author(author_id)
+        elif group_id:
+            papers = select_papers_by_group(group_id)
         return jsonify(papers)
 
     def post(self):
@@ -99,7 +121,7 @@ class PaperAPI(MethodView):
             return ("", 200, {})
 
 
-papers_blueprint = Blueprint('api', __name__, url_prefix='/api')
+papers_blueprint = Blueprint('papers', __name__, url_prefix='/api')
 
 paper_view = PaperAPI.as_view('papers')
 papers_blueprint.add_url_rule('/papers/', view_func=paper_view, methods=['GET'])
