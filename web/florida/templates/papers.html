@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3>
+    <table id="list_tool" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>publication date</th>
+                <th>conference</th>
+                <th>journal</th>
+                <th>publisher</th>
+                <th>total citations</th>
+                <th>google link</th>
+                <th>pdf source</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% raw %}
+            <template v-for="paper in papers">
+                <tr v-if="!paper['is_hidden']">
+                    <td >{{paper['title']}}</td>
+                    <td >{{paper['publication_date']}}</td>
+                    <td >{{paper['conference']}}</td>
+                    <td >{{paper['journal']}}</td>
+                    <td >{{paper['publisher']}}</td>
+                    <td >{{paper['total_citations']}}</td>
+                    <td >
+                        <template v-if="paper['gs_link']">
+                            <a v-bind:href="paper['gs_link']">check</a>
+                        </template>
+                        <template v-else>
+                            -
+                        </template>
+                    </td>
+                    <td >
+                        <template v-if="paper['pdf_link']">
+                            <a v-bind:href="paper['pdf_link']">check</a>
+                        </template>
+                        <template v-else>
+                            -
+                        </template>
+                    </td>
+                </tr>
+            </template>
+            {% endraw %}
+        </tbody>
+    </table>
+    </h3>
+
+    <script>
+        var list_tool = new Vue({
+            el: "#list_tool",
+            data: {
+                papers: []
+            }
+        })
+
+        axios.get('/api/papers?author_id={{request.args['author_id']}}')
+            .then(function(response){
+                list_tool.papers = response.data
+            }).catch(function (error){
+                console.log(error)
+            })
+    </script>
+
+    {% endblock %}

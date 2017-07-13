@@ -10,13 +10,13 @@ POST http://host_name/api/authors/
     - 409 : conflict data or illegal parameter
 '''
 
-from flask import Blueprint, request, jsonify, g, session
+from flask import Blueprint, request, jsonify, g, abort, session
 from flask.views import MethodView
-from .sessions import check_author
+from . import sessions
 
 
-def select_author(query):
-    sql = "SELECT id, name FROM authors WHERE name LIKE %s"
+def select_authors(query):
+    sql = "SELECT name, id FROM authors WHERE name LIKE %s"
 
     result = []
     with g.db.cursor() as cursor:
@@ -25,11 +25,11 @@ def select_author(query):
 
     return result
 
-def insert_author(author):
+
+def insert_authors(author):
     '''Insert a new author data into database'''
 
-    sql = \
-    "INSERT INTO authors (name, is_registered, account, password, gs_link) VALUES (%s, %s, %s, %s, %s)"
+    sql = "INSERT INTO authors (name, is_registered, account, password, gs_link) VALUES (%s, %s, %s, %s, %s)"
 
     affected_rows = 0
     with g.db.cursor() as cursor:
@@ -46,17 +46,19 @@ def insert_author(author):
 class AuthorView(MethodView):
 
     def get(self):
+        '''search'''
+
         query = request.args['query']
-        return jsonify(select_author(query))
+        return jsonify(select_authors(query))
 
     def post(self):
         '''Login'''
 
         author = request.get_json()
-        if not insert_author(author):
+        if not insert_authors(author):
             return ("", 409)
         else:
-            author = check_author(author['account'], author['password'])[0]
+            author = sessions.select_authors(author['account'], author['password'])[0]
             session['id'] = author['id']
             session['name'] = author['name']
             return ("", 201)

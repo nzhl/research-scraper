@@ -1,6 +1,7 @@
 from flask import Flask, g, render_template, current_app, session
 from florida.blueprints.sessions import sessions_blueprint
 from florida.blueprints.authors import authors_blueprint
+from florida.blueprints.papers import papers_blueprint
 import pymysql
 
 app = Flask(__name__)
@@ -16,6 +17,7 @@ app.config.update(dict(
 
 app.register_blueprint(sessions_blueprint)
 app.register_blueprint(authors_blueprint)
+app.register_blueprint(papers_blueprint)
 
 
 @app.before_request
@@ -37,6 +39,11 @@ def close_db(error):
         g.db.close()
 
 @app.route("/", methods=['GET'])
-def index():
+@app.route("/index", methods=['GET'])
+def index_page():
     return render_template('index.html')
+
+@app.route("/papers/")
+def author_page():
+    return render_template('papers.html')
 

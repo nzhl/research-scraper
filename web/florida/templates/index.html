@@ -6,7 +6,7 @@
     </h1>
 
     <template v-for="author in result">
-        <a v-bind:href="'/authors/' + author['id']" class="list-group-item">
+        <a v-bind:href="'/papers/?author_id=' + author['id']" class="list-group-item">
             {% raw %}
             {{author['name']}}
             {% endraw %}
@@ -25,6 +25,7 @@
             increase_search: function(){
                 axios.get('/api/authors/?query=' + this.query)
                     .then(function (response){
+                        console.log(response.data)
                         search_tool.result = response.data
                     }).catch(function (error){
                         console.log(error);

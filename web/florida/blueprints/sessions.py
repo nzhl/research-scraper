@@ -17,7 +17,7 @@ from flask import Blueprint, request, g, session
 from flask.views import MethodView
 
 
-def check_author(account, password):
+def select_authors(account, password):
     '''Check if the corresponding authors and password pair exists'''
 
     sql = "SELECT * FROM authors WHERE account=%s AND password=%s"
@@ -37,7 +37,7 @@ class SessionView(MethodView):
         '''Login'''
 
         login_pair = request.get_json()
-        result = select_author(login_pair['account'], login_pair['password'])
+        result = select_authors(login_pair['account'], login_pair['password'])
         if not len(result):
             return ("", 409)
         else:
