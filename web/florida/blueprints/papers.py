@@ -27,6 +27,7 @@ def select_papers_by_group(group_id):
     '''Search papers by group id.'''
 
     papers = []
+    already_list = []
     sql = "SELECT * FROM authors_and_groups WHERE group_id=%s"
     with g.db.cursor() as cursor:
         cursor.execute(sql, (group_id,))
@@ -37,6 +38,11 @@ def select_papers_by_group(group_id):
             result = cursor.fetchall()
             sql2 = "SELECT * FROM papers WHERE id=%s"
             for entry in result:
+                if entry['paper_id'] in already_list:
+                    continue
+                else:
+                    already_list.append(entry['paper_id'])
+
                 cursor.execute(sql2, (entry['paper_id'],))
                 papers += cursor.fetchall()
 

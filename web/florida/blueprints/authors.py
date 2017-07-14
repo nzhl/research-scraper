@@ -34,6 +34,19 @@ def select_authors():
     return result
 
 
+def select_authors_by_group(group_id):
+    sql = "SELECT * FROM authors_and_groups WHERE group_id=%s"
+    authors = []
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (group_id,))
+        result = cursor.fetchall()
+        sql = "SELECT name, id FROM authors WHERE id=%s"
+        for each in result:
+            cursor.execute(sql, (each['author_id'],))
+            authors += cursor.fetchall()
+
+    return authors
+
 def insert_authors(author):
     '''Insert a new author data into database'''
 
@@ -58,9 +71,12 @@ class AuthorView(MethodView):
 
         authors = []
         keyword = request.args.get('keyword', None)
+        group_id = request.args.get('group_id', None)
 
         if keyword:
             authors = select_authors_like(keyword)
+        elif group_id:
+            authors = select_authors_by_group(group_id)
         elif len(list(request.args.keys())) == 0:
             authors = select_authors()
 

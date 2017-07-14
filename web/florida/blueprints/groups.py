@@ -50,8 +50,24 @@ def insert_group(group):
             affected_rows = cursor.execute(sql, (each, result[0]['id']))
             if not affected_rows:
                 return 0
-        g.db.commit()
+    g.db.commit()
     return affected_rows
+
+def update_group(group):
+    sql = "UPDATE groups SET name=%s, description=%s WHERE id=%s"
+    affected_rows = 0
+    with g.db.cursor() as cursor:
+        affected_rows = cursor.execute(sql, (group['name'], group['description'], group['id']))
+        if not affected_rows:
+            return 0
+        sql = "DELETE FROM authors_and_groups WHERE author_id=%s and group_id=%s"
+        for each in group['selected']:
+            affected_rows = cursor.execute(sql, (each, group['id']))
+            if not affected_rows:
+                return 0
+    g.db.commit()
+    return affected_rows
+
 
 
 class GroupView(MethodView):
@@ -70,9 +86,20 @@ class GroupView(MethodView):
 
     def post(self):
         group = request.get_json()
-        if not insert_group(group):
+
+        # login check
+        if 'id' not in session or not insert_group(group):
             return ("", 409, {})
         return ("", 200, {})
+
+    def put(self):
+        group = request.get_json()
+
+        if 'id' not in session or not update_group(group):
+            return ("", 404, {})
+        return ("", 200, {})
+
+
 
 
 groups_blueprint = Blueprint('groups', __name__, url_prefix='/api')

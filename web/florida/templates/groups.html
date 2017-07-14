@@ -9,15 +9,28 @@
             <th>name</th>
             <th>description</th>
             <th>authors</th>
+            <th>action</th>
         </tr>
     </thead>
     <tbody>
-        <template v-for="group in groups">
-            <tr>
+        <template v-for="(group,index) in groups">
+            <tr >
                 <td >{{group['name']}}</td>
                 <td >{{group['description']}}</td>
                 <td >
-                    ---
+                    <div class="btn-group">
+                        <button v-on:click="get_authors_by_group" v-bind:index="index" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li v-for="author in authors" class="text-muted text-center">
+                                {{author.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td >
+                    <button v-on:click="before_edit" v-bind:index="index" class="btn-warning" data-toggle="modal" data-target="#group_edit_tool">edit</button>
                 </td>
             </tr>
         </template>
@@ -45,7 +58,7 @@
                 <p class="text-success">Authors :</p>
                 <select v-model="selected" class="form-control" multiple >
                     <template v-for="author in authors">
-                    <option v-if="author.id != id"  v-bind:value="author.id" class="text-muted">{{author.name}}</option>
+                        <option v-if="author.id != id"  v-bind:value="author.id" class="text-muted">{{author.name}}</option>
                     </template>
                 </select><br/>
             </div>
@@ -58,12 +71,44 @@
     </div>
 </div>
 
+<div class="modal fade" id="group_edit_tool" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+        <h4 class="modal-title" id="edit_label">
+            Edit group
+        </h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-success">Name :</p>
+                <input v-model="name" class="form-control" type="text" /><br/>
+                <p class="text-success">Description :</p>
+                <input v-model="description" class="form-control" type="text" /><br/>
+                <p class="text-success">Authors :</p>
+                <select v-model="selected" class="form-control" multiple >
+                    <template v-for="author in authors">
+                        <option v-if="author.id != id"  v-bind:value="author.id" class="text-muted">{{author.name}}</option>
+                    </template>
+                </select><br/>
+            </div>
+            <div class="modal-footer">
+                <button v-on:click="update" type="button" class="btn btn-primary">
+                    Update
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     var list_tool = new Vue({
         el: "#list_tool",
         data: {
-            groups: []
+            groups: [],
+            authors: []
         },
         methods: {
             get_authors: function(){
@@ -73,6 +118,22 @@
                     }).catch(function(error){
                         console.log(error)
                     })
+            },
+            get_authors_by_group: function(event){
+                var index = event.target.getAttribute("index");
+                axios.get('/api/authors/?group_id=' + this.groups[index]['id'])
+                    .then(function(response){
+                        list_tool.authors = response.data
+                        console.log(list_tool.authors)
+                    }).catch(function(error){
+                        console.log(error)
+                    })
+            },
+            before_edit: function(event){
+                var index = event.target.getAttribute("index");
+                group_edit_tool.id = list_tool.groups[index]['id'];
+                group_edit_tool.name = list_tool.groups[index]['name'];
+                group_edit_tool.description = list_tool.groups[index]['description'];
             }
         }
     })
@@ -102,12 +163,31 @@
                     'selected': this.selected,
                 }).then(function(response){
                     alert("Group successfully added !")
+                    location.reload()
                 }).catch(function(error){
                     alert("Unknown server error !")
                 })
             }
         }
     })
+
+    var group_edit_tool = new Vue({
+        el: "#group_edit_tool",
+        data: {
+            id: "",
+            name: "",
+            description: "",
+            authors: [],
+            selected: []
+        },
+        methods: {
+            update: function(){
+                alert("update");
+            }
+        }
+    })
+
+
 </script>
 
 {% endraw %}
