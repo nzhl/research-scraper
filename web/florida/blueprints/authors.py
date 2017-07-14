@@ -15,7 +15,7 @@ from flask.views import MethodView
 from . import sessions
 
 
-def select_authors(keyword):
+def select_authors_like(keyword):
     sql = "SELECT name, id FROM authors WHERE name LIKE %s"
 
     result = []
@@ -23,6 +23,14 @@ def select_authors(keyword):
         cursor.execute(sql, ('%' + keyword + '%',))
         result = cursor.fetchall()
 
+    return result
+
+def select_authors():
+    sql = "SELECT name, id FROM authors"
+    result = []
+    with g.db.cursor() as cursor:
+        cursor.execute(sql)
+        result = cursor.fetchall()
     return result
 
 
@@ -49,9 +57,13 @@ class AuthorView(MethodView):
         '''search'''
 
         authors = []
-        keyword = request.args['keyword']
+        keyword = request.args.get('keyword', None)
+
         if keyword:
-            authors = select_authors(keyword)
+            authors = select_authors_like(keyword)
+        elif len(list(request.args.keys())) == 0:
+            authors = select_authors()
+
         return jsonify(authors)
 
     def post(self):

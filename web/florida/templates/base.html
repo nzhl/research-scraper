@@ -11,6 +11,12 @@
         <script src="../static/js/vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <!--<script src="../static/js/axios.min.js"></script>-->
+        {% if 'id' in session %}
+        <script>
+            var id = {{session['id']}}
+            var name = "{{session['name']}}"
+        </script>
+        {% endif %}
     </head>
 
     <body>
@@ -24,6 +30,7 @@
                             <nav>
                                 <ul class="nav masthead-nav">
                                     <li class="active"><a href="/">Home</a></li>
+
                                     {% if 'name' not in session %}
                                     <li >
                                         <a data-toggle="modal" data-target="#login_tool">Login</a>
@@ -31,11 +38,14 @@
                                     <li >
                                         <a data-toggle="modal" data-target="#register_tool">Register</a>
                                     </li>
+
                                     {% else %}
                                     <li>
-                                        <div class="dropdown" id="login_tool">
+                                        <div class="dropdown" id="logout_tool">
                                             <a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                                {{ session['name'] }}
+                                                {% raw %}
+                                                {{name}}
+                                                {% endraw %}
                                                 <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -53,6 +63,7 @@
                                         </div>
                                     </li>
                                     {% endif %}
+
                                 </ul>
                             </nav>
                         </div>
@@ -118,6 +129,7 @@
                     {% endif %}
 
                     <script>
+                        {% if not 'name' in session %}
                         var login_tool = new Vue({
                             el: '#login_tool',
                             data: {
@@ -136,20 +148,10 @@
                                     }).catch(function(error){
                                         alert("Unmatched account and password !")
                                     })
-                                },
-
-                                logout: function(){
-                                    axios.delete('/api/sessions/').
-                                        then(function(response){
-                                            location.reload()
-                                        }).catch(function(error){
-                                            alert("Unknown server error !")
-                                        })
                                 }
                             }
                         })
 
-                        {% if not 'name' in session %}
                         var register_tool = new Vue({
                             el: '#register_tool',
                             data: {
@@ -174,6 +176,25 @@
                                     }).catch(function(error){
                                         alert("Unknown server error !")
                                     })
+                                }
+                            }
+                        })
+                        {% else %}
+
+                        var logout_tool = new Vue({
+                            el: "#logout_tool",
+                            data: {
+                                id: id,
+                                name: name
+                            },
+                            methods: {
+                                logout: function(){
+                                    axios.delete('/api/sessions/')
+                                        .then(function(response){
+                                            location.reload()
+                                        }).catch(function(error){
+                                            alert("Unknown server error !")
+                                        })
                                 }
                             }
                         })

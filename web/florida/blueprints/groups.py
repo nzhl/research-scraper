@@ -40,25 +40,17 @@ def insert_group(group):
     with g.db.cursor() as cursor:
         #print(cursor.mogrify(sql), ...)
         affected_rows = cursor.execute(sql, (group['name'], group['description']))
+        if not affected_rows:
+            return 0
+        sql = "SELECT id FROM groups WHERE name=%s AND description=%s"
+        affected_rows = cursor.execute(sql, (group['name'], group['description']))
+        result = cursor.fetchall()
+        sql = "INSERT INTO authors_and_groups VALUES (%s, %s)"
+        for each in group['selected']:
+            affected_rows = cursor.execute(sql, (each, result[0]['id']))
+            if not affected_rows:
+                return 0
         g.db.commit()
-    return affected_rows
-
-def update_paper(paper_id, paper):
-    '''Using delete then insert to have a ugly implementation'''
-
-    delete_paper(paper_id)
-    insert_paper(paper)
-
-
-def delete_paper(paper_id):
-    sql = "DELETE FROM articles WHERE id=%s"
-    affected_rows = 0
-    if not hasattr(g, 'db'):
-        connect_db()
-        with g.db.cursor() as cursor:
-            affected_rows = cursor.execute(sql, (paper_id,))
-
-    g.db.commit()
     return affected_rows
 
 
