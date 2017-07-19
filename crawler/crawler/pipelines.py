@@ -1,20 +1,39 @@
 import pymysql
 
-class CrawlerPipeline(object):
+class DBPipeline(object):
+    def open_spider(self, spider):
+        self.db = pymysql.connect(
+                host="localhost",
+                user="root",
+                password="nzhl",
+                db="research_scraper",
+                charset='utf8mb4',
+                cursorclass=pymysql.cursors.DictCursor)
+
+    def close_spider(self, spider):
+        self.db.close()
+
     def process_item(self, item, spider):
-        db = pymysql.connect(host="localhost", user="root", password="nzhl", db="unnc_scholar", charset='utf8mb4')
-        cursor = db.cursor()
 
-        if isinstance(item, centipede.items.Author):
-            sql = 'INSERT INTO authors VALUES ("'+ item['name'] +'", "'+ item['tags'] +'", "'+ item['url'] +'");'
-        else:
-            sql = 'INSERT INTO papers VALUES ("'+ item['title'] +'", "'+ item['authors'] +'", "'+ item['publication_date'] +'", "'+ item['conference'] +'", "' + item['journal'] +'", "' + item['publisher'] +'", "'+ item['total_citations'] +'", "'+ item['is_pdf'] +'", "'+ item['url'] +'");'
+        sql = ("INSERT INTO papers (title, authors, publication_date, conference,"
+               "journal, publisher, total_citations, gs_link, pdf_link ) VALUES "
+               "(%s, %s, %s, %s, %s, %s, %s, %s, %s)")
 
-        try:
-            cursor.execute(sql)
-            db.commit()
-        except:
-            print(sql)
-            print("DB error!")
-            db.rollback()
-        db.close()
+        with self.db.cursor() as cursor:
+            cursor.execute(sql, (
+                item['title'], item['authors'], item['publication_date'],
+                item['conference'], item['journal'], item['publisher'],
+                item['total_citations'], item['gs_link'], item['pdf_link']))
+            print(cursor.mogrify(sql, (
+                item['title'], item['authors'], item['publication_date'],
+                item['conference'], item['journal'], item['publisher'],
+                item['total_citations'], item['gs_link'], item['pdf_link'])))
+            sql = "SELECT id FROM papers WHERE gs_link = %s"
+            cursor.execute(sql, (item['gs_link'],))
+            paper_id = cursor.fetchone()['id']
+
+            sql = "INSERT INTO authors_and_papers VALUES (%s, %s)"
+            cursor.execute(sql, (spider.author_id, paper_id))
+
+        self.db.commit() 
+        return item
