@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+{% raw %}
+
+<div class="row">
+    <div id="search_tool">
+        <div class="col-xs-5 col-md-offset-4">
+            <label class="checkbox-inline">Search By :</label>
+            <label class="checkbox-inline">
+                <input v-model="search_by" v-on:click="search_all" type="radio" value="authors" checked> Authors
+            </label>
+            <label class="checkbox-inline">
+                <input v-model="search_by"  v-on:click="search_all" type="radio" value="groups" > Groups
+            </label>
+
+                <h1>
+                    <input v-on:keyup="increase_search" v-model="keyword" class="text-muted" type=text />
+                </h1>
+        </div>
+
+        <div class="col-xs-6 col-md-offset-3">
+            <table class="table table-condensed">
+                <template v-if="search_by == 'authors'">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>link in site</th>
+                            <th>scholar link</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <template v-for="each in result">
+                            <tr>
+                                <td>{{each['name']}}</td>
+                                <td><a v-bind:href="'/papers/?' + search_by.substr(0, search_by.length-1) + '_id=' + each['id']">check details</a></td>
+                                <td><a v-bind:href="each['gs_link']">google scholar</a></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </template>
+
+                <template v-else>
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>description</th>
+                            <th>link in site</th>
+                            <th>web page</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template v-for="each in result">
+                            <tr>
+                                <td>{{each['name']}}</td>
+                                <td>{{each['description']}}</td>
+                                <td><a v-bind:href="'/groups/?' + search_by.substr(0, search_by.length-1) + '_id=' + each['id']">check details</a></td>
+                                <td><a v-bind:href="each['group_link']">group web page</a></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </template>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    var search_tool = new Vue({
+        el: '#search_tool',
+        data: {
+            search_by: "authors",
+            keyword: "",
+            all_result: [],
+            result: []
+        },
+        methods: {
+            search_all: function(){
+                if (this.search_by == "authors"){
+                    url = '/api/authors/?fields=id,name,gs_link';
+                } else{
+                    url = '/api/groups/?fields=id,name,description,group_link';
+                }
+                axios.get(url)
+                    .then(function (response){
+                        search_tool.all_result = response.data
+                        search_tool.result = search_tool.all_result
+                    }).catch(function (error){
+                        console.log(error);
+                    });
+            },
+
+            increase_search: function(){
+                if(search_tool.keyword.trim() == ""){
+                    search_tool.result = search_tool.all_result;
+                    return;
+                }
+                result = [];
+                for (var each of search_tool.all_result){
+                    if(each['name'].toLowerCase().search(search_tool.keyword.toLowerCase()) != -1){
+                        result.push(each);
+                    }
+                }
+                search_tool.result = result;
+            }
+        }
+    });
+
+    search_tool.search_all();
+
+</script>
+
+{% endraw %}
+{% endblock %}
