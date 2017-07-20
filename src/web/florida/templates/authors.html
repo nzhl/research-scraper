@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block content %}
+{% raw %}
+
+<div id="search_tool">
+    <div class="col-xs-5 col-md-offset-4">
+        <h1> <a v-bind:href="author['gs_link']">{{author['name']}}</a> 's Page </h1>
+        <h1> <input v-on:keyup="increase_search" v-model="keyword" class="text-muted" type=text /> </h1>
+    </div>
+    <div class="col-xs-6 col-md-offset-3">
+        <table class="table table-condensed">
+            <caption> {{papers.length}} papers in total.</caption>
+            <thead>
+                <tr>
+                    <th>title</th>
+                    <th>authors</th>
+                    <th>public date</th>
+                    <th>conference/journal</th>
+                    <th>total citations</th>
+                    <th>scholar link</th>
+                    <th>pdf link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-for="paper in papers">
+                    <tr v-if="!paper['is_hidden']">
+                        <td >{{paper['title']}}</td>
+                        <td >{{paper['authors']}}</td>
+                        <td >{{paper['publication_date']}}</td>
+                        <td v-if="paper['conference']">{{paper['conference']}}</td>
+                        <td v-else-if="paper['journal']">{{paper['journal']}}</td>
+                        <td v-else> - </td>
+                        <td >{{paper['total_citations']}}</td>
+                        <td >
+                            <template v-if="paper['gs_link']">
+                                <a v-bind:href="paper['gs_link']">check</a>
+                            </template>
+                            <template v-else>
+                                -
+                            </template>
+                        </td>
+                        <td >
+                            <template v-if="paper['pdf_link']">
+                                <a v-bind:href="paper['pdf_link']">check</a>
+                            </template>
+                            <template v-else>
+                                -
+                            </template>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endraw %}
+
+<script>
+    var search_tool = new Vue({
+        el: "#search_tool",
+        data: {
+            keyword: "",
+            author: "",
+            all_papers: [],
+            papers: []
+        },
+        methods: {
+            init: function(){
+                axios.get('/api/authors/{{author_id}}')
+                    .then(function(response){
+                        search_tool.author = response.data
+                    }).catch(function (error){
+                        console.log(error)
+                    });
+                axios.get('/api/papers/?author_id={{author_id}}')
+                    .then(function(response){
+                        search_tool.all_papers = response.data;
+                        search_tool.papers = search_tool.all_papers;
+                    }).catch(function (error){
+                        console.log(error)
+                    });
+            },
+            increase_search: function(){
+                if( search_tool.keyword.trim() == ""){
+                    search_tool.papers = search_tool.all_papers;
+                    return;
+                }
+                papers = [];
+                for (var each of search_tool.all_papers){
+                    if(each['title'].toLowerCase().search(search_tool.keyword) != -1
+                        || each['authors'].toLowerCase().search(search_tool.keyword) != -1){
+                        papers.push(each);
+                    }
+                }
+                search_tool.papers = papers;
+            }
+        }
+    });
+    search_tool.init();
+</script>
+{% endblock %}

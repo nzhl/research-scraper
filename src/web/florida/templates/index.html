@@ -2,66 +2,64 @@
 {% block content %}
 {% raw %}
 
-<div class="row">
-    <div id="search_tool">
-        <div class="col-xs-5 col-md-offset-4">
-            <label class="checkbox-inline">Search By :</label>
-            <label class="checkbox-inline">
-                <input v-model="search_by" v-on:click="search_all" type="radio" value="authors" checked> Authors
-            </label>
-            <label class="checkbox-inline">
-                <input v-model="search_by"  v-on:click="search_all" type="radio" value="groups" > Groups
-            </label>
+<div id="search_tool">
+    <div class="col-xs-5 col-md-offset-4">
+        <label class="checkbox-inline">Search By :</label>
+        <label class="checkbox-inline">
+            <input v-model="search_by" v-on:click="search_all" type="radio" value="authors" checked> Authors
+        </label>
+        <label class="checkbox-inline">
+            <input v-model="search_by"  v-on:click="search_all" type="radio" value="groups" > Groups
+        </label>
 
-                <h1>
-                    <input v-on:keyup="increase_search" v-model="keyword" class="text-muted" type=text />
-                </h1>
-        </div>
+            <h1>
+                <input v-on:keyup="increase_search" v-model="keyword" class="text-muted" type=text />
+            </h1>
+    </div>
 
-        <div class="col-xs-6 col-md-offset-3">
-            <table class="table table-condensed">
-                <template v-if="search_by == 'authors'">
-                    <thead>
+    <div class="col-xs-6 col-md-offset-3">
+        <table class="table table-condensed">
+            <template v-if="search_by == 'authors'">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>link in site</th>
+                        <th>scholar link</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <template v-for="each in result">
                         <tr>
-                            <th>name</th>
-                            <th>link in site</th>
-                            <th>scholar link</th>
+                            <td>{{each['name']}}</td>
+                            <td><a v-bind:href="'/authors/' + each['id']">check details</a></td>
+                            <td><a v-bind:href="each['gs_link']">google scholar</a></td>
                         </tr>
-                    </thead>
+                    </template>
+                </tbody>
+            </template>
 
-                    <tbody>
-                        <template v-for="each in result">
-                            <tr>
-                                <td>{{each['name']}}</td>
-                                <td><a v-bind:href="'/papers/?' + search_by.substr(0, search_by.length-1) + '_id=' + each['id']">check details</a></td>
-                                <td><a v-bind:href="each['gs_link']">google scholar</a></td>
-                            </tr>
-                        </template>
-                    </tbody>
-                </template>
-
-                <template v-else>
-                    <thead>
+            <template v-else>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>link in site</th>
+                        <th>web page</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template v-for="each in result">
                         <tr>
-                            <th>name</th>
-                            <th>description</th>
-                            <th>link in site</th>
-                            <th>web page</th>
+                            <td>{{each['name']}}</td>
+                            <td>{{each['description']}}</td>
+                            <td><a v-bind:href="'/groups/' + each['id']">check details</a></td>
+                            <td><a v-bind:href="each['group_link']">group web page</a></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <template v-for="each in result">
-                            <tr>
-                                <td>{{each['name']}}</td>
-                                <td>{{each['description']}}</td>
-                                <td><a v-bind:href="'/groups/?' + search_by.substr(0, search_by.length-1) + '_id=' + each['id']">check details</a></td>
-                                <td><a v-bind:href="each['group_link']">group web page</a></td>
-                            </tr>
-                        </template>
-                    </tbody>
-                </template>
-            </table>
-        </div>
+                    </template>
+                </tbody>
+            </template>
+        </table>
     </div>
 </div>
 
