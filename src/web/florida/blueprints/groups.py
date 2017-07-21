@@ -78,6 +78,13 @@ def update_group(group):
     g.db.commit()
     return affected_rows
 
+def delete_group(group_id):
+    sql = "DELETE FROM groups WHERE id=%s"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (group_id,))
+        sql = "DELETE FROM authors_and_groups WHERE group_id=%s"
+        cursor.execute(sql, (group_id,))
+    g.db.commit()
 
 
 class GroupView(MethodView):
@@ -111,6 +118,14 @@ class GroupView(MethodView):
             return ("", 404, {})
         return ("", 200, {})
 
+    def delete(self, group_id):
+        # todo safety check
+        if 'id' not in session:
+            return ("", 404, {})
+        delete_group(group_id)
+        return ("", 200, {})
+
+
 
 
 
@@ -119,7 +134,7 @@ groups_view = GroupView.as_view('groups')
 
 groups_blueprint.add_url_rule('/groups/<int:group_id>',
         view_func=groups_view,
-        methods=['GET', 'PUT'])
+        methods=['GET', 'PUT', 'DELETE'])
 
 groups_blueprint.add_url_rule('/groups/',
         view_func=groups_view,

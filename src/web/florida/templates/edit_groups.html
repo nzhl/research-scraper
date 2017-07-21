@@ -116,6 +116,9 @@
                 </select><br/>
             </div>
             <div class="modal-footer">
+                <button v-on:click="delete_group" type="button" class="btn btn-danger">
+                    Delete
+                </button>
                 <button v-on:click="update" type="button" class="btn btn-primary">
                     Update
                 </button>
@@ -250,6 +253,15 @@
                     }).catch(function(error){
                         console.log(error)
                     });
+            },
+            delete_group: function(){
+                axios.delete('/api/groups/' + this.group_id)
+                .then(function(response){
+                    alert("Group successfully deleted !")
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                });
             },
             update: function(){
                 var selected = this.previous.concat(this.selected)
