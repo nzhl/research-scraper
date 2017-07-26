@@ -1,9 +1,9 @@
 from flask import Flask, g, render_template, current_app, session
 from flask.json import JSONEncoder
-from florida.blueprints.sessions import sessions_blueprint
-from florida.blueprints.authors import authors_blueprint
-from florida.blueprints.papers import papers_blueprint
-from florida.blueprints.groups import groups_blueprint
+from .blueprints.sessions import sessions_blueprint
+from .blueprints.authors import authors_blueprint
+from .blueprints.papers import papers_blueprint
+from .blueprints.groups import groups_blueprint
 from datetime import date
 import pymysql
 

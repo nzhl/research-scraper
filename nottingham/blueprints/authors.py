@@ -94,7 +94,7 @@ class AuthorView(MethodView):
             session['id'] = author['id']
             session['name'] = author['name']
             subprocess.Popen([
-                "python", "/root/docker/Research-Scraper/src/init.py",
+                "python", "/root/work/Research-Scraper/src/init.py",
                 author['gs_link'], str(author['id'])])
             return ("", 201)
 
