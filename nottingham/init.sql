@@ -2,11 +2,13 @@ CREATE DATABASE IF NOT EXISTS research_scraper DEFAULT CHARACTER SET utf8mb4 COL
 
 USE research_scraper;
 
-DROP TABLE authors;
-DROP TABLE papers;
-DROP TABLE groups;
-DROP TABLE authors_and_papers;
-DROP TABLE authors_and_groups;
+DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS papers;
+DROP TABLE IF EXISTS groups;
+DROP TABLE IF EXISTS authors_and_papers;
+DROP TABLE IF EXISTS authors_and_groups;
+DROP TABLE IF EXISTS show_papers_and_groups;
+DROP TABLE IF EXISTS hide_papers_and_groups;
 
 CREATE TABLE IF NOT EXISTS authors(
 	id MEDIUMINT NOT NULL AUTO_INCREMENT,
@@ -42,8 +44,6 @@ CREATE TABLE IF NOT EXISTS papers(
 	title VARCHAR(2000) NOT NULL,
 	authors VARCHAR(2083) NOT NULL,
 
-	is_hidden BOOL NOT NULL DEFAULT FALSE,
-
 	publication_date DATE,
 	conference varchar(300),
 	journal varchar(300),
@@ -59,6 +59,9 @@ CREATE TABLE IF NOT EXISTS papers(
 CREATE TABLE IF NOT EXISTS authors_and_groups(
 	author_id MEDIUMINT NOT NULL,
 	group_id MEDIUMINT NOT NULL,
+	is_manager BOOL NOT NULL DEFAULT FALSE,
+    before_date DATE NOT NULL DEFAULT "2099-1-1",
+    after_date DATE NOT NULL DEFAULT "1971-1-1",
 	PRIMARY KEY(author_id, group_id)
 );
 
@@ -69,6 +72,18 @@ CREATE TABLE IF NOT EXISTS groups(
 	group_link VARCHAR(2083),
 
 	PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS show_papers_and_groups(
+	paper_id MEDIUMINT NOT NULL,
+	group_id MEDIUMINT NOT NULL,
+	PRIMARY KEY(paper_id, group_id)
+);
+
+CREATE TABLE IF NOT EXISTS hide_papers_and_groups(
+	paper_id MEDIUMINT NOT NULL,
+	group_id MEDIUMINT NOT NULL,
+	PRIMARY KEY(paper_id, group_id)
 );
 
 /*

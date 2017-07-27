@@ -32,7 +32,11 @@ def select_groups_by_author(author_id):
         sql = "SELECT * FROM groups WHERE id=%s"
         for entry in result:
             cursor.execute(sql, (entry['group_id'],))
-            groups += cursor.fetchall()
+            group = cursor.fetchone()
+            group['is_manager'] = entry['is_manager']
+            group['before_date'] = entry['before_date']
+            group['after_date'] = entry['after_date']
+            groups.append(group)
     return groups
 
 
@@ -52,7 +56,7 @@ def insert_group(group):
         sql = "SELECT id FROM groups WHERE name=%s AND description=%s"
         affected_rows = cursor.execute(sql, (group['name'], group['description']))
         result = cursor.fetchall()
-        sql = "INSERT INTO authors_and_groups VALUES (%s, %s)"
+        sql = "INSERT INTO authors_and_groups (author_id, group_id) VALUES (%s, %s)"
         for each in group['selected']:
             affected_rows = cursor.execute(sql, (each, result[0]['id']))
             if not affected_rows:
@@ -78,6 +82,15 @@ def update_group(group):
     g.db.commit()
     return affected_rows
 
+def update_filter(group):
+    sql = ("UPDATE authors_and_groups SET before_date=%s, after_date=%s WHERE "
+           "author_id=%s and group_id=%s")
+
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (group['before_date'], group['after_date'],
+                             session['id'], group['group_id']))
+    g.db.commit()
+
 def delete_group(group_id):
     sql = "DELETE FROM groups WHERE id=%s"
     with g.db.cursor() as cursor:
@@ -91,8 +104,9 @@ class GroupView(MethodView):
     
     def get(self, group_id = None):
         if group_id != None:
-            group = select_group_by_id(group_id)
-            return jsonify(group)
+            groups = select_group_by_id(group_id)
+            print(len(groups))
+            return jsonify(groups)
 
         author_id = request.args.get("author_id", None)
         if author_id:
@@ -111,11 +125,14 @@ class GroupView(MethodView):
         return ("", 200, {})
 
     def put(self, group_id):
-        group = request.get_json()
-        group['group_id'] = group_id
-        # todo safety check
-        if 'id' not in session or not update_group(group):
+        data = request.get_json()
+        data['group_id'] = group_id
+        if 'id' not in session:
             return ("", 404, {})
+        if data['type'] == "group":
+            update_group(data)
+        elif data['type'] == "filter":
+            update_filter(data)
         return ("", 200, {})
 
     def delete(self, group_id):

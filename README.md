@@ -1,39 +1,42 @@
-# Research-Scraper
+# Research Scraper Document
 
-## Simple Introduction
+## Introduction
 
-Google Scholar has become a quasi-standard tool for listing publications associated with individual researchers worldwide. However, Google Scholar (and similar tools), does not provide the functionality to capture publications associated with a group of researchers, such as formal or informal research groups (ADAC, IMA, ASAP). As it is often important to research groups to capture their groups’ publications in a coherent listing, e.g., on their website, a tool which can scrape information from individuals’ Google Scholar pages, look for tags such as group names, and then generate purpose-built listings would be of considerable use.
+Research Scraper is an academic paper manage tool based on google scholar. It aims to add one more layer beyond google 
+scholar, make things easier for in-school research group management. 
+
+Basically a research group is a set of authors, and each author have a lot of papers, the pain point is : as a group, it not easy to manage those papers related to your group topic, because you never know the paper (wroten by an author inside this group) is for the group, or just for fun. Google Scholar just collect all the papers either by authors or by topics, it's really hard to gather all the papers together and make sure they are all related to current group. That's where the tool comes.
+
+## Workflow
+
+1. Register as an author, the most important bit is to type in the correct google scholar address since it will be used as the start point of the paper crawler. There are several point to make sure :
+    + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en : this is a correct format.
+    + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en&cstart=20&pagesize=20 : This one contains start page and pagesize, it will confuse the crawler. 
+    + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=CN : the language specify in the url must be English. Here 'hl=CN' is used, it will make the page loaded by crawler show as Chinese.
+
+2. Once you finish register, the server will fork a subprocess to crawl all the papers from google, the time to finish crawl depends on the number of your paper. Usually won't longer than 15 minutes. So what we currently get is like a complete copy of your papers from google.
+
+3. Once you login successful, you will find your name is shown at the navigation bar. And your name is also a drop-down button, then clikc 'Group' to manage your group. There are no maigic in group creating process, just choose the author and type in group description etc. After create the group, the creator will automatically be the manager inside the group. Then you are done, and now you can check the group paper list. The basic process of the system to find papers is :
+    + find all authors in the group
+    + for each author, find the papers
+    + remove the duplicate (imagine a paper wroten by two authors, both are in the group)
+
+4. There is another problem, only part of the authors papers should be related to a specific group. For example, author A joined group G after 2010, but google just collect all the papers about A, but people may not want to check those unrelated papers wroten by A before 2010. So we came up with a new idea, filter. Filter is group level which make sure you can customize different filter for different group. Currently we only implement date filter, which means you can set `before date` and `after date` to speicify the papers you want to show in the group. All the papers outside this period will be hidden. To make it accurate, you can manually hide/unhide a paper to do minor change after the date filter.
+
+## Install and run
+
+1. Mysql >= 5.5.3 : the encoding utf8mb4 is supported after 5.5.3 .
+2. Python 3.x : we also need some necessary modules
+ + Scrapy : the python crawler framework.
+ + Flask : the python web framework.
+ + PyMySQL : the mysql client library for python 3.x
+3. git clone [source code](https://github.com/nzhl/Research-Scraper)
+4. cd Research-Scraper && python3 run.py
+
  
-## Key requirements:
-
-  + Provide a UI which enables an administrator to select individual research profiles and to add them to a group.
-  + Provide functionality to enable the administrator to provide search tags such as research group names
-  + Retrieve publication information from Google Scholar or similar
-  + Parse PDFs of publications to look for search tags
-  + Generate result databases of group publications
-  + Provide various output methods for the databases, incl. a structured HTML page which can be included in a website
-
-## Structure Declaration
-
-The project can be basically didived into two parts : 
-
-1. Crawler part : mainly use the famous web crawler framework scrapy, which is easy to install and deploy. This part will focus on fetching data about authors and their papers  from google scholar. The are several key points :
-    + make sure we have a quick crawling speed while facing the google's anti-crawler technique. So disguisining methods like setting pseudo user-agent, changing ip agent constantly and regualr sleeping after every request have been used.
-    + do regualr update check. i.e, if google scholar update some details in somewhere then do corresponding update for that part. -- TODO
-
-2. Web part : provide the basic interface to the user with a good extensibility as well. I use the complete back-front end separation to implment it.  i.e, the server side does nothing except providing necessary api, and the client side handle all representive layer rendering job only with the json-format data responsed from back end.
-
-   + for a better development effeiciecy, I use the light framework vue, for the front end development and flask for the back end development.
-   + to make a the api interface as clear as I can, I use the RESTful concept when providing those API.
-
-## Running Requirement
-
-1. python3
-2. scrapy
-3. flask
+## Architecture overview
 
 
 
 
-  
- 
+

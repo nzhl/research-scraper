@@ -1,11 +1,12 @@
-'''This is the blueprint file that defined restful api interface for author data.
+'''Restful api interface for author
 
-GET /api/authors/id= : return the specific author
+GET /api/authors/id : return the specific author
 GET /api/authors/ : return all
 GET /api/authors/?group_id= : return authors inside the group
 
 
-POST http://host_name/api/authors/
+POST /api/authors/ 
+    - request body with the json
     - registration
     - 203 : register successfully
     - 409 : conflict data or illegal parameter
@@ -55,7 +56,8 @@ def select_authors_by_group(group_id):
 def insert_authors(author):
     '''Insert a new author data into database'''
 
-    sql = "INSERT INTO authors (name, is_registered, account, password, gs_link) VALUES (%s, %s, %s, %s, %s)"
+    sql = ("INSERT INTO authors (name, is_registered, account, password, "
+          "gs_link) VALUES (%s, %s, %s, %s, %s)")
 
     affected_rows = 0
     with g.db.cursor() as cursor:
@@ -84,17 +86,16 @@ class AuthorView(MethodView):
         return jsonify(authors)
 
     def post(self):
-        '''Login'''
 
         author = request.get_json()
         if not insert_authors(author):
             return ("", 409)
         else:
-            author = sessions.select_authors(author['account'], author['password'])[0]
+            author = sessions.select_authors(author['account'],
+                                             author['password'])[0]
             session['id'] = author['id']
             session['name'] = author['name']
-            subprocess.Popen([
-                "python", "/root/work/Research-Scraper/src/init.py",
+            subprocess.Popen([ "python", "nottingham/spiders/AuthorSpider.py",
                 author['gs_link'], str(author['id'])])
             return ("", 201)
 

@@ -13,17 +13,16 @@
             <thead>
                 <tr>
                     <th>name</th>
-                    <th>description</th>
                     <th>link</th>
                     <th>authors</th>
-                    <th>action</th>
+                    <th>filter</th>
+                    <th>manage</th>
                 </tr>
             </thead>
             <tbody>
                 <template v-for="(group,index) in groups">
                     <tr>
                         <td >{{group['name']}}</td>
-                        <td >{{group['description']}}</td>
                         <td><a v-bind:href="'/groups/' + group['id']">visit</a></td>
                         <td >
                             <div class="btn-group">
@@ -40,7 +39,15 @@
                             </div>
                         </td>
                         <td >
+                            <button v-on:click="before_change" v-bind:index="index" class="btn-info" data-toggle="modal" data-target="#filter_change_tool">change</button>
+                        </td>
+                        <td >
+                            <template v-if="group['is_manager']">
                             <button v-on:click="before_edit" v-bind:index="index" class="btn-warning" data-toggle="modal" data-target="#group_edit_tool">edit</button>
+                            </template>
+                            <template v-else>
+                            <button class="btn disabled" disabled="disabled">edit</button>
+                            </template>
                         </td>
                     </tr>
                 </template>
@@ -126,6 +133,31 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="filter_change_tool" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+        <h4 class="modal-title" >
+            Change filter
+        </h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-success">Before :</p>
+                <input v-model="before_date" type="date"  />
+                <p class="text-success">After :</p>
+                <input v-model="after_date" type="date" />
+            </div>
+            <div class="modal-footer">
+                <button v-on:click="change" type="button" class="btn btn-primary">
+                    Change
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endraw %}
 
 <script>
@@ -187,6 +219,12 @@
                 group_edit_tool.description = search_tool.groups[index]['description'];
                 group_edit_tool.group_link = search_tool.groups[index]['group_link'];
                 group_edit_tool.prepare_authors();
+            },
+            before_change: function(even){
+                var index = event.target.getAttribute("index");
+                filter_change_tool.group_id = search_tool.groups[index]['id'];
+                filter_change_tool.before_date = search_tool.groups[index]['before_date']
+                filter_change_tool.after_date = search_tool.groups[index]['after_date']
             }
         }
     });
@@ -267,12 +305,36 @@
                 var selected = this.previous.concat(this.selected)
                 selected.push(this.id)
                 axios.put('/api/groups/' + this.group_id,{
+                    type: "group",
                     name: this.name,
                     description: this.description,
                     group_link: this.group_link,
                     selected: selected
                 }).then(function(response){
                     alert("Group successfully updated !")
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                });
+            }
+        }
+    })
+    
+    var filter_change_tool = new Vue({
+        el: "#filter_change_tool",
+        data: {
+            group_id: "",
+            before_date: "",
+            after_date: "",
+        },
+        methods: {
+            change: function(){
+                axios.put('/api/groups/' + this.group_id,{
+                    type: "filter",
+                    before_date: this.before_date,
+                    after_date: this.after_date
+                }).then(function(response){
+                    alert("Filter successfully updated !")
                     location.reload()
                 }).catch(function(error){
                     console.log(error)

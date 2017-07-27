@@ -25,28 +25,18 @@ def select_papers_by_author(author_id):
 
 
 def select_papers_by_group(group_id):
-    '''Since may find same papers from different authors, may find duplicate'''
 
     papers = []
-    already_list = []
-    sql1 = "SELECT * FROM authors_and_groups WHERE group_id=%s"
-    sql2 = "SELECT * FROM authors_and_papers WHERE author_id=%s"
-    sql3 = "SELECT * FROM papers WHERE id=%s"
+
+    sql = ("SELECT d.* from (SELECT paper_id, before_date, after_date FROM "
+           "authors_and_papers AS a INNER JOIN authors_and_groups AS b ON "
+           "a.author_id=b.author_id WHERE group_id=%s) AS c INNER JOIN "
+           "papers AS d ON paper_id=id AND publication_date >= after_date "
+           "AND publication_date <= before_date")
 
     with g.db.cursor() as cursor:
-        # find the author_id list
-        cursor.execute(sql1, (group_id,))
-        author_id_list = cursor.fetchall()
-        for each in author_id_list:
-            cursor.execute(sql2, (each['author_id'],))
-            paper_id_list = cursor.fetchall()
-            for each in paper_id_list:
-                if each['paper_id'] in already_list:
-                    continue
-                else:
-                    already_list.append(each['paper_id'])
-                    cursor.execute(sql3, (each['paper_id'],))
-                    papers += cursor.fetchall()
+        cursor.execute(sql, (group_id,))
+        papers = cursor.fetchall()
     return papers
 
 class PaperAPI(MethodView):

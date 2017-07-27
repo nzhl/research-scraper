@@ -1,3 +1,6 @@
+from sys import argv
+from os.path import isdir
+from os import mkdir
 from re import findall, sub
 from datetime import datetime
 
@@ -35,19 +38,15 @@ class DBPipeline(object):
 
     def process_item(self, item, spider):
 
-        sql = ("INSERT INTO papers (title, authors, publication_date, conference,"
-               "journal, publisher, total_citations, gs_link, pdf_link ) VALUES "
-               "(%s, %s, %s, %s, %s, %s, %s, %s, %s)")
+        sql = ("INSERT INTO papers (title, authors, publication_date, "
+               "conference, journal, publisher, total_citations, gs_link, "
+               "pdf_link ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)")
 
         with self.db.cursor() as cursor:
             cursor.execute(sql, (
                 item['title'], item['authors'], item['publication_date'],
                 item['conference'], item['journal'], item['publisher'],
                 item['total_citations'], item['gs_link'], item['pdf_link']))
-            print(cursor.mogrify(sql, (
-                item['title'], item['authors'], item['publication_date'],
-                item['conference'], item['journal'], item['publisher'],
-                item['total_citations'], item['gs_link'], item['pdf_link'])))
             sql = "SELECT id FROM papers WHERE gs_link = %s"
             cursor.execute(sql, (item['gs_link'],))
             paper_id = cursor.fetchone()['id']
@@ -58,8 +57,6 @@ class DBPipeline(object):
         self.db.commit()
         return item
 
-
-'''scrapy crawl author -a url=<author-scholar-page> -a author_id=<author_id>'''
 
 class AuthorSpider(Spider):
     name = "author"
@@ -72,7 +69,8 @@ class AuthorSpider(Spider):
             next_page_url = response.url + "&cstart=20&pagesize=20"
         else:
             cstart = int(findall("cstart=(.*)&", response.url)[0]) + 20
-            next_page_url = sub("cstart=(.*)&", "cstart=%d&" % cstart, response.url)
+            next_page_url = sub("cstart=(.*)&",
+                                "cstart=%d&" % cstart, response.url)
 
 
         for each_paper_url in response.css("a.gsc_a_at::attr(href)"):
@@ -104,7 +102,8 @@ class AuthorSpider(Spider):
                 paper[field] = content
                 continue
             else:
-                content = each_selector.css(".gsc_value::text").extract_first().strip()
+                content = (each_selector.css(".gsc_value::text")
+                        .extract_first().strip())
                 paper[field] = content
 
         for field in capture_fields:
@@ -115,8 +114,8 @@ class AuthorSpider(Spider):
             
         paper['gs_link'] = response.urljoin(response.url)
         if response.css(".gsc_title_ggt::text").extract_first() == "[PDF]":
-            paper['pdf_link'] = (response.css("div.gsc_title_ggi>a::attr(href)")
-                    .extract_first())
+            paper['pdf_link'] = (response
+                    .css("div.gsc_title_ggi>a::attr(href)").extract_first())
         else:
             paper['pdf_link'] = ""
 
@@ -126,22 +125,27 @@ class AuthorSpider(Spider):
                 paper['publication_date'] = None
             elif paper['publication_date'].count("/") == 1:
                 paper['publication_date'] = (datetime.strptime(
-                    paper['publication_date'], "%Y/%m").date().strftime("%Y/%m/%d"))
+                    paper['publication_date'], "%Y/%m")
+                    .date().strftime("%Y/%m/%d"))
             else:
                 paper['publication_date'] = (datetime.strptime(
-                    paper['publication_date'], "%Y").date().strftime("%Y/%m/%d"))
+                    paper['publication_date'], "%Y")
+                    .date().strftime("%Y/%m/%d"))
         return paper
 
-def strat_crawler(url, author_id):
+def start_crawler(url, author_id):
+    if not isdir('nottingham/spiders/log'):
+        mkdir('nottingham/spiders/log')
     process = CrawlerProcess({ 
         'DOWNLOAD_DELAY':2,
-        'USER-AGENT':'Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) '
-                     'Presto/2.8.131 Version/11.11',
-        #'LOG_FILE':
-        #'LOG_STDOUT':False
-        'ITEM_PIPELINES':{'AuthorSpider.DBPipeline':300,}
+        'USER-AGENT': 'Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) '
+                      'Presto/2.8.131 Version/11.11',
+        'LOG_FILE': 'nottingham/spiders/log/%s.log' % author_id,
+        'LOG_STDOUT': True,
+        'ITEM_PIPELINES': {'AuthorSpider.DBPipeline':300,}
     })
     process.crawl(AuthorSpider, url=url, author_id=author_id)
     process.start()
 
-strat_crawler('https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en', 2)
+if __name__ == '__main__':
+    start_crawler(argv[1], argv[2])
