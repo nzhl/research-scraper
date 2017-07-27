@@ -9,6 +9,9 @@ Basically a research group is a set of authors, and each author have a lot of pa
 
 ## Workflow
 
+![reg](https://raw.githubusercontent.com/nzhl/Research-Scraper/master/resource/reg.gif)
+![grp](https://raw.githubusercontent.com/nzhl/Research-Scraper/master/resource/grp.gif)
+
 1. Register as an author, the most important bit is to type in the correct google scholar address since it will be used as the start point of the paper crawler. There are several point to make sure :
     + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en : this is a correct format.
     + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en&cstart=20&pagesize=20 : This one contains start page and pagesize, it will confuse the crawler. 
