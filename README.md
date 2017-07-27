@@ -39,6 +39,8 @@ Basically a research group is a set of authors, and each author have a lot of pa
  
 ## Architecture overview
 
+![api](https://raw.githubusercontent.com/nzhl/Research-Scraper/master/resource/api.gif)
+
 The project is basically a web application with some web crawlers involved. To make it as extensiable as possible, I split the actual data interface and the web view. All the data (include authors, groups and papers) are sent from the RESTful API interface, check the `nottingham/blueprints`. So the basic data flow of the project is :
 
 1. request from browser
