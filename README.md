@@ -13,9 +13,9 @@ Basically a research group is a set of authors, and each author have a lot of pa
 ![grp](https://raw.githubusercontent.com/nzhl/Research-Scraper/master/resource/grp.gif)
 
 1. Register as an author, the most important bit is to type in the correct google scholar address since it will be used as the start point of the paper crawler. There are several point to make sure :
-    + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en : this is a correct format.
-    + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en&cstart=20&pagesize=20 : This one contains start page and pagesize, it will confuse the crawler. 
-    + https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=CN : the language specify in the url must be English. Here 'hl=CN' is used, it will make the page loaded by crawler show as Chinese.
+    + `https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en` : this is a correct format.
+    + `https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en&cstart=20&pagesize=20` : This one contains start page and pagesize, it will confuse the crawler. 
+    + `https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=CN` : the language specify in the url must be English. Here `hl=CN` is used, it will make the page loaded by crawler show as Chinese.
 
 2. Once you finish register, the server will fork a subprocess to crawl all the papers from google, the time to finish crawl depends on the number of your paper. Usually won't longer than 15 minutes. So what we currently get is like a complete copy of your papers from google.
 
@@ -38,6 +38,15 @@ Basically a research group is a set of authors, and each author have a lot of pa
 
  
 ## Architecture overview
+
+The project is basically a web application with some web crawlers involved. To make it as extensiable as possible, I split the actual data interface and the web view. All the data (include authors, groups and papers) are sent from the RESTful API interface, check the `nottingham/blueprints`. So the basic data flow of the project is :
+
+1. request from browser
+2. server send dynamic html back (no data)
+3. js run in browser and send ajax back request data
+4. data as json format is returned
+
+So you will find it's possible to plugin the function into your own webside since those API are all public, what you need to do is send the request used required format, then you will get the data back. How to display the data is completely on your own. The concrete API useage is inside the source file `nottingham/blueprints/*`.
 
 
 
