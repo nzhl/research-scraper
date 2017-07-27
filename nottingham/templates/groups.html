@@ -19,10 +19,11 @@
                     <th>total citations</th>
                     <th>scholar link</th>
                     <th>pdf link</th>
+                    <th>hide</th>
                 </tr>
             </thead>
             <tbody>
-                <template v-for="paper in papers">
+                <template v-for="(paper, index) in papers">
                     <tr v-if="!paper['is_hidden']">
                         <td >{{paper['title']}}</td>
                         <td >{{paper['authors']}}</td>
@@ -33,7 +34,7 @@
                         <td >{{paper['total_citations']}}</td>
                         <td >
                             <template v-if="paper['gs_link']">
-                                <a v-bind:href="paper['gs_link']">check</a>
+                                <a v-bind:href="paper['gs_link']">visit</a>
                             </template>
                             <template v-else>
                                 -
@@ -41,10 +42,18 @@
                         </td>
                         <td >
                             <template v-if="paper['pdf_link']">
-                                <a v-bind:href="paper['pdf_link']">check</a>
+                                <a v-bind:href="paper['pdf_link']">download</a>
                             </template>
                             <template v-else>
                                 -
+                            </template>
+                        </td>
+                        <td >
+                            <template v-if="paper['is_owned']">
+                                <button v-on:click="hide" v-bind:index="index" >hide</button>
+                            </template>
+                            <template v-else>
+                                <button class="btn disabled" disabled=disabled>hide</button>
                             </template>
                         </td>
                     </tr>
@@ -60,6 +69,7 @@
     var search_tool = new Vue({
         el: "#search_tool",
         data: {
+            id: id,
             keyword: "",
             group: "",
             all_papers: [],
@@ -96,6 +106,17 @@
                     }
                 }
                 search_tool.papers = papers;
+            },
+            hide: function(event){
+                var index = event.target.getAttribute("index")
+                axios.put('/api/groups/{{group_id}}', {
+                    type: "hide",
+                    paper_id: this.papers[index]['id']
+                }).then(function(response){
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                })
             }
         }
     });

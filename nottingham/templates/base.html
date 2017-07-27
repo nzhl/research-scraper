@@ -15,6 +15,10 @@
             var id = {{session['id']}};
             var name = "{{session['name']}}";
         </script>
+        {% else %}
+        <script>
+            var id = -1; 
+        </script>
         {% endif %}
     </head>
     <body>

@@ -1,19 +1,6 @@
-'''This is the blueprint file that defined user api interface.
-
-GET http://host_name/api/papers?author_id=...
-    - no body required
-'''
 
 from flask import Blueprint, request, jsonify, g, session
 from flask.views import MethodView
-
-def select_group_by_id(group_id):
-    sql = "SELECT * FROM groups WHERE id = %s"
-    with g.db.cursor() as cursor:
-        cursor.execute(sql, (group_id,))
-        group = cursor.fetchone()
-    return group
-
 
 def select_all_groups():
     sql = "SELECT * FROM groups"
@@ -21,6 +8,14 @@ def select_all_groups():
         cursor.execute(sql)
         groups = cursor.fetchall()
     return groups
+
+
+def select_group_by_id(group_id):
+    sql = "SELECT * FROM groups WHERE id = %s"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (group_id,))
+        group = cursor.fetchone()
+    return group
 
 
 def select_groups_by_author(author_id):
@@ -41,28 +36,23 @@ def select_groups_by_author(author_id):
 
 
 def insert_group(group):
-    '''Insert a new group into database.'''
-
-    sql = "INSERT INTO groups (name, description, group_link) VALUES (%s, %s, %s)"
-    affected_rows = 0
+    sql = ("INSERT INTO groups (name, description, group_link) VALUES "
+          "(%s, %s, %s)")
     with g.db.cursor() as cursor:
         #print(cursor.mogrify(sql), ...)
-        affected_rows = cursor.execute(sql,
-            (group['name'],
-             group['description'],
-             group['group_link']))
-        if not affected_rows:
-            return 0
+        cursor.execute(sql, (group['name'],
+             group['description'], group['group_link'],))
         sql = "SELECT id FROM groups WHERE name=%s AND description=%s"
-        affected_rows = cursor.execute(sql, (group['name'], group['description']))
-        result = cursor.fetchall()
-        sql = "INSERT INTO authors_and_groups (author_id, group_id) VALUES (%s, %s)"
-        for each in group['selected']:
-            affected_rows = cursor.execute(sql, (each, result[0]['id']))
-            if not affected_rows:
-                return 0
+        cursor.execute(sql, (group['name'], group['description']))
+        group_id = cursor.fetchone()['id']
+        sql = ("INSERT INTO authors_and_groups (author_id, group_id) "
+              "VALUES (%s, %s)")
+        for author_id in group['selected']:
+            cursor.execute(sql, (author_id, group_id))
+        sql = ("UPDATE authors_and_groups SET is_manager=1 WHERE "
+               "author_id=%s AND group_id=%s")
+        cursor.execute(sql, (session['id'], group_id))
     g.db.commit()
-    return affected_rows
 
 
 def update_group(group):
@@ -97,7 +87,40 @@ def delete_group(group_id):
         cursor.execute(sql, (group_id,))
         sql = "DELETE FROM authors_and_groups WHERE group_id=%s"
         cursor.execute(sql, (group_id,))
+        sql = "DELETE FROM hide_authors_and_groups WHERE group_id=%s"
+        cursor.execute(sql, (group_id,))
+        sql = "DELETE FROM show_authors_and_groups WHERE group_id=%s"
+        cursor.execute(sql, (group_id,))
     g.db.commit()
+
+def insert_hide(data):
+    sql = "INSERT INTO hide_papers_and_groups VALUES (%s, %s)"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (data['paper_id'], data['group_id']),)
+    g.db.commit()
+
+def insert_show(data):
+    sql = "INSERT INTO show_papers_and_groups VALUES (%s, %s)"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (data['paper_id'], data['group_id']),)
+    g.db.commit()
+
+def delete_hide(data):
+    sql = ("DELETE FROM hide_papers_and_groups WHERE paper_id=%s "
+           "AND group_id=%s")
+    with g.db.cursor() as cursor:
+        re = cursor.execute(sql, (data['paper_id'], data['group_id']),)
+    g.db.commit()
+    return re
+
+
+def delete_show(data):
+    sql = ("DELETE FROM show_papers_and_groups WHERE paper_id=%s "
+           "AND group_id=%s")
+    with g.db.cursor() as cursor:
+        re = cursor.execute(sql, (data['paper_id'], data['group_id']),)
+    g.db.commit()
+    return re
 
 
 class GroupView(MethodView):
@@ -105,7 +128,6 @@ class GroupView(MethodView):
     def get(self, group_id = None):
         if group_id != None:
             groups = select_group_by_id(group_id)
-            print(len(groups))
             return jsonify(groups)
 
         author_id = request.args.get("author_id", None)
@@ -113,15 +135,14 @@ class GroupView(MethodView):
             groups = select_groups_by_author(author_id)
         else:
             groups = select_all_groups()
-
         return jsonify(groups)
 
     def post(self):
         group = request.get_json()
-
         # login check then insert
-        if 'id' not in session or not insert_group(group):
+        if 'id' not in session:
             return ("", 409, {})
+        insert_group(group)
         return ("", 200, {})
 
     def put(self, group_id):
@@ -133,10 +154,15 @@ class GroupView(MethodView):
             update_group(data)
         elif data['type'] == "filter":
             update_filter(data)
+        elif data['type'] == "hide":
+            if not delete_show(data):
+                insert_hide(data)
+        elif data['type'] == "show":
+            if not delete_hide(data):
+                insert_show(data)
         return ("", 200, {})
 
     def delete(self, group_id):
-        # todo safety check
         if 'id' not in session:
             return ("", 404, {})
         delete_group(group_id)

@@ -2489,3 +2489,781 @@ pymysql.err.IntegrityError: (1062, "Duplicate entry '1-7' for key 'PRIMARY'")
  'scheduler/enqueued/memory': 113,
  'start_time': datetime.datetime(2017, 7, 27, 1, 27, 56, 23456)}
 2017-07-27 01:32:35 [scrapy.core.engine] INFO: Spider closed (finished)
+2017-07-27 17:14:31 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: scrapybot)
+2017-07-27 17:14:31 [scrapy.utils.log] INFO: Overridden settings: {'DOWNLOAD_DELAY': 2, 'LOG_FILE': 'nottingham/spiders/log/1.log', 'LOG_STDOUT': True}
+2017-07-27 17:14:31 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2017-07-27 17:14:31 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-07-27 17:14:31 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-07-27 17:14:31 [scrapy.middleware] INFO: Enabled item pipelines:
+['AuthorSpider.DBPipeline']
+2017-07-27 17:14:31 [scrapy.core.engine] INFO: Spider opened
+2017-07-27 17:14:31 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-07-27 17:14:31 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-07-27 17:14:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en> (referer: None)
+2017-07-27 17:14:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:9yKSN-GCB0IC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:9yKSN-GCB0IC>
+{'authors': 'Tom Rodden',
+ 'conference': 'Proceedings of the 1996 ACM conference on Computer supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:9yKSN-GCB0IC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/7e2f/e83a9a0bd6fdc51ec866d6c2afa2d697ae2b.pdf',
+ 'publication_date': '1996/11/16',
+ 'publisher': 'ACM',
+ 'title': 'Populating the application: a model of awareness for cooperative '
+          'applications',
+ 'total_citations': '332'}
+2017-07-27 17:14:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:zYLM7Y9cAGgC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:zYLM7Y9cAGgC>
+{'authors': 'Shahram Izadi, Harry Brignull, Tom Rodden, Yvonne Rogers, Mia '
+            'Underwood',
+ 'conference': 'Proceedings of the 16th annual ACM symposium on User interface '
+               'software and technology',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:zYLM7Y9cAGgC',
+ 'journal': '',
+ 'pdf_link': 'http://www.audentia-gestion.fr/MICROSOFT/p159-izadi.pdf',
+ 'publication_date': '2003/11/2',
+ 'publisher': 'ACM',
+ 'title': 'Dynamo: a public interactive surface supporting the cooperative '
+          'sharing and exchange of media',
+ 'total_citations': '335'}
+2017-07-27 17:14:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:qjMakFHDy7sC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:qjMakFHDy7sC>
+{'authors': "Jon O'Brien, Tom Rodden, Mark Rouncefield, John Hughes",
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:qjMakFHDy7sC',
+ 'journal': 'ACM Transactions on Computer-Human Interaction (TOCHI)',
+ 'pdf_link': 'http://www.academia.edu/download/40183401/At_Home_with_the_Technology_An_Ethnograp20151119-25587-1aep22y.pdf',
+ 'publication_date': '1999/9/1',
+ 'publisher': 'ACM',
+ 'title': 'At home with the technology: an ethnographic study of a set-top-box '
+          'trial',
+ 'total_citations': '343'}
+2017-07-27 17:14:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:UeHWp8X0CEIC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:UeHWp8X0CEIC>
+{'authors': 'Steve Benford, Chris Greenhalgh, Tom Rodden, James Pycock',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:UeHWp8X0CEIC',
+ 'journal': 'Communications of the ACM',
+ 'pdf_link': '',
+ 'publication_date': '2001/7/1',
+ 'publisher': 'ACM',
+ 'title': 'Collaborative virtual environments',
+ 'total_citations': '376'}
+2017-07-27 17:14:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:2osOgNQ5qMEC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:2osOgNQ5qMEC>
+{'authors': 'Alan Dix, Tom Rodden, Nigel Davies, Jonathan Trevor, Adrian '
+            'Friday, Kevin Palfreyman',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:2osOgNQ5qMEC',
+ 'journal': 'ACM Transactions on Computer-Human Interaction (TOCHI)',
+ 'pdf_link': 'http://core.ac.uk/download/pdf/70509.pdf',
+ 'publication_date': '2000/9/1',
+ 'publisher': 'ACM',
+ 'title': 'Exploiting space and location as a design framework for interactive '
+          'mobile systems',
+ 'total_citations': '386'}
+2017-07-27 17:14:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:d1gkVwhDpl0C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:d1gkVwhDpl0C>
+{'authors': 'Gregory D Abowd, Elizabeth D Mynatt, Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:d1gkVwhDpl0C',
+ 'journal': 'IEEE pervasive computing',
+ 'pdf_link': 'http://www-static.cc.gatech.edu/fce/ahri/publications/humanExperience-ieee2002.pdf',
+ 'publication_date': '2002/01/01',
+ 'publisher': 'IEEE',
+ 'title': 'The human experience [of ubiquitous computing]',
+ 'total_citations': '495'}
+2017-07-27 17:14:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:u-x6o8ySG0sC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:u-x6o8ySG0sC>
+{'authors': 'Richard Bentley, John A Hughes, David Randall, Tom Rodden, Peter '
+            'Sawyer, Dan Shapiro, Ian Sommerville',
+ 'conference': 'Proceedings of the 1992 ACM conference on Computer-supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:u-x6o8ySG0sC',
+ 'journal': '',
+ 'pdf_link': 'https://www-systems.cs.st-andrews.ac.uk/STSE-Handbook/Papers/Ethnographicallyinformedsystemsdesignforairtrafficcontrol-Bentley.pdf',
+ 'publication_date': '1992/12/1',
+ 'publisher': 'ACM',
+ 'title': 'Ethnographically-informed systems design for air traffic control',
+ 'total_citations': '532'}
+2017-07-27 17:14:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:u5HHmVD_uO8C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:u5HHmVD_uO8C>
+{'authors': 'John Hughes, Val King, Tom Rodden, Hans Andersen',
+ 'conference': 'Proceedings of the 1994 ACM conference on Computer supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:u5HHmVD_uO8C',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/89b8/402bdc4aa03c82f5c5a4dc57b9af6a4486a6.pdf',
+ 'publication_date': '1994/10/22',
+ 'publisher': 'ACM',
+ 'title': 'Moving out from the control room: ethnography in system design',
+ 'total_citations': '758'}
+2017-07-27 17:14:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:aqlVkmm33-oC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:aqlVkmm33-oC>
+{'authors': 'Andy Crabtree, Terry Hemmings, Tom Rodden, Keith Cheverst, Karen '
+            'Clarke, Guy Dewsbury, John Hughes, Mark Rouncefield',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:aqlVkmm33-oC',
+ 'journal': 'Proceedings of the 2004 Australasian Conference on Computer-Human '
+            'Interaction (OZCHI2004)',
+ 'pdf_link': 'http://www.academia.edu/download/46591699/Designing_with_Care_Adapting_Cultural_Pr20160618-6462-1p69z8b.pdf',
+ 'publication_date': '2003/11/01',
+ 'publisher': '',
+ 'title': 'Designing with care: Adapting cultural probes to inform design in '
+          'sensitive settings',
+ 'total_citations': '175'}
+2017-07-27 17:14:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:R3hNpaxXUhUC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:14:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:R3hNpaxXUhUC>
+{'authors': 'Abigail Sellen, Yvonne Rogers, Richard Harper, Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:R3hNpaxXUhUC',
+ 'journal': 'Communications of the ACM',
+ 'pdf_link': '',
+ 'publication_date': '2009/3/1',
+ 'publisher': 'ACM',
+ 'title': 'Reflecting human values in the digital age',
+ 'total_citations': '176'}
+2017-07-27 17:15:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:ufrVoPGSRksC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:ufrVoPGSRksC>
+{'authors': 'Tom Rodden, Steve Benford',
+ 'conference': 'Proceedings of the SIGCHI conference on Human factors in '
+               'computing systems',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:ufrVoPGSRksC',
+ 'journal': '',
+ 'pdf_link': 'https://www.researchgate.net/profile/Tom_Rodden/publication/221514823_The_evolution_of_buildings_and_implications_for_the_design_of_ubiquitous_domestic_environments/links/0c96051b6da702ac0c000000.pdf',
+ 'publication_date': '2003/4/5',
+ 'publisher': 'ACM',
+ 'title': 'The evolution of buildings and implications for the design of '
+          'ubiquitous domestic environments',
+ 'total_citations': '177'}
+2017-07-27 17:15:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:W7OEmFMy1HYC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:W7OEmFMy1HYC>
+{'authors': 'Steve Benford, John Bowers, Lennart E.  Fahlen, John Mariani, Tom '
+            'Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:W7OEmFMy1HYC',
+ 'journal': 'The Computer Journal',
+ 'pdf_link': 'https://academic.oup.com/comjnl/article-pdf/37/8/653/1116247/370653.pdf',
+ 'publication_date': '1994/1/1',
+ 'publisher': 'Oxford University Press',
+ 'title': 'Supporting cooperative work in virtual environments',
+ 'total_citations': '183'}
+2017-07-27 17:15:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Wp0gIr-vW9MC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Wp0gIr-vW9MC>
+{'authors': 'Jan Humble, Andy Crabtree, Terry Hemmings, Karl-Petter Åkesson, '
+            'Boriana Koleva, Tom Rodden, Pär Hansson',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Wp0gIr-vW9MC',
+ 'journal': 'UbiComp',
+ 'pdf_link': 'http://www.academia.edu/download/42051030/Playing_with_the_Bits_User-Configuration20160204-16814-1vpy4a6.pdf',
+ 'publication_date': '2003/10/12',
+ 'publisher': '',
+ 'title': '" Playing with the Bits" User-Configuration of Ubiquitous Domestic '
+          'Environments',
+ 'total_citations': '199'}
+2017-07-27 17:15:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Y0pCki6q_DkC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Y0pCki6q_DkC>
+{'authors': 'Mark Rouncefield, John A Hughes, Tom Rodden, Stephen Viller',
+ 'conference': 'Proceedings of the 1994 ACM conference on Computer supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Y0pCki6q_DkC',
+ 'journal': '',
+ 'pdf_link': 'http://www.academia.edu/download/42016178/Working_with_Constant_Interruption_CSCW_20160203-31227-nmv1kx.pdf',
+ 'publication_date': '1994/10/22',
+ 'publisher': 'ACM',
+ 'title': 'Working with “constant interruption”: CSCW and the small office',
+ 'total_citations': '212'}
+2017-07-27 17:15:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:YOwf2qJgpHMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:10 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:YOwf2qJgpHMC>
+{'authors': 'Steve Benford, Holger Schnädelbach, Boriana Koleva, Rob Anastasi, '
+            'Chris Greenhalgh, Tom Rodden, Jonathan Green, Ahmed Ghali, Tony '
+            'Pridmore, Bill Gaver, Andy Boucher, Brendan Walker, Sarah '
+            'Pennington, Albrecht Schmidt, Hans Gellersen, Anthony Steed',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:YOwf2qJgpHMC',
+ 'journal': 'ACM Transactions on Computer-Human Interaction (TOCHI)',
+ 'pdf_link': 'https://www.researchgate.net/profile/Albrecht_Schmidt/publication/220286279_Expected_sensed_and_desired_A_framework_for_designing_sensing-based_interaction/links/09e4150ec51ffb7ad9000000.pdf',
+ 'publication_date': '2005/3/1',
+ 'publisher': 'ACM',
+ 'title': 'Expected, sensed, and desired: A framework for designing '
+          'sensing-based interaction',
+ 'total_citations': '216'}
+2017-07-27 17:15:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:eQOLeE2rZwMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:eQOLeE2rZwMC>
+{'authors': 'John Hughes, Val King, Tom Rodden, Hans Andersen',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:eQOLeE2rZwMC',
+ 'journal': 'interactions',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/591c/268a3b2bb6f22a679210ba308dd17f46658b.pdf',
+ 'publication_date': '1995/4/1',
+ 'publisher': 'ACM',
+ 'title': 'The role of ethnography in interactive systems design',
+ 'total_citations': '225'}
+2017-07-27 17:15:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:IjCSPb-OGe4C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:IjCSPb-OGe4C>
+{'authors': 'Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:IjCSPb-OGe4C',
+ 'journal': 'Interacting with computers',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/ed73/9daee6bdb5c970e1015c5533dcb98714a362.pdf',
+ 'publication_date': '1991/12/1',
+ 'publisher': 'No longer published by Elsevier',
+ 'title': 'A survey of CSCW systems',
+ 'total_citations': '275'}
+2017-07-27 17:15:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:YsMSGLbcyi4C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:YsMSGLbcyi4C>
+{'authors': 'Andy Crabtree, Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:YsMSGLbcyi4C',
+ 'journal': 'Computer Supported Cooperative Work (CSCW)',
+ 'pdf_link': 'http://timecapsule.cs.st-andrews.ac.uk/STSE-Handbook/Papers/DomesticRoutinesCrabtree.pdf',
+ 'publication_date': '2004/4/1',
+ 'publisher': 'Kluwer Academic Publishers',
+ 'title': 'Domestic routines and design for the home',
+ 'total_citations': '275'}
+2017-07-27 17:15:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Tyk-4Ss8FVUC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Tyk-4Ss8FVUC>
+{'authors': 'Tom Rodden, Keith Cheverst, K Davies, Alan Dix',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:Tyk-4Ss8FVUC',
+ 'journal': 'Workshop on human computer interaction with mobile devices',
+ 'pdf_link': '',
+ 'publication_date': '1998/5/21',
+ 'publisher': '',
+ 'title': 'Exploiting context in HCI design for mobile systems',
+ 'total_citations': '287'}
+2017-07-27 17:15:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:_kc_bZDykSQC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en)
+2017-07-27 17:15:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:_kc_bZDykSQC>
+{'authors': 'Edited Richard Harper, Tom Rodden, Yvonne Rogers, Abigail Sellen, '
+            'Being Human',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&citation_for_view=gWbK0A0AAAAJ:_kc_bZDykSQC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2008/01/01',
+ 'publisher': '',
+ 'title': 'Human-Computer Interaction in the year 2020',
+ 'total_citations': '300'}
+2017-07-27 17:15:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:mVmsd5A6BfQC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:mVmsd5A6BfQC>
+{'authors': 'Ian Sommerville, Tom Rodden, Pete Sawyer, Richard Bentley',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:mVmsd5A6BfQC',
+ 'journal': 'People and computers',
+ 'pdf_link': 'https://www.visionsofcomputing.org/STSE-Handbook/Papers/SociologistscanbeSurprisinglyUsefulinInteractiveSystemsDesign-Sommerville.pdf',
+ 'publication_date': '1992/09/01',
+ 'publisher': 'Cambridge University Press',
+ 'title': 'Sociologists can be surprisingly useful in interactive systems '
+          'design',
+ 'total_citations': '122'}
+2017-07-27 17:15:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:M3NEmzRMIkIC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:M3NEmzRMIkIC>
+{'authors': 'Andrew Crabtree, Tom Rodden, Peter Tolmie, Graham Button',
+ 'conference': 'Proceedings of CHI 2009,  the 27th international conference on '
+               'Human factors in computing systems',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:M3NEmzRMIkIC',
+ 'journal': '',
+ 'pdf_link': 'http://www.academia.edu/download/42051010/Ethnography_considered_harmful20160204-20787-tjt8sd.pdf',
+ 'publication_date': '2009/4/4',
+ 'publisher': 'ACM',
+ 'title': 'Ethnography considered harmful',
+ 'total_citations': '126'}
+2017-07-27 17:15:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:M3ejUd6NZC8C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:M3ejUd6NZC8C>
+{'authors': 'Andy Crabtree, Steve Benford, Tom Rodden, Chris Greenhalgh, '
+            'Martin Flintham, Rob Anastasi, Adam Drozd, Matt Adams, Ju '
+            'Row-Farr, Nick Tandavanitj, Anthony Steed',
+ 'conference': 'Proceedings of the SIGCHI conference on Human factors in '
+               'computing systems',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:M3ejUd6NZC8C',
+ 'journal': '',
+ 'pdf_link': 'http://www.blasttheory.co.uk/wp-content/uploads/2013/02/research_orchestrating_mixed_reality.pdf',
+ 'publication_date': '2004/4/25',
+ 'publisher': 'ACM',
+ 'title': "Orchestrating a mixed reality game'on the ground'",
+ 'total_citations': '129'}
+2017-07-27 17:15:31 [scrapy.extensions.logstats] INFO: Crawled 25 pages (at 25 pages/min), scraped 23 items (at 23 items/min)
+2017-07-27 17:15:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:5nxA0vEk-isC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:5nxA0vEk-isC>
+{'authors': "John Hughes, Jon O'Brien, Tom Rodden, Mark Rouncefield, Ian "
+            'Sommerville',
+ 'conference': 'Requirements Engineering, 1995., Proceedings of the Second '
+               'IEEE International Symposium on',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:5nxA0vEk-isC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/5c54/e00ede7ed5c6e08b1a8914e718e69c522ed4.pdf',
+ 'publication_date': '1995/3/27',
+ 'publisher': 'IEEE',
+ 'title': 'Presenting ethnography in the requirements process',
+ 'total_citations': '132'}
+2017-07-27 17:15:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:HDshCWvjkbEC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:HDshCWvjkbEC>
+{'authors': 'Terry Hemmings, Andy Crabtree, Tom Rodden, Karen Clarke, Mark '
+            'Rouncefield',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:HDshCWvjkbEC',
+ 'journal': 'Proc. of the  Participatory Design Conference  PDC 2002',
+ 'pdf_link': 'http://ojs.ruc.dk/index.php/pdc/article/download/239/231',
+ 'publication_date': '2002/6/23',
+ 'publisher': '',
+ 'title': 'Probing the probes',
+ 'total_citations': '113'}
+2017-07-27 17:15:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:4TOpqqG69KYC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:4TOpqqG69KYC>
+{'authors': 'Andy Crabtree, Terry Hemmings, Tom Rodden',
+ 'conference': 'Proceedings of the 4th conference on Designing interactive '
+               'systems: processes, practices, methods, and techniques',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:4TOpqqG69KYC',
+ 'journal': '',
+ 'pdf_link': 'http://ai2-s2-pdfs.s3.amazonaws.com/4817/8730be83be57581da4b53638c1c5f36059bc.pdf',
+ 'publication_date': '2002/6/25',
+ 'publisher': 'ACM',
+ 'title': 'Pattern-based support for interactive design in domestic settings',
+ 'total_citations': '117'}
+2017-07-27 17:15:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:hqOjcs7Dif8C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:hqOjcs7Dif8C>
+{'authors': 'Tom Rodden, John A Mariani, Gordon Blair',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:hqOjcs7Dif8C',
+ 'journal': 'Computer Supported Cooperative Work (CSCW)',
+ 'pdf_link': 'https://www.cs.usask.ca/faculty/gutwin/866/2010-T2/readings/rodden.pdf',
+ 'publication_date': '1992/3/1',
+ 'publisher': 'Springer Netherlands',
+ 'title': 'Supporting cooperative applications',
+ 'total_citations': '118'}
+2017-07-27 17:15:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:qxL8FJ1GzNcC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:qxL8FJ1GzNcC>
+{'authors': 'Holger Schnädelbach, Boriana Koleva, Martin Flintham, Mike '
+            'Fraser, Shahram Izadi, Paul Chandler, Malcolm Foster, Steve '
+            'Benford, Chris Greenhalgh, Tom Rodden',
+ 'conference': 'Proceedings of the ACM Chi 2002 conference on Human factors in '
+               'computing systems: Changing our world, changing ourselves',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:qxL8FJ1GzNcC',
+ 'journal': '',
+ 'pdf_link': 'http://opac.vimaru.edu.vn/edata/EBook/TAILIEUSO/ACM/ISMAR%20Mixed%20and%20Augmented%20Reality/p9-schnadelbach.pdf',
+ 'publication_date': '2002/4/20',
+ 'publisher': 'ACM',
+ 'title': 'The augurscope: a mixed reality interface for outdoors',
+ 'total_citations': '118'}
+2017-07-27 17:15:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:0EnyYjriUFMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:0EnyYjriUFMC>
+{'authors': 'Richard Bentley, Tom Rodden, Peter Sawyer, Ian Sommerville',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:0EnyYjriUFMC',
+ 'journal': 'Computer',
+ 'pdf_link': 'https://ifs.host.cs.st-andrews.ac.uk/Research/Publications/Papers-PDF/1990-94/ArchSupportForCoopMultiUserInterfaces.pdf',
+ 'publication_date': '1994/05/01',
+ 'publisher': 'IEEE',
+ 'title': 'Architectural support for cooperative multiuser interfaces',
+ 'total_citations': '119'}
+2017-07-27 17:15:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:W5d1EEiaRJMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:W5d1EEiaRJMC>
+{'authors': 'Richard Bentley, Tom Rodden, Peter Sawyer, Ian Sommerville',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:W5d1EEiaRJMC',
+ 'journal': 'Computer',
+ 'pdf_link': 'https://ifs.host.cs.st-andrews.ac.uk/Research/Publications/Papers-PDF/1990-94/ArchSupportForCoopMultiUserInterfaces.pdf',
+ 'publication_date': '1994/05/01',
+ 'publisher': 'IEEE',
+ 'title': 'Architectural support for cooperative multiuser interfaces',
+ 'total_citations': '120'}
+2017-07-27 17:15:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:8k81kl-MbHgC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:8k81kl-MbHgC>
+{'authors': 'Kevin Palfreyman, Tom Rodden',
+ 'conference': 'Proceedings of the 1996 ACM conference on Computer supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:8k81kl-MbHgC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1996/11/16',
+ 'publisher': 'ACM',
+ 'title': 'A protocol for user awareness on the World Wide Web',
+ 'total_citations': '120'}
+2017-07-27 17:15:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:HIhYGD-CTiAC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:HIhYGD-CTiAC>
+{'authors': 'Murray Goulden, Ben Bedwell, Stefan Rennick-Egglestone, Tom '
+            'Rodden, Alexa Spence',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:HIhYGD-CTiAC',
+ 'journal': 'Energy research & social science',
+ 'pdf_link': '',
+ 'publication_date': '2014/6/30',
+ 'publisher': 'Elsevier',
+ 'title': 'Smart grids, smart users? The role of the user in demand side '
+          'management',
+ 'total_citations': '121'}
+2017-07-27 17:15:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:Se3iqnhoufwC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:Se3iqnhoufwC>
+{'authors': 'Tom Rodden, Gordon Blair',
+ 'conference': 'Proceedings of the second European Conference on '
+               'Computer-Supported Cooperative Work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:Se3iqnhoufwC',
+ 'journal': '',
+ 'pdf_link': 'https://dl.eusset.eu/dspace/bitstream/20.500.12015/2577/1/00041.pdf',
+ 'publication_date': '1991/9/25',
+ 'publisher': 'Kluwer Academic Publishers',
+ 'title': 'CSCW and distributed systems: The problem of control',
+ 'total_citations': '147'}
+2017-07-27 17:15:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:Zph67rFs4hoC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:Zph67rFs4hoC>
+{'authors': 'Harry Brignull, Shahram Izadi, Geraldine Fitzpatrick, Yvonne '
+            'Rogers, Tom Rodden',
+ 'conference': 'Proceedings of the 2004 ACM conference on Computer supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:Zph67rFs4hoC',
+ 'journal': '',
+ 'pdf_link': 'http://users.mct.open.ac.uk/yr258/papers/cscw04.pdf',
+ 'publication_date': '2004/11/6',
+ 'publisher': 'ACM',
+ 'title': 'The introduction of a shared interactive surface into a communal '
+          'space',
+ 'total_citations': '149'}
+2017-07-27 17:15:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:LkGwnXOMwfcC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:LkGwnXOMwfcC>
+{'authors': "John A Hughes, Jon O'Brien, Tom Rodden, Mark Rouncefield, Steve "
+            'Blythin',
+ 'conference': 'Proceedings of the 2nd conference on Designing interactive '
+               'systems: processes, practices, methods, and techniques',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:LkGwnXOMwfcC',
+ 'journal': '',
+ 'pdf_link': 'https://www.researchgate.net/profile/Mark_Rouncefield/publication/213799497_Designing_with_Ethnography_A_Presentation_Framework_for_Design/links/00b7d51a6755e54dc0000000.pdf',
+ 'publication_date': '1997/8/1',
+ 'publisher': 'ACM',
+ 'title': 'Designing with ethnography: a presentation framework for design',
+ 'total_citations': '150'}
+2017-07-27 17:15:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:UebtZRa9Y70C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:15:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:UebtZRa9Y70C>
+{'authors': 'Ian Sommerville, Tom Rodden, Peter Sawyer, Richard Bentley, '
+            'Michael Twidale',
+ 'conference': 'Requirements Engineering, 1993., Proceedings of IEEE '
+               'International Symposium on',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:UebtZRa9Y70C',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/b798/7e4c20b6f45463349c85de657a6395958b52.pdf',
+ 'publication_date': '1993/1/4',
+ 'publisher': 'IEEE',
+ 'title': 'Integrating ethnography into the requirements engineering process',
+ 'total_citations': '152'}
+2017-07-27 17:16:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:roLk4NBRz8UC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:16:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:roLk4NBRz8UC>
+{'authors': '',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:roLk4NBRz8UC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2002/8/6',
+ 'publisher': '',
+ 'title': 'Collaborative document management system with customizable filing '
+          'structures that are mutually intelligible',
+ 'total_citations': '160'}
+2017-07-27 17:16:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:_FxGoFyzp5QC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:16:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:_FxGoFyzp5QC>
+{'authors': 'Andy Crabtree, Tom Rodden, Terry Hemmings, Steve Benford',
+ 'conference': 'UbiComp 2003: 5th International Conference on Ubiquitous '
+               'Computing, Seattle, WA, USA, October 12-15',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:_FxGoFyzp5QC',
+ 'journal': '',
+ 'pdf_link': 'https://www.researchgate.net/profile/Tom_Rodden/publication/225174834_Finding_a_Place_for_UbiComp_in_the_Home/links/0c96051b6da6ee60d9000000.pdf',
+ 'publication_date': '2003/01/01',
+ 'publisher': 'Springer Berlin/Heidelberg',
+ 'title': 'Finding a Place for UbiComp in the Home',
+ 'total_citations': '169'}
+2017-07-27 17:16:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:xtoqd-5pKcoC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:16:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:xtoqd-5pKcoC>
+{'authors': 'J Mariani, A Crabtree, T Rodden',
+ 'conference': 'Proceedings of the 2004 ACM conference on Computer supported '
+               "cooperative work (CSCW '04).",
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:xtoqd-5pKcoC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2004/01/01',
+ 'publisher': 'ACM, New York, NY, USA',
+ 'title': 'Collaborating around collections: informing the continued '
+          'development of photoware',
+ 'total_citations': '169'}
+2017-07-27 17:16:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:NMxIlDl6LWMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-27 17:16:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:NMxIlDl6LWMC>
+{'authors': 'Steve Benford, Gabriella Giannachi, Boriana Koleva, Tom Rodden',
+ 'conference': 'Proceedings of CHI 2009,  the 27th international conference on '
+               'Human factors in computing systems',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=20&citation_for_view=gWbK0A0AAAAJ:NMxIlDl6LWMC',
+ 'journal': '',
+ 'pdf_link': 'https://ore.exeter.ac.uk/repository/bitstream/handle/10871/17771/trajectories-submitted-with-authors.pdf;sequence=2',
+ 'publication_date': '2009/4/4',
+ 'publisher': 'ACM',
+ 'title': 'From interaction to trajectories: designing coherent journeys '
+          'through user experiences',
+ 'total_citations': '171'}
+2017-07-27 17:16:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=60&pagesize=20> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:tKAXkfz_euYC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:tKAXkfz_euYC>
+{'authors': 'Nicholas R Jennings, Luc Moreau, David Nicholson, Sarvapali '
+            'Ramchurn, Stephen Roberts, Tom Rodden, Alex Rogers',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:tKAXkfz_euYC',
+ 'journal': 'Communications of the ACM',
+ 'pdf_link': 'https://eprints.soton.ac.uk/364593/1/CACM%2520HAC%2520ARTICLE%2520%2520final.pdf',
+ 'publication_date': '2014/11/26',
+ 'publisher': 'ACM',
+ 'title': 'Human-agent collectives',
+ 'total_citations': '70'}
+2017-07-27 17:16:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:CHSYGLWDkRkC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:CHSYGLWDkRkC>
+{'authors': 'Rebecca E Grinter, W Keith Edwards, Marshini Chetty, Erika S '
+            'Poole, Ja-Young Sung, Jeonghwa Yang, Andy Crabtree, Peter Tolmie, '
+            'Tom Rodden, Chris Greenhalgh, Steve Benford',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:CHSYGLWDkRkC',
+ 'journal': 'ACM Transactions on Computer-Human Interaction (TOCHI)',
+ 'pdf_link': 'https://archive.cs.st-andrews.ac.uk/STSE-Handbook/Papers/GrinterInsOutsHomeNet.pdf',
+ 'publication_date': '2009/6/1',
+ 'publisher': 'ACM',
+ 'title': 'The ins and outs of home networking: The case for useful and usable '
+          'domestic networking',
+ 'total_citations': '72'}
+2017-07-27 17:16:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:isC4tDSrTZIC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:isC4tDSrTZIC>
+{'authors': 'David Kirk, Andy Crabtree, Tom Rodden',
+ 'conference': 'Proceedings of the European Conference on Computer Supported '
+               'Cooperative Work ECSCW',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:isC4tDSrTZIC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/3e26/65996e204cea165734b8e20cae7ae869ed82.pdf',
+ 'publication_date': '2005/01/01',
+ 'publisher': 'Springer Netherlands',
+ 'title': 'Ways of the hands',
+ 'total_citations': '73'}
+2017-07-27 17:16:19 [scrapy.crawler] INFO: Received SIG_SETMASK, shutting down gracefully. Send again to force 
+2017-07-27 17:16:19 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2017-07-27 17:16:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:hFOr9nPyWt4C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:hFOr9nPyWt4C>
+{'authors': 'Ian Sommerville, Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:hFOr9nPyWt4C',
+ 'journal': 'Software Process',
+ 'pdf_link': 'https://www.visionsofcomputing.org/STSE-Handbook/Papers/HumanSocialandOrganisationalFactorsintheSoftwareProcess-Sommerville.pdf',
+ 'publication_date': '1996/6/4',
+ 'publisher': 'John Wiley & Sons',
+ 'title': 'Human, social and organisational influences on the software process',
+ 'total_citations': '74'}
+2017-07-27 17:16:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:QIV2ME_5wuYC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:QIV2ME_5wuYC>
+{'authors': 'Devina Ramduny, Alan Dix, Tom Rodden',
+ 'conference': 'Proceedings of the 1998 ACM conference on Computer supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:QIV2ME_5wuYC',
+ 'journal': '',
+ 'pdf_link': 'http://pages.cpsc.ucalgary.ca/~saul/601.13/readings/p227-ramduny.pdf',
+ 'publication_date': '1998/11/1',
+ 'publisher': 'ACM',
+ 'title': 'Exploring the design space for notification servers',
+ 'total_citations': '75'}
+2017-07-27 17:16:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:L8Ckcad2t8MC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:L8Ckcad2t8MC>
+{'authors': 'Tom Rodden, Andy Crabtree, Terry Hemmings, Boriana Koleva, Jan '
+            'Humble, Karl-Petter Åkesson, Pär Hansson',
+ 'conference': 'Proceedings of the 5th conference on Designing interactive '
+               'systems: processes, practices, methods, and techniques',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:L8Ckcad2t8MC',
+ 'journal': '',
+ 'pdf_link': 'http://www.academia.edu/download/43150100/Between_the_dazzle_of_a_new_building_and20160227-20885-n22dio.pdf',
+ 'publication_date': '2004/8/1',
+ 'publisher': 'ACM',
+ 'title': 'Between the dazzle of a new building and its eventual corpse: '
+          'assembling the ubiquitous home',
+ 'total_citations': '76'}
+2017-07-27 17:16:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:4JMBOYKVnBMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:4JMBOYKVnBMC>
+{'authors': 'Boriana Koleva, Steve Benford, Kher Hui Ng, Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:4JMBOYKVnBMC',
+ 'journal': 'Physical Interaction (PI03) Workshop on Real World User '
+            'Interfaces',
+ 'pdf_link': 'http://www-alt.medien.ifi.lmu.de/en/events/pi03/papers/pi03-ws-proceedings.pdf#page=46',
+ 'publication_date': '2003/9/8',
+ 'publisher': '',
+ 'title': 'A framework for tangible user interfaces',
+ 'total_citations': '81'}
+2017-07-27 17:16:31 [scrapy.extensions.logstats] INFO: Crawled 51 pages (at 26 pages/min), scraped 47 items (at 24 items/min)
+2017-07-27 17:16:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:-f6ydRqryjwC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:-f6ydRqryjwC>
+{'authors': 'Jonathan Trevor, Tom Rodden, Gordon Blair',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:-f6ydRqryjwC',
+ 'journal': 'Computer Supported Cooperative Work (CSCW)',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/6dc8/75dcb6206bea5b4c03ef49e0541b8b33a81c.pdf',
+ 'publication_date': '1994/6/1',
+ 'publisher': 'Kluwer Academic Publishers',
+ 'title': 'COLA: A lightweight platform for CSCW',
+ 'total_citations': '82'}
+2017-07-27 17:16:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:ns9cj8rnVeAC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:ns9cj8rnVeAC>
+{'authors': 'David Kirk, Tom Rodden, Danaë Stanton Fraser',
+ 'conference': 'Proceedings of CHI 2007,  the SIGCHI conference on Human '
+               'factors in computing systems',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:ns9cj8rnVeAC',
+ 'journal': '',
+ 'pdf_link': 'https://www.researchgate.net/profile/Tom_Rodden/publication/221514064_Turn_it_this_way_Grounding_collaborative_action_with_remote_gestures/links/0c96051b6da70c55bb000000.pdf',
+ 'publication_date': '2007/4/29',
+ 'publisher': 'ACM',
+ 'title': 'Turn it this way: grounding collaborative action with remote '
+          'gestures',
+ 'total_citations': '82'}
+2017-07-27 17:16:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:TQgYirikUcIC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:TQgYirikUcIC>
+{'authors': 'Andy Crabtree, Tom Rodden, Steve Benford',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:TQgYirikUcIC',
+ 'journal': 'Computer Supported Cooperative Work (CSCW)',
+ 'pdf_link': 'https://www.researchgate.net/profile/Andy_Crabtree2/publication/220169130_Moving_with_the_Times_IT_Research_and_the_Boundaries_of_CSCW/links/0c960524a7c39b047c000000.pdf',
+ 'publication_date': '2005/6/1',
+ 'publisher': 'Springer Netherlands',
+ 'title': 'Moving with the times: IT research and the boundaries of CSCW',
+ 'total_citations': '85'}
+2017-07-27 17:16:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:9ZlFYXVOiuMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:9ZlFYXVOiuMC>
+{'authors': 'Tom Rodden, Yvonne Rogers, John Halloran, Ian Taylor',
+ 'conference': 'Proceedings of the SIGCHI conference on Human factors in '
+               'computing systems',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:9ZlFYXVOiuMC',
+ 'journal': '',
+ 'pdf_link': 'http://oro.open.ac.uk/9897/1/Rogers_output3.pdf',
+ 'publication_date': '2003/4/5',
+ 'publisher': 'ACM',
+ 'title': 'Designing novel interactional workspaces to support face to face '
+          'consultations',
+ 'total_citations': '86'}
+2017-07-27 17:16:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:BqipwSGYUEgC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:BqipwSGYUEgC>
+{'authors': 'Andy Crabtree, Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:BqipwSGYUEgC',
+ 'journal': 'Personal and Ubiquitous Computing',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/46b7/667a24bef720a5dfd4ea82704274f3c03571.pdf',
+ 'publication_date': '2008/10/1',
+ 'publisher': 'Springer-Verlag',
+ 'title': 'Hybrid ecologies: understanding cooperative interaction in emerging '
+          'physical-digital environments',
+ 'total_citations': '89'}
+2017-07-27 17:16:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:4DMP91E08xMC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:4DMP91E08xMC>
+{'authors': "John Hughes, Jon O'Brien, Tom Rodden, Mark Rouncefield, Stephen "
+            'Viller',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:4DMP91E08xMC',
+ 'journal': 'Personal technologies',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/bf2c/70081cf5480089aa1ee4e852a0f8216664cd.pdf',
+ 'publication_date': '2000/3/1',
+ 'publisher': 'Springer London',
+ 'title': 'Patterns of home life: informing design for domestic environments',
+ 'total_citations': '97'}
+2017-07-27 17:16:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:MXK_kJrjxJIC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:MXK_kJrjxJIC>
+{'authors': 'Richard Bentley, Tom Rodden, Peter Sawyer, Ian Sommerville',
+ 'conference': 'Proceedings of the 1992 ACM conference on Computer-supported '
+               'cooperative work',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:MXK_kJrjxJIC',
+ 'journal': '',
+ 'pdf_link': 'http://archive.cs.st-andrews.ac.uk/STSE-Handbook/Papers/AnArchitectureforTailoringCooperativeMulti-userDisplays-Bentley.pdf',
+ 'publication_date': '1992/12/1',
+ 'publisher': 'ACM',
+ 'title': 'An architecture for tailoring cooperative multi-user displays',
+ 'total_citations': '98'}
+2017-07-27 17:16:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:dhFuZR0502QC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:dhFuZR0502QC>
+{'authors': 'Andy Crabtree, Terry Hemmings, Tom Rodden, John Mariani',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:dhFuZR0502QC',
+ 'journal': 'Proceedings of the eighth European Conference on Computer '
+            'Supported Cooperative Work',
+ 'pdf_link': 'http://www.cs.nott.ac.uk/~pszaxc/work/ECSCW03.pdf',
+ 'publication_date': '2003/9/14',
+ 'publisher': 'Kluwer Academic Publishers',
+ 'title': 'Informing the development of calendar systems for domestic use',
+ 'total_citations': '101'}
+2017-07-27 17:16:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:3fE2CSJIrl8C> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-27 17:16:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:3fE2CSJIrl8C>
+{'authors': 'Véronique Normand, Christian Babski, Steve Benford, Adrian '
+            'Bullock, Stéphane Carion, Yiorgos Chrysanthou, Nicolas Farcet, '
+            'Emmanuel Frécon, John Harvey, Nico Kuijpers, Nadia '
+            'Magnenat-Thalmann, Soraia Raupp-Musse, Tom Rodden, Mel Slater, '
+            'Gareth Smith, Anthony Steed, Daniel Thalmann, Jolanda Tromp, '
+            'Martin Usoh, Gidi Van Liempd, Nicos Kladias',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=40&citation_for_view=gWbK0A0AAAAJ:3fE2CSJIrl8C',
+ 'journal': 'Presence: teleoperators and virtual environments',
+ 'pdf_link': 'http://www.academia.edu/download/42476382/The_COVEN_project_exploring_applicative_20160209-16976-uj2ztu.pdf',
+ 'publication_date': '1999/04/01',
+ 'publisher': '',
+ 'title': 'The COVEN project: Exploring applicative, technical, and usage '
+          'dimensions of collaborative virtual environments',
+ 'total_citations': '102'}
+2017-07-27 17:16:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=80&pagesize=20> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-27 17:16:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=60&citation_for_view=gWbK0A0AAAAJ:YFjsv_pBGBYC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-27 17:16:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=60&citation_for_view=gWbK0A0AAAAJ:YFjsv_pBGBYC>
+{'authors': 'Yvonne Rogers, Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=60&citation_for_view=gWbK0A0AAAAJ:YFjsv_pBGBYC',
+ 'journal': '',
+ 'pdf_link': 'http://yvonnerogers.com/wp-content/uploads/2014/07/rogers_and_rodden_final.pdf',
+ 'publication_date': '2003/01/01',
+ 'publisher': 'Kluwer, Dordrecht, The Netherlands',
+ 'title': 'Configuring spaces and surfaces to support collaborative '
+          'interactions',
+ 'total_citations': '50'}
+2017-07-27 17:17:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=60&citation_for_view=gWbK0A0AAAAJ:bEWYMUwI8FkC> (referer: https://scholar.google.com/citations?user=gWbK0A0AAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-27 17:17:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=60&citation_for_view=gWbK0A0AAAAJ:bEWYMUwI8FkC>
+{'authors': 'Tom Rodden',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=gWbK0A0AAAAJ&cstart=60&citation_for_view=gWbK0A0AAAAJ:bEWYMUwI8FkC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1993/01/01',
+ 'publisher': 'Springer London',
+ 'title': 'Technological support for cooperation',
+ 'total_citations': '51'}
+2017-07-27 17:17:01 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 34861,
+ 'downloader/request_count': 63,
+ 'downloader/request_method_count/GET': 63,
+ 'downloader/response_bytes': 1104489,
+ 'downloader/response_count': 63,
+ 'downloader/response_status_count/200': 63,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2017, 7, 27, 17, 17, 1, 839663),
+ 'item_scraped_count': 58,
+ 'log_count/DEBUG': 122,
+ 'log_count/INFO': 10,
+ 'memusage/max': 53399552,
+ 'memusage/startup': 44646400,
+ 'request_depth_max': 5,
+ 'response_received_count': 63,
+ 'scheduler/dequeued': 63,
+ 'scheduler/dequeued/memory': 63,
+ 'scheduler/enqueued': 106,
+ 'scheduler/enqueued/memory': 106,
+ 'start_time': datetime.datetime(2017, 7, 27, 17, 14, 31, 437036)}
+2017-07-27 17:17:01 [scrapy.core.engine] INFO: Spider closed (shutdown)
