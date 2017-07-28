@@ -22,32 +22,62 @@ def select_papers_by_author(author_id):
     return papers
 
 
-def select_papers_by_group(group_id):
+def select_papers_by_group(group_id, show_hidden):
     papers = []
-    sql = ("SELECT d.* from (SELECT paper_id, before_date, after_date FROM "
-           "authors_and_papers AS a INNER JOIN authors_and_groups AS b ON "
-           "a.author_id=b.author_id WHERE group_id=%s) AS c INNER JOIN "
-           "papers AS d ON paper_id=id AND publication_date >= after_date "
-           "AND publication_date <= before_date")
-
-    with g.db.cursor() as cursor:
-        cursor.execute(sql, (group_id,))
-        papers = cursor.fetchall()
-        sql = ("SELECT * FROM papers WHERE id IN (SELECT paper_id FROM "
-              "show_papers_and_groups WHERE group_id=%s)")
-        cursor.execute(sql, (group_id,))
-        papers += cursor.fetchall()
-        sql = "SELECT paper_id FROM hide_papers_and_groups WHERE group_id=%s"
-        cursor.execute(sql, (group_id,))
-        ids = []
-        for each in cursor.fetchall():
-            ids.append(each['paper_id'])
-        re = []
-        for paper in papers:
-            if paper['id'] in ids:
-                pass
-            else:
-                re.append(paper)
+    if not show_hidden:
+        sql = ("SELECT d.* from (SELECT paper_id, before_date, after_date FROM "
+               "authors_and_papers AS a INNER JOIN authors_and_groups AS b ON "
+               "a.author_id=b.author_id WHERE group_id=%s) AS c INNER JOIN "
+               "papers AS d ON paper_id=id AND publication_date >= after_date "
+               "AND publication_date <= before_date")
+        with g.db.cursor() as cursor:
+            cursor.execute(sql, (group_id,))
+            papers = cursor.fetchall()
+            if not papers:
+                papers = []
+            sql = ("SELECT * FROM papers WHERE id IN (SELECT paper_id FROM "
+                  "show_papers_and_groups WHERE group_id=%s)")
+            cursor.execute(sql, (group_id,))
+            papers += cursor.fetchall()
+            sql = "SELECT paper_id FROM hide_papers_and_groups WHERE group_id=%s"
+            cursor.execute(sql, (group_id,))
+            ids = []
+            for each in cursor.fetchall():
+                ids.append(each['paper_id'])
+            re = []
+            idx = 0
+            for paper in papers:
+                idx += 1
+                if paper['id'] in ids:
+                    pass
+                else:
+                    re.append(paper)
+    else:
+        sql = ("SELECT d.* from (SELECT paper_id, before_date, after_date FROM "
+               "authors_and_papers AS a INNER JOIN authors_and_groups AS b ON "
+               "a.author_id=b.author_id WHERE group_id=%s) AS c INNER JOIN "
+               "papers AS d ON paper_id=id AND (publication_date < after_date "
+               "OR publication_date > before_date)")
+        with g.db.cursor() as cursor:
+            cursor.execute(sql, (group_id,))
+            papers = cursor.fetchall()
+            if not papers:
+                papers = []
+            sql = ("SELECT * FROM papers WHERE id IN (SELECT "
+                   "paper_id FROM hide_papers_and_groups WHERE group_id=%s)")
+            cursor.execute(sql, (group_id,))
+            papers += cursor.fetchall()
+            sql = "SELECT paper_id FROM show_papers_and_groups WHERE group_id=%s"
+            cursor.execute(sql, (group_id,))
+            ids = []
+            for each in cursor.fetchall():
+                ids.append(each['paper_id'])
+            re = []
+            for paper in papers:
+                if paper['id'] in ids:
+                    pass
+                else:
+                    re.append(paper)
     return re
 
 def tag_is_owned(papers):
@@ -72,10 +102,12 @@ class PaperAPI(MethodView):
     def get(self):
         author_id = request.args.get("author_id", None)
         group_id = request.args.get("group_id", None)
+        show_hidden = request.args.get("show_hidden", False)
+        
         if author_id:
             papers = select_papers_by_author(author_id)
         elif group_id:
-            papers = select_papers_by_group(group_id)
+            papers = select_papers_by_group(group_id, show_hidden)
         else:
             papers = select_all_papers()
 

@@ -87,9 +87,9 @@ def delete_group(group_id):
         cursor.execute(sql, (group_id,))
         sql = "DELETE FROM authors_and_groups WHERE group_id=%s"
         cursor.execute(sql, (group_id,))
-        sql = "DELETE FROM hide_authors_and_groups WHERE group_id=%s"
+        sql = "DELETE FROM hide_papers_and_groups WHERE group_id=%s"
         cursor.execute(sql, (group_id,))
-        sql = "DELETE FROM show_authors_and_groups WHERE group_id=%s"
+        sql = "DELETE FROM show_papers_and_groups WHERE group_id=%s"
         cursor.execute(sql, (group_id,))
     g.db.commit()
 
@@ -155,11 +155,11 @@ class GroupView(MethodView):
         elif data['type'] == "filter":
             update_filter(data)
         elif data['type'] == "hide":
-            if not delete_show(data):
-                insert_hide(data)
+            delete_show(data)
+            insert_hide(data)
         elif data['type'] == "show":
-            if not delete_hide(data):
-                insert_show(data)
+            delete_hide(data)
+            insert_show(data)
         return ("", 200, {})
 
     def delete(self, group_id):

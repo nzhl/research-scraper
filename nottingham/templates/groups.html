@@ -6,6 +6,8 @@
     <div class="col-xs-5 col-md-offset-4">
         <h3> <a v-bind:href="group['group_link']">{{group['name']}}</a> 's Page </h3>
         <h1> <input v-on:keyup="increase_search" v-model="keyword" class="text-muted" type=text /> </h1>
+        <b>show hidden
+        <input v-on:click="toggle_hide" v-model="show_hidden" type="checkbox" value="true"></button></b>
     </div>
     <div class="col-xs-8 col-md-offset-2">
         <table class="table table-condensed">
@@ -18,7 +20,7 @@
                     <th>conference/journal</th>
                     <th>total citations</th>
                     <th>scholar link</th>
-                    <th>pdf link</th>
+                    <th>pdf</th>
                     <th>hide</th>
                 </tr>
             </thead>
@@ -49,11 +51,14 @@
                             </template>
                         </td>
                         <td >
-                            <template v-if="paper['is_owned']">
+                            <template v-if="!paper['is_owned']">
+                                <button class="btn disabled" disabled=disabled>hide</button>
+                            </template>
+                            <template v-else-if="!show_hidden">
                                 <button v-on:click="hide" v-bind:index="index" >hide</button>
                             </template>
                             <template v-else>
-                                <button class="btn disabled" disabled=disabled>hide</button>
+                                <button v-on:click="show" v-bind:index="index" >show</button>
                             </template>
                         </td>
                     </tr>
@@ -73,7 +78,8 @@
             keyword: "",
             group: "",
             all_papers: [],
-            papers: []
+            papers: [],
+            show_hidden: false,
         },
         methods: {
             init: function(){
@@ -117,6 +123,37 @@
                 }).catch(function(error){
                     console.log(error)
                 })
+            },
+            show: function(event){
+                var index = event.target.getAttribute("index")
+                axios.put('/api/groups/{{group_id}}', {
+                    type: "show",
+                    paper_id: this.papers[index]['id']
+                }).then(function(response){
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                })
+            },
+            toggle_hide: function(){
+                if (this.show_hidden){
+                    axios.get('/api/papers/?group_id={{group_id}}&show_hidden=true')
+                        .then(function(response){
+                            search_tool.all_papers = response.data;
+                            search_tool.papers = search_tool.all_papers;
+                        }).catch(function (error){
+                            console.log(error)
+                        });
+                }
+                else{
+                    axios.get('/api/papers/?group_id={{group_id}}')
+                        .then(function(response){
+                            search_tool.all_papers = response.data;
+                            search_tool.papers = search_tool.all_papers;
+                        }).catch(function (error){
+                            console.log(error)
+                        });
+                }
             }
         }
     });

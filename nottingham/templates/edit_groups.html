@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th>name</th>
-                    <th>link</th>
+                    <th>paper list</th>
                     <th>authors</th>
                     <th>filter</th>
                     <th>manage</th>
@@ -23,7 +23,7 @@
                 <template v-for="(group,index) in groups">
                     <tr>
                         <td >{{group['name']}}</td>
-                        <td><a v-bind:href="'/groups/' + group['id']">visit</a></td>
+                        <td><a v-bind:href="'/groups/' + group['id']">paper list</a></td>
                         <td >
                             <div class="btn-group">
                                 <button v-on:click="get_authors_by_group" v-bind:index="index" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -145,10 +145,10 @@
         </h4>
             </div>
             <div class="modal-body">
-                <p class="text-success">Before :</p>
-                <input v-model="before_date" type="date"  />
                 <p class="text-success">After :</p>
                 <input v-model="after_date" type="date" />
+                <p class="text-success">Before :</p>
+                <input v-model="before_date" type="date"  />
             </div>
             <div class="modal-footer">
                 <button v-on:click="change" type="button" class="btn btn-primary">

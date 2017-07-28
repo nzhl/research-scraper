@@ -18,7 +18,7 @@
                     <th>conference/journal</th>
                     <th>total citations</th>
                     <th>scholar link</th>
-                    <th>pdf link</th>
+                    <th>pdf</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
                         <td >{{paper['total_citations']}}</td>
                         <td >
                             <template v-if="paper['gs_link']">
-                                <a v-bind:href="paper['gs_link']">check</a>
+                                <a v-bind:href="paper['gs_link']">visit</a>
                             </template>
                             <template v-else>
                                 -
@@ -41,7 +41,7 @@
                         </td>
                         <td >
                             <template v-if="paper['pdf_link']">
-                                <a v-bind:href="paper['pdf_link']">check</a>
+                                <a v-bind:href="paper['pdf_link']">download</a>
                             </template>
                             <template v-else>
                                 -

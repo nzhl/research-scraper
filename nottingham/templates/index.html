@@ -23,7 +23,7 @@
                 <thead>
                     <tr>
                         <th>name</th>
-                        <th>link in site</th>
+                        <th>paper list</th>
                         <th>scholar link</th>
                     </tr>
                 </thead>
@@ -32,7 +32,7 @@
                     <template v-for="each in result">
                         <tr>
                             <td>{{each['name']}}</td>
-                            <td><a v-bind:href="'/authors/' + each['id']">check details</a></td>
+                            <td><a v-bind:href="'/authors/' + each['id']">paper list</a></td>
                             <td><a v-bind:href="each['gs_link']">google scholar</a></td>
                         </tr>
                     </template>
@@ -44,7 +44,7 @@
                     <tr>
                         <th>name</th>
                         <th>description</th>
-                        <th>link in site</th>
+                        <th>paper list</th>
                         <th>web page</th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@
                         <tr>
                             <td>{{each['name']}}</td>
                             <td>{{each['description']}}</td>
-                            <td><a v-bind:href="'/groups/' + each['id']">check details</a></td>
+                            <td><a v-bind:href="'/groups/' + each['id']">paper list</a></td>
                             <td><a v-bind:href="each['group_link']">group web page</a></td>
                         </tr>
                     </template>
