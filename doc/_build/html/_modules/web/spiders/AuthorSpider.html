@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>web.spiders.AuthorSpider &#8212; web  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for web.spiders.AuthorSpider</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;May be something.&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">argv</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">isdir</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">mkdir</span>
+<span class="kn">from</span> <span class="nn">re</span> <span class="k">import</span> <span class="n">findall</span><span class="p">,</span> <span class="n">sub</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">scrapy</span> <span class="k">import</span> <span class="n">Item</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">Spider</span>
+<span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="k">import</span> <span class="n">CrawlerProcess</span>
+
+<span class="kn">from</span> <span class="nn">pymysql</span> <span class="k">import</span> <span class="n">connect</span>
+<span class="kn">from</span> <span class="nn">pymysql.cursors</span> <span class="k">import</span> <span class="n">DictCursor</span>
+
+
+<div class="viewcode-block" id="Paper"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.Paper">[docs]</a><span class="k">class</span> <span class="nc">Paper</span><span class="p">(</span><span class="n">Item</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">authors</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">publication_date</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">conference</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">journal</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">publisher</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">total_citations</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">gs_link</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+    <span class="n">pdf_link</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="DBPipeline"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.DBPipeline">[docs]</a><span class="k">class</span> <span class="nc">DBPipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="DBPipeline.open_spider"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.DBPipeline.open_spider">[docs]</a>    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span>
+                <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+                <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+                <span class="n">password</span><span class="o">=</span><span class="s2">&quot;nzhl&quot;</span><span class="p">,</span>
+                <span class="n">db</span><span class="o">=</span><span class="s2">&quot;research_scraper&quot;</span><span class="p">,</span>
+                <span class="n">charset</span><span class="o">=</span><span class="s1">&#39;utf8mb4&#39;</span><span class="p">,</span>
+                <span class="n">cursorclass</span><span class="o">=</span><span class="n">DictCursor</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DBPipeline.close_spider"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.DBPipeline.close_spider">[docs]</a>    <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DBPipeline.process_item"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.DBPipeline.process_item">[docs]</a>    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+
+        <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSERT INTO papers (title, authors, publication_date, &quot;</span>
+               <span class="s2">&quot;conference, journal, publisher, total_citations, gs_link, &quot;</span>
+               <span class="s2">&quot;pdf_link ) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;authors&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">],</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;conference&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;journal&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;publisher&#39;</span><span class="p">],</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;total_citations&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;gs_link&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;pdf_link&#39;</span><span class="p">]))</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT id FROM papers WHERE gs_link = </span><span class="si">%s</span><span class="s2">&quot;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;gs_link&#39;</span><span class="p">],))</span>
+            <span class="n">paper_id</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO authors_and_papers VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">spider</span><span class="o">.</span><span class="n">author_id</span><span class="p">,</span> <span class="n">paper_id</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">item</span></div></div>
+
+
+<div class="viewcode-block" id="AuthorSpider"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.AuthorSpider">[docs]</a><span class="k">class</span> <span class="nc">AuthorSpider</span><span class="p">(</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;author&quot;</span>
+
+<div class="viewcode-block" id="AuthorSpider.start_requests"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.AuthorSpider.start_requests">[docs]</a>    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">Request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_author</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AuthorSpider.parse_author"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.AuthorSpider.parse_author">[docs]</a>    <span class="k">def</span> <span class="nf">parse_author</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cstart&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">next_page_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s2">&quot;&amp;cstart=20&amp;pagesize=20&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cstart</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;cstart=(.*)&amp;&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">20</span>
+            <span class="n">next_page_url</span> <span class="o">=</span> <span class="n">sub</span><span class="p">(</span><span class="s2">&quot;cstart=(.*)&amp;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;cstart=</span><span class="si">%d</span><span class="s2">&amp;&quot;</span> <span class="o">%</span> <span class="n">cstart</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+
+
+        <span class="k">for</span> <span class="n">each_paper_url</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.gsc_a_at::attr(href)&quot;</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">response</span><span class="o">.</span><span class="n">follow</span><span class="p">(</span><span class="n">each_paper_url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_paper</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;#gsc_bpf_next.gs_dis&quot;</span><span class="p">)):</span>
+            <span class="k">yield</span> <span class="n">Request</span><span class="p">(</span><span class="n">next_page_url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_author</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AuthorSpider.parse_paper"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.AuthorSpider.parse_paper">[docs]</a>    <span class="k">def</span> <span class="nf">parse_paper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">paper</span> <span class="o">=</span> <span class="n">Paper</span><span class="p">()</span>
+        <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.gsc_title_link::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">paper</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">):</span>
+            <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;#gsc_title::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+
+        <span class="n">selector_list</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.gs_scl&quot;</span><span class="p">)</span>
+        <span class="n">capture_fields</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s1">&#39;authors&#39;</span><span class="p">,</span> <span class="s1">&#39;publication_date&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;journal&#39;</span><span class="p">,</span> <span class="s1">&#39;conference&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;publisher&#39;</span><span class="p">,</span> <span class="s1">&#39;total_citations&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">each_selector</span> <span class="ow">in</span> <span class="n">selector_list</span><span class="p">:</span>
+            <span class="n">field</span> <span class="o">=</span> <span class="p">(</span><span class="n">each_selector</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;.gsc_field::text&quot;</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">extract_first</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">capture_fields</span><span class="p">:</span>
+                <span class="c1">#ignore unnecessary field</span>
+                <span class="k">pass</span>
+            <span class="k">elif</span> <span class="n">field</span> <span class="o">==</span> <span class="s1">&#39;total_citations&#39;</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="p">(</span><span class="n">each_selector</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;.gsc_value&gt;div&gt;a::text&quot;</span><span class="p">)</span>
+                        <span class="o">.</span><span class="n">extract_first</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">paper</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">content</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="p">(</span><span class="n">each_selector</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;.gsc_value::text&quot;</span><span class="p">)</span>
+                        <span class="o">.</span><span class="n">extract_first</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                <span class="n">paper</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">content</span>
+
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">capture_fields</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">paper</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">paper</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;total_citations&#39;</span><span class="p">]:</span>
+            <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;total_citations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span><span class="p">;</span>
+            
+        <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;gs_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;.gsc_title_ggt::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;[PDF]&quot;</span><span class="p">:</span>
+            <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;pdf_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">response</span>
+                    <span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.gsc_title_ggi&gt;a::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;pdf_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># complete the date</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">]:</span>
+                <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">elif</span> <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+                    <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">],</span> <span class="s2">&quot;%Y/%m&quot;</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y/%m/</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+                    <span class="n">paper</span><span class="p">[</span><span class="s1">&#39;publication_date&#39;</span><span class="p">],</span> <span class="s2">&quot;%Y&quot;</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y/%m/</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">paper</span></div></div>
+
+<div class="viewcode-block" id="start_crawler"><a class="viewcode-back" href="../../../web.spiders.html#web.spiders.AuthorSpider.start_crawler">[docs]</a><span class="k">def</span> <span class="nf">start_crawler</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">author_id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;nottingham/spiders/log&#39;</span><span class="p">):</span>
+        <span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;nottingham/spiders/log&#39;</span><span class="p">)</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">({</span> 
+        <span class="s1">&#39;DOWNLOAD_DELAY&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;USER-AGENT&#39;</span><span class="p">:</span> <span class="s1">&#39;Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) &#39;</span>
+                      <span class="s1">&#39;Presto/2.8.131 Version/11.11&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LOG_FILE&#39;</span><span class="p">:</span> <span class="s1">&#39;nottingham/spiders/log/</span><span class="si">%s</span><span class="s1">.log&#39;</span> <span class="o">%</span> <span class="n">author_id</span><span class="p">,</span>
+        <span class="s1">&#39;LOG_STDOUT&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;ITEM_PIPELINES&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;AuthorSpider.DBPipeline&#39;</span><span class="p">:</span><span class="mi">300</span><span class="p">,}</span>
+    <span class="p">})</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">AuthorSpider</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">author_id</span><span class="o">=</span><span class="n">author_id</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">start_crawler</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../../web.html">web</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,15 +1,19 @@
-'''Restful api interface for author
+'''The file defines the author api
 
-GET /api/authors/id : return the specific author
-GET /api/authors/ : return all
-GET /api/authors/?group_id= : return authors inside the group
+- GET /api/authors/id 
+    return the specific author
+- GET /api/authors/ 
+    return all
+- GET /api/authors/?group_id= 
+    return authors inside the group
 
-
-POST /api/authors/ 
-    - request body with the json
+- POST /api/authors/ 
     - registration
-    - 203 : register successfully
-    - 409 : conflict data or illegal parameter
+         request body with the json
+    - 203 
+         register successfully
+    - 409 
+         conflict data or illegal parameter
 '''
 
 

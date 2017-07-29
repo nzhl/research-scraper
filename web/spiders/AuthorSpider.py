@@ -1,3 +1,5 @@
+'''May be something.'''
+
 from sys import argv
 from os.path import isdir
 from os import mkdir

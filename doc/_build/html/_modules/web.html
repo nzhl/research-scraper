@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>web &#8212; web  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for web</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;The module contians all the logic of the applications.</span>
+
+<span class="sd">This file mainly focus on:</span>
+<span class="sd">    1. Init the app object and set up configurations.</span>
+<span class="sd">    2. Bind the blueprints to the app. </span>
+<span class="sd">    3. Register different path to different handler.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">session</span>
+<span class="kn">from</span> <span class="nn">flask.json</span> <span class="k">import</span> <span class="n">JSONEncoder</span>
+<span class="kn">from</span> <span class="nn">.blueprints.sessions</span> <span class="k">import</span> <span class="n">sessions_blueprint</span>
+<span class="kn">from</span> <span class="nn">.blueprints.authors</span> <span class="k">import</span> <span class="n">authors_blueprint</span>
+<span class="kn">from</span> <span class="nn">.blueprints.papers</span> <span class="k">import</span> <span class="n">papers_blueprint</span>
+<span class="kn">from</span> <span class="nn">.blueprints.groups</span> <span class="k">import</span> <span class="n">groups_blueprint</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">pymysql</span>
+
+
+<div class="viewcode-block" id="CustomJSONEncoder"><a class="viewcode-back" href="../web.html#web.CustomJSONEncoder">[docs]</a><span class="k">class</span> <span class="nc">CustomJSONEncoder</span><span class="p">(</span><span class="n">JSONEncoder</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Customer defined Json encoder</span>
+
+<span class="sd">    Override the default json converting rule.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+<div class="viewcode-block" id="CustomJSONEncoder.default"><a class="viewcode-back" href="../web.html#web.CustomJSONEncoder.default">[docs]</a>    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;It will be used when we want to convert an object to json format.</span>
+
+<span class="sd">        The flask default one will caused unwanted result, Check more `details </span>
+<span class="sd">        &lt;https://stackoverflow.com/questions/43663552/keep-a-datetime-date-in-yyyy-mm-dd-format-when-using-flasks-jsonify&gt;`_.</span>
+<span class="sd">        </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+            <span class="n">iterable</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">JSONEncoder</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span></div></div>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">json_encoder</span> <span class="o">=</span> <span class="n">CustomJSONEncoder</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span>
+    <span class="n">SECRET_KEY</span><span class="o">=</span><span class="s1">&#39;development key&#39;</span><span class="p">,</span>
+    <span class="n">HOST</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+    <span class="n">USERNAME</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span>
+    <span class="n">PASSWORD</span><span class="o">=</span><span class="s1">&#39;nzhl&#39;</span><span class="p">,</span>
+    <span class="n">DB</span><span class="o">=</span><span class="s1">&#39;research_scraper&#39;</span><span class="p">,</span>
+    <span class="n">CHARSET</span><span class="o">=</span><span class="s1">&#39;utf8mb4&#39;</span>
+<span class="p">))</span>
+
+<span class="c1"># those blueprints deal with 4 different api interface.</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">sessions_blueprint</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">authors_blueprint</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">papers_blueprint</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">groups_blueprint</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">before_request</span>
+<div class="viewcode-block" id="connect_db"><a class="viewcode-back" href="../web.html#web.connect_db">[docs]</a><span class="k">def</span> <span class="nf">connect_db</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;This function will be called right before a request come.</span>
+<span class="sd">    </span>
+<span class="sd">    So it&#39;s a good idea to get connection to database here.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">db</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;HOST&#39;</span><span class="p">],</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;USERNAME&#39;</span><span class="p">],</span>
+            <span class="n">password</span><span class="o">=</span><span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;PASSWORD&#39;</span><span class="p">],</span>
+            <span class="n">db</span><span class="o">=</span><span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;DB&#39;</span><span class="p">],</span>
+            <span class="n">charset</span><span class="o">=</span><span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;CHARSET&#39;</span><span class="p">],</span>
+            <span class="n">cursorclass</span><span class="o">=</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span></div>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">teardown_appcontext</span>
+<div class="viewcode-block" id="close_db"><a class="viewcode-back" href="../web.html#web.close_db">[docs]</a><span class="k">def</span> <span class="nf">close_db</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;This function will be called before current request context over.</span>
+
+<span class="sd">    We use it to close db.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;db&#39;</span><span class="p">):</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/index&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<div class="viewcode-block" id="index_page"><a class="viewcode-back" href="../web.html#web.index_page">[docs]</a><span class="k">def</span> <span class="nf">index_page</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Bind the index page&#39;&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span></div>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/edit_groups/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<div class="viewcode-block" id="edit_groups_page"><a class="viewcode-back" href="../web.html#web.edit_groups_page">[docs]</a><span class="k">def</span> <span class="nf">edit_groups_page</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;edit_groups.html&#39;</span><span class="p">)</span></div>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/authors/&lt;int:author_id&gt;&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="authors_page"><a class="viewcode-back" href="../web.html#web.authors_page">[docs]</a><span class="k">def</span> <span class="nf">authors_page</span><span class="p">(</span><span class="n">author_id</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;authors.html&#39;</span><span class="p">,</span> <span class="n">author_id</span><span class="o">=</span><span class="n">author_id</span><span class="p">)</span></div>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/groups/&lt;int:group_id&gt;&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="groups_page"><a class="viewcode-back" href="../web.html#web.groups_page">[docs]</a><span class="k">def</span> <span class="nf">groups_page</span><span class="p">(</span><span class="n">group_id</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;groups.html&#39;</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="n">group_id</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
