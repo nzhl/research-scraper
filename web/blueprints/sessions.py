@@ -1,15 +1,13 @@
-'''This is the blueprint file that defined restful api interface for login/logout.
+'''Manage Login / Logout API
 
 
 POST http://host_name/api/sessions/
-    - login
-    - an account and password pair with json format
+    - login, an account and password pair with json format
     - 201 : login successfully
     - 409 : error account or password
 
 DELETE http://host_name/api/sessions/
-    - logout
-    - no parameter is needed.
+    - logout, no parameter is needed.
     - 200 : loout successfully
 '''
 
@@ -44,16 +42,18 @@ class SessionView(MethodView):
             author = result[0]
             session['id'] = author['id']
             session['name'] = author['name']
-            return ("", 201)
+            return ("", 201, {})
 
 
     def delete(self):
         '''Logout'''
 
         session.clear()
-        return ("", 200)
+        return ("", 200, {})
 
 
 sessions_blueprint = Blueprint('sessions', __name__, url_prefix='/api')
 sessions_view = SessionView.as_view('sessions')
-sessions_blueprint.add_url_rule('/sessions/', view_func=sessions_view, methods=['POST', 'DELETE'])
+sessions_blueprint.add_url_rule('/sessions/',
+                                view_func=sessions_view,
+                                methods=['POST', 'PUT'])

@@ -49,7 +49,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li role="presentation">
-                                    <a v-on:click="logout" role="menuitem" tabindex="-1" href="">Logout</a>
+                                    <a v-on:click="logout" role="menuitem" tabindex="-1" >Logout</a>
                                 </li>
                             </ul>
                     </li>
@@ -179,6 +179,7 @@
                 },
                 methods: {
                     logout: function(){
+                        alert("logout")
                         axios.delete('/api/sessions/')
                             .then(function(response){
                                 location.reload()
