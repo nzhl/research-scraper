@@ -58,19 +58,10 @@ def insert_group(group):
 def update_group(group):
     sql = "UPDATE groups SET name=%s, description=%s, group_link=%s WHERE id=%s"
     with g.db.cursor() as cursor:
-        affected_rows = cursor.execute(sql,
-            (group['name'],
-            group['description'],
-            group['group_link'],
-            group['group_id'],
-            ))
-        sql = "DELETE FROM authors_and_groups WHERE group_id=%s"
-        cursor.execute(sql, (group['group_id']))
-        sql = "INSERT INTO authors_and_groups VALUES (%s, %s)"
-        for each in group['selected']:
-            affected_rows = cursor.execute(sql, (each, group['group_id']))
+        cursor.execute(sql, (group['name'], group['description'],
+            group['group_link'], group['group_id'],)
+        )
     g.db.commit()
-    return affected_rows
 
 def update_filter(group):
     sql = ("UPDATE authors_and_groups SET before_date=%s, after_date=%s WHERE "
@@ -79,6 +70,12 @@ def update_filter(group):
     with g.db.cursor() as cursor:
         cursor.execute(sql, (group['before_date'], group['after_date'],
                              session['id'], group['group_id']))
+    g.db.commit()
+
+def remove_author(data):
+    sql = "DELETE FROM authors_and_groups WHERE author_id=%s AND group_id=%s"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (data['author_id'], data['group_id']))
     g.db.commit()
 
 def delete_group(group_id):
@@ -152,6 +149,8 @@ class GroupView(MethodView):
             return ("", 404, {})
         if data['type'] == "group":
             update_group(data)
+        if data['type'] == "remove":
+            remove_author(data)
         elif data['type'] == "filter":
             update_filter(data)
         elif data['type'] == "hide":

@@ -1,14 +1,16 @@
 '''Manage Login / Logout API
 
-
 POST http://host_name/api/sessions/
-    - login, an account and password pair with json format
-    - 201 : login successfully
-    - 409 : error account or password
+    - login
+         account and password pair with json format
+    - 201 
+         login successfully
 
 DELETE http://host_name/api/sessions/
-    - logout, no parameter is needed.
-    - 200 : loout successfully
+    - logout
+         no parameter is needed.
+    - 200 
+         logout successfully
 '''
 
 from flask import Blueprint, request, g, session
@@ -22,11 +24,8 @@ def select_authors(account, password):
     result = []
     with g.db.cursor() as cursor:
         cursor.execute(sql, (account, password))
-        #print(cursor._last_executed)
-
         result = cursor.fetchall()
     return result
-
 
 
 class SessionView(MethodView):
@@ -37,12 +36,12 @@ class SessionView(MethodView):
         login_pair = request.get_json()
         result = select_authors(login_pair['account'], login_pair['password'])
         if not len(result):
-            return ("", 409)
+            return ("", 409, {})
         else:
             author = result[0]
             session['id'] = author['id']
             session['name'] = author['name']
-            return ("", 201, {})
+            return ("", 204, {})
 
 
     def delete(self):
@@ -56,4 +55,4 @@ sessions_blueprint = Blueprint('sessions', __name__, url_prefix='/api')
 sessions_view = SessionView.as_view('sessions')
 sessions_blueprint.add_url_rule('/sessions/',
                                 view_func=sessions_view,
-                                methods=['POST', 'PUT'])
+                                methods=['POST', 'DELETE'])

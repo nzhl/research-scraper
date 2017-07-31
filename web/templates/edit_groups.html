@@ -13,37 +13,26 @@
             <thead>
                 <tr>
                     <th>name</th>
-                    <th>paper list</th>
-                    <th>authors</th>
+                    <th>papers list</th>
+                    <th>member</th>
                     <th>filter</th>
-                    <th>manage</th>
+                    <th>profile</th>
                 </tr>
             </thead>
             <tbody>
                 <template v-for="(group,index) in groups">
                     <tr>
                         <td >{{group['name']}}</td>
-                        <td><a v-bind:href="'/groups/' + group['id']">paper list</a></td>
-                        <td >
-                            <div class="btn-group">
-                                <button v-on:click="get_authors_by_group" v-bind:index="index" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li v-for="author in authors" class="text-muted text-center">
-                                <a v-bind:href="'/authors/' + author['id']">
-                                {{author.name}}
-                                </a>
-                            </li>
-                        </ul>
-                            </div>
+                        <td><a v-bind:href="'/groups/' + group['id']">papers list</a></td>
+                        <td>
+                            <button v-on:click="member_before_edit" v-bind:index="index" data-toggle="modal" data-target="#member_edit_tool">member</button>
                         </td>
                         <td >
-                            <button v-on:click="before_change" v-bind:index="index" class="btn-info" data-toggle="modal" data-target="#filter_change_tool">change</button>
+                            <button v-on:click="filter_before_edit" v-bind:index="index" data-toggle="modal" data-target="#filter_edit_tool">change</button>
                         </td>
                         <td >
                             <template v-if="group['is_manager']">
-                            <button v-on:click="before_edit" v-bind:index="index" class="btn-warning" data-toggle="modal" data-target="#group_edit_tool">edit</button>
+                            <button v-on:click="profile_before_edit" v-bind:index="index" data-toggle="modal" data-target="#profile_edit_tool">edit</button>
                             </template>
                             <template v-else>
                             <button class="btn disabled" disabled="disabled">edit</button>
@@ -54,6 +43,96 @@
             </tbody>
         </table>
         <button v-on:click="get_all_authors" class="btn-primary" data-toggle="modal" data-target="#group_create_tool">Create New Group</button>
+    </div>
+</div>
+
+
+<div class="modal fade" id="member_edit_tool" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+        <h4 class="modal-title" >
+            Authors List
+        </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                <tr v-for="(author,index) in authors_in_group">
+                    <td>
+                        <a v-bind:href="author['gs_link']">{{author['name']}}</a>
+                    </td>
+                    <td>
+                        <template v-if="!group['is_manager']">
+                        <button class="btn disabled" disabled="disabled" >Remove</button>
+                        </template>
+                        <template v-else>
+                        <button v-on:click="remove" v-bind:index="index">Remove</button>
+                        </template>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="filter_edit_tool" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+        <h4 class="modal-title" >
+            Change filter
+        </h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-success">After :</p>
+                <input v-model="after_date" type="date" />
+                <p class="text-success">Before :</p>
+                <input v-model="before_date" type="date"  />
+            </div>
+            <div class="modal-footer">
+                <button v-on:click="change" type="button" class="btn btn-primary">
+                    Change
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="profile_edit_tool" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+        <h4 class="modal-title" id="edit_label">
+            Edit group profile
+        </h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-success">Name :</p>
+                <input v-model="name" class="form-control" type="text" /><br/>
+                <p class="text-success">Description :</p>
+                <textarea v-model="description" rows="4" class="form-control" ></textarea><br/>
+                <p class="text-success">Group Link :</p>
+                <input v-model="group_link" class="form-control" type="text" /><br/>
+            </div>
+            <div class="modal-footer">
+                <button v-on:click="delete_group" type="button" class="btn btn-danger">
+                    Delete
+                </button>
+                <button v-on:click="update" type="button" class="btn btn-primary">
+                    Update
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -85,74 +164,6 @@
             <div class="modal-footer">
                 <button v-on:click="create" type="button" class="btn btn-primary">
                     Create
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="group_edit_tool" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
-    <div class="modal-dialog" >
-        <div class="modal-content ">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-        <h4 class="modal-title" id="edit_label">
-            Edit group
-        </h4>
-            </div>
-            <div class="modal-body">
-                <p class="text-success">Name :</p>
-                <input v-model="name" class="form-control" type="text" /><br/>
-                <p class="text-success">Description :</p>
-                <textarea v-model="description" rows="4" class="form-control" ></textarea><br/>
-                <p class="text-success">Group Link :</p>
-                <input v-model="group_link" class="form-control" type="text" /><br/>
-                <p class="text-success">Previous Authors :</p>
-                <select v-model="previous" class="form-control" multiple >
-                    <template v-for="author in previous_authors">
-                        <option v-if="author.id != id"  v-bind:value="author.id" class="text-muted">{{author.name}}</option>
-                    </template>
-                </select><br/>
-                <p class="text-success">New Authors :</p>
-                <select v-model="selected" class="form-control" multiple >
-                    <template v-for="author in new_authors">
-                        <option v-bind:value="author.id" class="text-muted">{{author.name}}</option>
-                    </template>
-                </select><br/>
-            </div>
-            <div class="modal-footer">
-                <button v-on:click="delete_group" type="button" class="btn btn-danger">
-                    Delete
-                </button>
-                <button v-on:click="update" type="button" class="btn btn-primary">
-                    Update
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="filter_change_tool" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
-    <div class="modal-dialog" >
-        <div class="modal-content ">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-        <h4 class="modal-title" >
-            Change filter
-        </h4>
-            </div>
-            <div class="modal-body">
-                <p class="text-success">After :</p>
-                <input v-model="after_date" type="date" />
-                <p class="text-success">Before :</p>
-                <input v-model="before_date" type="date"  />
-            </div>
-            <div class="modal-footer">
-                <button v-on:click="change" type="button" class="btn btn-primary">
-                    Change
                 </button>
             </div>
         </div>
@@ -195,15 +206,6 @@
                 }
                 search_tool.groups = groups;
             },
-            get_authors_by_group: function(event){
-                var index = event.target.getAttribute("index");
-                axios.get('/api/authors/?group_id=' + this.groups[index]['id'])
-                    .then(function(response){
-                        search_tool.authors = response.data
-                    }).catch(function(error){
-                        console.log(error)
-                    })
-            },
             get_all_authors: function(){
                 axios.get('/api/authors/')
                     .then(function(response){
@@ -212,23 +214,140 @@
                         console.log(error)
                     })
             },
-            before_edit: function(event){
+            member_before_edit: function(event){
                 var index = event.target.getAttribute("index");
-                group_edit_tool.group_id = search_tool.groups[index]['id'];
-                group_edit_tool.name = search_tool.groups[index]['name'];
-                group_edit_tool.description = search_tool.groups[index]['description'];
-                group_edit_tool.group_link = search_tool.groups[index]['group_link'];
-                group_edit_tool.prepare_authors();
+                member_edit_tool.group = this.groups[index];
+                member_edit_tool.get_authors_by_group();
             },
-            before_change: function(even){
+            filter_before_edit: function(even){
                 var index = event.target.getAttribute("index");
-                filter_change_tool.group_id = search_tool.groups[index]['id'];
-                filter_change_tool.before_date = search_tool.groups[index]['before_date']
-                filter_change_tool.after_date = search_tool.groups[index]['after_date']
+                filter_edit_tool.group_id = this.groups[index]['id'];
+                filter_edit_tool.before_date = this.groups[index]['before_date']
+                filter_edit_tool.after_date = this.groups[index]['after_date']
+            },
+            profile_before_edit: function(event){
+                var index = event.target.getAttribute("index");
+                profile_edit_tool.group_id = this.groups[index]['id'];
+                profile_edit_tool.name = this.groups[index]['name'];
+                profile_edit_tool.description = this.groups[index]['description'];
+                profile_edit_tool.group_link = this.groups[index]['group_link'];
             }
         }
     });
 
+    var member_edit_tool = new Vue({
+        el: "#member_edit_tool",
+        data: {
+            id: id,
+            group:{},
+            authors_in_group: [],
+        },
+        methods:{
+            get_authors_by_group: function(){
+                axios.get('/api/authors/?group_id=' + this.group['id'])
+                    .then(function(response){
+                        member_edit_tool.authors_in_group = response.data
+                    }).catch(function(error){
+                        console.log(error)
+                    })
+            },
+            remove: function(event){
+                var index = event.target.getAttribute("index");
+                var author_id = this.authors_in_group[index]['id']
+                
+                axios.put('/api/groups/' + this.group['id'],{
+                    type: "remove",
+                    author_id: author_id,
+                }).then(function(response){
+                    alert("Author " + member_edit_tool.authors_in_group[index]['name'] + 
+                          "has been removed from the group !")
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                })
+            }
+        }   
+    })
+
+    var filter_edit_tool = new Vue({
+        el: "#filter_edit_tool",
+        data: {
+            group_id: "",
+            before_date: "",
+            after_date: "",
+        },
+        methods: {
+            change: function(){
+                axios.put('/api/groups/' + this.group_id,{
+                    type: "filter",
+                    before_date: this.before_date,
+                    after_date: this.after_date
+                }).then(function(response){
+                    alert("Filter successfully updated !")
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                });
+            }
+        }
+    })
+
+    var profile_edit_tool = new Vue({
+        el: "#profile_edit_tool",
+        data: {
+            id: id,
+            group_id: "",
+            name: "",
+            description: "",
+            group_link: "",
+        },
+        methods: {
+            prepare_authors: function(){
+                axios.get('/api/authors/?group_id=' + this.group_id)
+                    .then(function(response){
+                        profile_edit_tool.previous_authors = response.data
+                    }).catch(function(error){
+                        console.log(error)
+                    });
+                axios.get('/api/authors/')
+                    .then(function(response){
+                        profile_edit_tool.new_authors = response.data.filter(function(author){
+                            for(var each of profile_edit_tool.previous_authors){
+                                if(each.id == author.id){
+                                    return false;
+                                }
+                            }
+                            return true;
+                        });
+                    }).catch(function(error){
+                        console.log(error)
+                    });
+            },
+            delete_group: function(){
+                axios.delete('/api/groups/' + this.group_id)
+                .then(function(response){
+                    alert("Group successfully deleted !")
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                });
+            },
+            update: function(){
+                axios.put('/api/groups/' + this.group_id,{
+                    type: "group",
+                    name: this.name,
+                    description: this.description,
+                    group_link: this.group_link,
+                }).then(function(response){
+                    alert("Group successfully updated !")
+                    location.reload()
+                }).catch(function(error){
+                    console.log(error)
+                });
+            }
+        }
+    })
+    
     var group_create_tool = new Vue({
         el: "#group_create_tool",
         data: {
@@ -253,92 +372,6 @@
                 }).catch(function(error){
                     alert("Unknown server error !")
                 })
-            }
-        }
-    })
-
-    var group_edit_tool = new Vue({
-        el: "#group_edit_tool",
-        data: {
-            id: id,
-            group_id: "",
-            name: "",
-            description: "",
-            group_link: "",
-            previous_authors: [],
-            new_authors: [],
-            previous: [],
-            selected: []
-        },
-        methods: {
-            prepare_authors: function(){
-                axios.get('/api/authors/?group_id=' + this.group_id)
-                    .then(function(response){
-                        group_edit_tool.previous_authors = response.data
-                    }).catch(function(error){
-                        console.log(error)
-                    });
-                axios.get('/api/authors/')
-                    .then(function(response){
-                        group_edit_tool.new_authors = response.data.filter(function(author){
-                            for(var each of group_edit_tool.previous_authors){
-                                if(each.id == author.id){
-                                    return false;
-                                }
-                            }
-                            return true;
-                        });
-                    }).catch(function(error){
-                        console.log(error)
-                    });
-            },
-            delete_group: function(){
-                axios.delete('/api/groups/' + this.group_id)
-                .then(function(response){
-                    alert("Group successfully deleted !")
-                    location.reload()
-                }).catch(function(error){
-                    console.log(error)
-                });
-            },
-            update: function(){
-                var selected = this.previous.concat(this.selected)
-                selected.push(this.id)
-                axios.put('/api/groups/' + this.group_id,{
-                    type: "group",
-                    name: this.name,
-                    description: this.description,
-                    group_link: this.group_link,
-                    selected: selected
-                }).then(function(response){
-                    alert("Group successfully updated !")
-                    location.reload()
-                }).catch(function(error){
-                    console.log(error)
-                });
-            }
-        }
-    })
-    
-    var filter_change_tool = new Vue({
-        el: "#filter_change_tool",
-        data: {
-            group_id: "",
-            before_date: "",
-            after_date: "",
-        },
-        methods: {
-            change: function(){
-                axios.put('/api/groups/' + this.group_id,{
-                    type: "filter",
-                    before_date: this.before_date,
-                    after_date: this.after_date
-                }).then(function(response){
-                    alert("Filter successfully updated !")
-                    location.reload()
-                }).catch(function(error){
-                    console.log(error)
-                });
             }
         }
     })

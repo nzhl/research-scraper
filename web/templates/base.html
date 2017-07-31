@@ -42,7 +42,7 @@
                             </a>
                             <ul class="dropdown-menu" >
                                 <li>
-                                    <a v-bind:href="'/authors/' + id">Profile</a>
+                                    <a v-bind:href="'/authors/' + id">Paper</a>
                                 </li>
                                 <li>
                                     <a href="/edit_groups/">Group</a>
@@ -136,6 +136,7 @@
                         ).then(function(response){
                             location.reload()
                         }).catch(function(error){
+                            console.log(error);
                             alert("Unmatched account and password !")
                         })
                     }
@@ -179,7 +180,6 @@
                 },
                 methods: {
                     logout: function(){
-                        alert("logout")
                         axios.delete('/api/sessions/')
                             .then(function(response){
                                 location.reload()

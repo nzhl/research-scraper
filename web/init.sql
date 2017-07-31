@@ -16,15 +16,11 @@ CREATE TABLE IF NOT EXISTS authors(
 	# personally think 100 is big enough for a name.
 	name VARCHAR(100) NOT NULL,
 
-	# https://dev.mysql.com/doc/refman/5.7/en/numeric-type-overview.html
-	# only reigstered author can have account and password.
-	is_registered BOOL NOT NULL DEFAULT FALSE,
-
 	# tends to accept a email address.
 	account VARCHAR(80),
 	password VARCHAR(20),
 
-       	# https://stackoverflow.com/questions/219569/best-database-field-type-for-a-url
+    # https://stackoverflow.com/questions/219569/best-database-field-type-for-a-url
 	gs_link VARCHAR(2083),
 	last_update_date DATE,
 

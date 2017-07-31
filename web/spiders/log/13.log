@@ -1,0 +1,1732 @@
+2017-07-31 14:42:17 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: scrapybot)
+2017-07-31 14:42:17 [scrapy.utils.log] INFO: Overridden settings: {'DOWNLOAD_DELAY': 2, 'LOG_FILE': 'web/spiders/log/13.log', 'LOG_STDOUT': True}
+2017-07-31 14:42:17 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2017-07-31 14:42:17 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-07-31 14:42:17 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-07-31 14:42:17 [scrapy.middleware] INFO: Enabled item pipelines:
+['AuthorSpider.DBPipeline']
+2017-07-31 14:42:17 [scrapy.core.engine] INFO: Spider opened
+2017-07-31 14:42:17 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-07-31 14:42:17 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-07-31 14:42:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en> (referer: None)
+2017-07-31 14:42:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:9yKSN-GCB0IC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:9yKSN-GCB0IC>
+{'authors': 'G Elizabeth Blake, Mariano P Consens, Pekka Kilpeläinen, P-Å '
+            'Larson, T Snider, Frank Wm Tompa',
+ 'conference': 'International Conference on Applications of Databases',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:9yKSN-GCB0IC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1994/6/21',
+ 'publisher': 'Springer, Berlin, Heidelberg',
+ 'title': 'Text/relational database management systems: Harmonizing SQL and '
+          'SGML',
+ 'total_citations': '96'}
+2017-07-31 14:42:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:d1gkVwhDpl0C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:23 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:d1gkVwhDpl0C>
+{'authors': 'Airi Salminen, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:d1gkVwhDpl0C',
+ 'journal': 'Acta Linguistica Hungarica',
+ 'pdf_link': 'http://users.jyu.fi/~airi/papers/COMPLEX-1992.pdf',
+ 'publication_date': '1994/01/01',
+ 'publisher': '',
+ 'title': 'PAT expressions: an algebra for text search',
+ 'total_citations': '172'}
+2017-07-31 14:42:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:fPk4N6BV_jEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:fPk4N6BV_jEC>
+{'authors': 'Gaston H Gonnet, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:fPk4N6BV_jEC',
+ 'journal': '',
+ 'pdf_link': 'http://vldb.org/conf/1987/P339.PDF',
+ 'publication_date': '1987/9/1',
+ 'publisher': 'UW Centre for the New Oxford English Dictionary',
+ 'title': 'Mind your grammar: a new approach to modelling text',
+ 'total_citations': '199'}
+2017-07-31 14:42:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:u-x6o8ySG0sC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:u-x6o8ySG0sC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:u-x6o8ySG0sC',
+ 'journal': 'ACM Transactions on Information Systems (TOIS)',
+ 'pdf_link': '',
+ 'publication_date': '1989/1/3',
+ 'publisher': 'ACM',
+ 'title': 'A data model for flexible hypertext database systems',
+ 'total_citations': '206'}
+2017-07-31 14:42:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:4OULZ7Gr8RgC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:4OULZ7Gr8RgC>
+{'authors': 'Darrell Raymond, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:4OULZ7Gr8RgC',
+ 'journal': 'Communications of the ACM',
+ 'pdf_link': 'http://sites.google.com/a/darrellraymond.com/www/p871-raymond.pdf',
+ 'publication_date': '1988/7/1',
+ 'publisher': 'ACM',
+ 'title': 'Hypertext and the Oxford English dictionary',
+ 'total_citations': '208'}
+2017-07-31 14:42:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:u5HHmVD_uO8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:u5HHmVD_uO8C>
+{'authors': 'Jose A Blakeley, Per-Ake Larson, Frank Wm Tompa',
+ 'conference': 'ACM SIGMOD Record',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:u5HHmVD_uO8C',
+ 'journal': '',
+ 'pdf_link': 'https://www.researchgate.net/profile/Per-Ake_Larson/publication/2603834_Efficiently_Updating_Materialized_Views/links/02e7e51a3a301ea218000000.pdf',
+ 'publication_date': '1986/6/15',
+ 'publisher': 'ACM',
+ 'title': 'Efficiently updating materialized views',
+ 'total_citations': '843'}
+2017-07-31 14:42:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:a0OBvERweLwC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:a0OBvERweLwC>
+{'authors': 'CC Gotlieb, Frank W Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:a0OBvERweLwC',
+ 'journal': 'Acta Informatica',
+ 'pdf_link': '',
+ 'publication_date': '1974/12/1',
+ 'publisher': 'Springer Berlin/Heidelberg',
+ 'title': 'Choosing a storage schema',
+ 'total_citations': '31'}
+2017-07-31 14:42:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:roLk4NBRz8UC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:roLk4NBRz8UC>
+{'authors': 'Starvos Christodoulakis, D Badal, A Cardenas, P Mantey, F Tompa, '
+            'D Tsichritzis',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:roLk4NBRz8UC',
+ 'journal': 'Proceedings of the International Conference on Management of Data',
+ 'pdf_link': '',
+ 'publication_date': '1985/01/01',
+ 'publisher': '',
+ 'title': 'Multimedia database management(panel session)',
+ 'total_citations': '31'}
+2017-07-31 14:42:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:yD5IFk8b50cC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:yD5IFk8b50cC>
+{'authors': 'Darrell Ronald Raymond, Frank William Tompa, Derick Wood',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:yD5IFk8b50cC',
+ 'journal': '',
+ 'pdf_link': 'http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.9369&rep=rep1&type=pdf',
+ 'publication_date': '1993/04/01',
+ 'publisher': 'Department of Computer Science, University of Western Ontario',
+ 'title': 'Markup reconsidered',
+ 'total_citations': '31'}
+2017-07-31 14:42:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:W7OEmFMy1HYC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:W7OEmFMy1HYC>
+{'authors': 'Frank Wm Tompa, G Elizabeth Blake, Darrell R Raymond',
+ 'conference': 'Proceedings of the fifth ACM conference on Hypertext',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:W7OEmFMy1HYC',
+ 'journal': '',
+ 'pdf_link': 'https://sites.google.com/a/darrellraymond.com/www/p118-tompa.pdf',
+ 'publication_date': '1993/12/1',
+ 'publisher': 'ACM',
+ 'title': 'Hypertext by link-resolving components',
+ 'total_citations': '32'}
+2017-07-31 14:42:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:UebtZRa9Y70C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:UebtZRa9Y70C>
+{'authors': 'Robert H Warren, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 32nd international conference on Very large '
+               'data bases',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:UebtZRa9Y70C',
+ 'journal': '',
+ 'pdf_link': 'http://www.dbdump.org/~warren/publications/warren%3Avldb%3A2006/p185-warren-vldb.pdf',
+ 'publication_date': '2006/9/1',
+ 'publisher': 'VLDB Endowment',
+ 'title': 'Multi-column substring matching for database schema translation',
+ 'total_citations': '33'}
+2017-07-31 14:42:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:Y0pCki6q_DkC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:Y0pCki6q_DkC>
+{'authors': 'G Elizabeth Blake, Tim Bray, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:Y0pCki6q_DkC',
+ 'journal': 'ACM Transactions on Information Systems (TOIS)',
+ 'pdf_link': '',
+ 'publication_date': '1992/7/1',
+ 'publisher': 'ACM',
+ 'title': 'Shortening the OED: experience with a grammar-defined database',
+ 'total_citations': '38'}
+2017-07-31 14:42:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:zYLM7Y9cAGgC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:zYLM7Y9cAGgC>
+{'authors': 'Claudia Bauzer Medeiros, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:zYLM7Y9cAGgC',
+ 'journal': 'Algorithmica',
+ 'pdf_link': 'http://www.vldb.org/conf/1985/P316.PDF',
+ 'publication_date': '1986/11/1',
+ 'publisher': 'Springer New York',
+ 'title': 'Understanding the implications of view update policies',
+ 'total_citations': '42'}
+2017-07-31 14:42:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:cFHS6HbyZ2cC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:cFHS6HbyZ2cC>
+{'authors': 'Darrell Raymond, Frank Tompa, Derick Wood',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:cFHS6HbyZ2cC',
+ 'journal': 'Computer Standards & Interfaces',
+ 'pdf_link': 'http://repository.ust.hk/ir/bitstream/1783.1-41/1/tr95-32.pdf',
+ 'publication_date': '1996/1/31',
+ 'publisher': 'North-Holland',
+ 'title': 'From data representation to data model: meta-semantic issues in the '
+          'evolution of SGML',
+ 'total_citations': '46'}
+2017-07-31 14:42:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:IjCSPb-OGe4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:IjCSPb-OGe4C>
+{'authors': 'Matthew Young-Lai, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:IjCSPb-OGe4C',
+ 'journal': 'Machine Learning',
+ 'pdf_link': 'http://link.springer.com/content/pdf/10.1023/A:1007653929870.pdf',
+ 'publication_date': '2000/8/1',
+ 'publisher': 'Kluwer Academic Publishers',
+ 'title': 'Stochastic grammatical inference of text database structure',
+ 'total_citations': '50'}
+2017-07-31 14:42:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:YsMSGLbcyi4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:YsMSGLbcyi4C>
+{'authors': 'David DeHaan, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 2007 ACM SIGMOD international conference on '
+               'Management of data',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:YsMSGLbcyi4C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2007/6/11',
+ 'publisher': 'ACM',
+ 'title': 'Optimal top-down join enumeration',
+ 'total_citations': '55'}
+2017-07-31 14:42:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:dfsIfKJdRG4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:42:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:dfsIfKJdRG4C>
+{'authors': 'Tok-Wang Ling, Frank W Tompa, Tiko Kameda',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:dfsIfKJdRG4C',
+ 'journal': 'ACM Transactions on Database Systems (TODS)',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/6494/bd1c7b1f2182e913d410c810cd8728d2c2a3.pdf',
+ 'publication_date': '1981/6/1',
+ 'publisher': 'ACM',
+ 'title': 'An improved third normal form for relational databases',
+ 'total_citations': '67'}
+2017-07-31 14:43:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:2osOgNQ5qMEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:43:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:2osOgNQ5qMEC>
+{'authors': 'Frank Wm Tompa, JoséA Blakeley',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:2osOgNQ5qMEC',
+ 'journal': 'Information Systems',
+ 'pdf_link': '',
+ 'publication_date': '1988/1/1',
+ 'publisher': 'Pergamon',
+ 'title': 'Maintaining materialized views without accessing base data',
+ 'total_citations': '78'}
+2017-07-31 14:43:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:UeHWp8X0CEIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:43:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:UeHWp8X0CEIC>
+{'authors': 'Nilesh Bansal, Fei Chiang, Nick Koudas, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 33rd international conference on Very large '
+               'data bases',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:UeHWp8X0CEIC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/43e7/c121b57cbcad45aebcec13ea1c2bf0192df1.pdf',
+ 'publication_date': '2007/9/23',
+ 'publisher': 'VLDB Endowment',
+ 'title': 'Seeking stable clusters in the blogosphere',
+ 'total_citations': '82'}
+2017-07-31 14:43:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:qjMakFHDy7sC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en)
+2017-07-31 14:43:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:qjMakFHDy7sC>
+{'authors': 'Airi Salminen, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 2001 ACM Symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&citation_for_view=sOl6-dEAAAAJ:qjMakFHDy7sC',
+ 'journal': '',
+ 'pdf_link': 'http://www.engr.sjsu.edu/fayad/current.courses/cmpe226/docs/XM_-Databases-Notes-04.pdf',
+ 'publication_date': '2001/11/9',
+ 'publisher': 'ACM',
+ 'title': 'Requirements for XML document database systems',
+ 'total_citations': '84'}
+2017-07-31 14:43:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:8k81kl-MbHgC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:8k81kl-MbHgC>
+{'authors': 'Ahmed A Ataullah, Ashraf Aboulnaga, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 17th ACM conference on Information and '
+               'knowledge management',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:8k81kl-MbHgC',
+ 'journal': '',
+ 'pdf_link': 'http://www.academia.edu/download/42954237/cikm08recman.pdf',
+ 'publication_date': '2008/10/26',
+ 'publisher': 'ACM',
+ 'title': 'Records retention in relational database systems',
+ 'total_citations': '19'}
+2017-07-31 14:43:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:eQOLeE2rZwMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:eQOLeE2rZwMC>
+{'authors': 'LJ Brown, Mariano P.  Consens, Ian J.  Davis, Chris R.  Palmer, '
+            'Frank Wm.  Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:eQOLeE2rZwMC',
+ 'journal': 'TAPOS',
+ 'pdf_link': 'https://cs.uwaterloo.ca/~ijdavis/textadt.pdf',
+ 'publication_date': '1998/10/12',
+ 'publisher': '',
+ 'title': 'A structured text ADT for object-relational databases',
+ 'total_citations': '21'}
+2017-07-31 14:43:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:8AbLer7MMksC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:8AbLer7MMksC>
+{'authors': 'Shahab Kamali, Frank Wm Tompa',
+ 'conference': 'International Conference on Intelligent Computer Mathematics',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:8AbLer7MMksC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2013/7/8',
+ 'publisher': 'Springer, Berlin, Heidelberg',
+ 'title': 'Structural similarity search for mathematics retrieval',
+ 'total_citations': '15'}
+2017-07-31 14:43:17 [scrapy.extensions.logstats] INFO: Crawled 26 pages (at 26 pages/min), scraped 23 items (at 23 items/min)
+2017-07-31 14:43:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:f2IySw72cVMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:f2IySw72cVMC>
+{'authors': 'Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:f2IySw72cVMC',
+ 'journal': 'University of Waterloo, Waterloo, Canada',
+ 'pdf_link': '',
+ 'publication_date': '1986/05/01',
+ 'publisher': '',
+ 'title': 'Database Design for a Dictionary of the Future',
+ 'total_citations': '16'}
+2017-07-31 14:43:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:bFI3QPDXJZMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:bFI3QPDXJZMC>
+{'authors': 'Frank William Tompa, Jan Gecsei, Gregor V Bochmann',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:bFI3QPDXJZMC',
+ 'journal': 'Computer',
+ 'pdf_link': '',
+ 'publication_date': '1981/08/01',
+ 'publisher': 'IEEE',
+ 'title': 'Special Feature: Data Structuring Facilities for Interactive '
+          'Videotex Systems',
+ 'total_citations': '17'}
+2017-07-31 14:43:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:b0M2c_1WBrUC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:23 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:b0M2c_1WBrUC>
+{'authors': 'Frank William Tompa, Darrell R Raymond',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:b0M2c_1WBrUC',
+ 'journal': '',
+ 'pdf_link': 'http://sites.google.com/a/darrellraymond.com/www/dynamic.pdf',
+ 'publication_date': '1989/01/01',
+ 'publisher': 'UW Centre for the New Oxford English Dictionary',
+ 'title': 'Database design for a dynamic dictionary',
+ 'total_citations': '17'}
+2017-07-31 14:43:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:hqOjcs7Dif8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:hqOjcs7Dif8C>
+{'authors': 'Darrell R Raymond, Alberto J Canas, Frank Wm Tompa, Frank R '
+            'Safayeni',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:hqOjcs7Dif8C',
+ 'journal': 'International Journal of Man-Machine Studies',
+ 'pdf_link': 'http://sites.google.com/a/darrellraymond.com/www/Canas.pdf',
+ 'publication_date': '1989/9/1',
+ 'publisher': 'Academic Press',
+ 'title': 'Measuring the effectiveness of personal database structures',
+ 'total_citations': '17'}
+2017-07-31 14:43:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:0EnyYjriUFMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:0EnyYjriUFMC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:0EnyYjriUFMC',
+ 'journal': 'Proceedings of the 5th Annual Conference of the UW Centre for the '
+            'New Oxford English Dictionary',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/6769/836462f0d945159c9bbecf3fe104c997835c.pdf',
+ 'publication_date': '1989/09/01',
+ 'publisher': '',
+ 'title': 'What is (tagged) text?',
+ 'total_citations': '17'}
+2017-07-31 14:43:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:Wp0gIr-vW9MC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:Wp0gIr-vW9MC>
+{'authors': 'Shahab Kamali, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:Wp0gIr-vW9MC',
+ 'journal': 'Towards a Digital Mathematics Library. Grand Bend, Ontario, '
+            'Canada, July 8-9th, 2009',
+ 'pdf_link': 'http://dml.cz/bitstream/handle/10338.dmlcz/702556/DML_002-2009-1_6.pdf',
+ 'publication_date': '2009/01/01',
+ 'publisher': 'Masaryk University Press',
+ 'title': 'Improving mathematics retrieval',
+ 'total_citations': '18'}
+2017-07-31 14:43:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:_xSYboBqXhAC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:_xSYboBqXhAC>
+{'authors': 'Gaston H Gonnet, Frank W Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:_xSYboBqXhAC',
+ 'journal': 'Communications of the ACM',
+ 'pdf_link': '',
+ 'publication_date': '1983/11/1',
+ 'publisher': 'ACM',
+ 'title': 'A constructive approach to the design of algorithms and their data '
+          'structures',
+ 'total_citations': '19'}
+2017-07-31 14:43:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:hC7cP41nSMkC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:hC7cP41nSMkC>
+{'authors': 'Shahab Kamali, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 19th ACM international conference on '
+               'information and knowledge management',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:hC7cP41nSMkC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2010/10/26',
+ 'publisher': 'ACM',
+ 'title': 'A new mathematics retrieval system',
+ 'total_citations': '21'}
+2017-07-31 14:43:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:pyW8ca7W8N0C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:pyW8ca7W8N0C>
+{'authors': 'Timothy Benbow, Peter Carrington, Gayle Johannesen, Frank Tompa, '
+            'Edmund Weiner',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:pyW8ca7W8N0C',
+ 'journal': 'International Journal of Lexicography',
+ 'pdf_link': 'http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.217.2766&rep=rep1&type=pdf',
+ 'publication_date': '1990/10/1',
+ 'publisher': 'Oxford University Press',
+ 'title': 'Report on the New Oxford English Dictionary User Survey',
+ 'total_citations': '22'}
+2017-07-31 14:43:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:mVmsd5A6BfQC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:mVmsd5A6BfQC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:mVmsd5A6BfQC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2012/2/2',
+ 'publisher': 'Springer Science & Business Media',
+ 'title': 'Communicating with XML',
+ 'total_citations': '22'}
+2017-07-31 14:43:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:5Ul4iDaHHb8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:5Ul4iDaHHb8C>
+{'authors': 'Shahab Kamali, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 36th international ACM SIGIR conference on '
+               'Research and development in information retrieval',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:5Ul4iDaHHb8C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2013/7/28',
+ 'publisher': 'ACM',
+ 'title': 'Retrieving documents with mathematical content',
+ 'total_citations': '22'}
+2017-07-31 14:43:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:D03iK_w7-QYC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:D03iK_w7-QYC>
+{'authors': 'Donna Lee Berg, Gaston H Gonnet, Frank William Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:D03iK_w7-QYC',
+ 'journal': '',
+ 'pdf_link': 'http://www.academia.edu/download/42954236/The_New_Oxford_English_Dictionary_Projec20160222-8699-q8ns6k.pdf',
+ 'publication_date': '1988/02/01',
+ 'publisher': 'UW Centre for the New Oxford English Dictionary',
+ 'title': 'The new Oxford English Dictionary project at the University of '
+          'Waterloo',
+ 'total_citations': '23'}
+2017-07-31 14:43:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:_FxGoFyzp5QC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:_FxGoFyzp5QC>
+{'authors': 'Xuerong Tang, Frank Wm Tompa',
+ 'conference': 'Proc. of the 4th International Workshop on the Web and '
+               'Databases, WebDB',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:_FxGoFyzp5QC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2001/01/01',
+ 'publisher': '',
+ 'title': 'Specifying transformations for structured documents',
+ 'total_citations': '24'}
+2017-07-31 14:43:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:ufrVoPGSRksC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:ufrVoPGSRksC>
+{'authors': 'Donald D.  Cowan, Colin I.  Mayfield, Frank Wm.  Tompa, W '
+            'Gasparini',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:ufrVoPGSRksC',
+ 'journal': 'Communications of the ACM',
+ 'pdf_link': 'http://www.academia.edu/download/41429255/New_Role_for_Community_Networks20160122-13154-dxqije.pdf',
+ 'publication_date': '1998/4/1',
+ 'publisher': 'ACM',
+ 'title': 'New role for community networks',
+ 'total_citations': '25'}
+2017-07-31 14:43:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:WF5omc3nYNoC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:43:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:WF5omc3nYNoC>
+{'authors': 'Robert A Amsler, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:WF5omc3nYNoC',
+ 'journal': 'Proceedings of the 4th Annual Conference of the UW Centre for the '
+            'New Oxford English Dictionary',
+ 'pdf_link': '',
+ 'publication_date': '1988/10/26',
+ 'publisher': '',
+ 'title': 'An SGML-based standard for English monolingual dictionaries',
+ 'total_citations': '29'}
+2017-07-31 14:43:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:43:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:CHSYGLWDkRkC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:43:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:CHSYGLWDkRkC>
+{'authors': 'Darrell R Raymond, Frank William Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:CHSYGLWDkRkC',
+ 'journal': '',
+ 'pdf_link': 'http://www.darrellraymond.com/dependency.pdf',
+ 'publication_date': '1992/12/31',
+ 'publisher': 'University of Waterloo, Computer Science Department',
+ 'title': 'Applying database dependency theory to software engineering',
+ 'total_citations': '6'}
+2017-07-31 14:43:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:YOwf2qJgpHMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:43:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:YOwf2qJgpHMC>
+{'authors': 'Mei Zhou, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:YOwf2qJgpHMC',
+ 'journal': 'Information Systems',
+ 'pdf_link': 'https://uwspace.uwaterloo.ca/bitstream/handle/10012/213/nq22257.pdf?sequence=1&isAllowed=y',
+ 'publication_date': '1998/12/1',
+ 'publisher': 'Pergamon',
+ 'title': 'The suffix-signature method for searching for phrases in text',
+ 'total_citations': '6'}
+2017-07-31 14:44:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:qxL8FJ1GzNcC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:qxL8FJ1GzNcC>
+{'authors': 'Hai Chen, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 2003 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:qxL8FJ1GzNcC',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/~fwtompa/.papers/doceng03.pdf',
+ 'publication_date': '2003/11/20',
+ 'publisher': 'ACM',
+ 'title': 'Set-at-a-time Access to XML through DOM',
+ 'total_citations': '6'}
+2017-07-31 14:44:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:aqlVkmm33-oC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:aqlVkmm33-oC>
+{'authors': 'David DeHaan, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:aqlVkmm33-oC',
+ 'journal': 'University of Waterloo, Tech. Rep',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/2007/CS-2007-02.pdf',
+ 'publication_date': '2007/3/15',
+ 'publisher': '',
+ 'title': 'Optimal top-down join enumeration (extended version)',
+ 'total_citations': '7'}
+2017-07-31 14:44:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:kNdYIx-mwKoC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:kNdYIx-mwKoC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:kNdYIx-mwKoC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/c75b/75441dc5fb24f284b7566fb2a8440bc00d92.pdf',
+ 'publication_date': '1997/11/01',
+ 'publisher': '',
+ 'title': 'Views of text',
+ 'total_citations': '8'}
+2017-07-31 14:44:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:_kc_bZDykSQC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:_kc_bZDykSQC>
+{'authors': 'Airi Salminen, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:_kc_bZDykSQC',
+ 'journal': 'Proceedings of the 27th VLDB Conference, Roma, Italy',
+ 'pdf_link': 'http://xml.coverpages.org/tompa-xmldb-desiderata.pdf',
+ 'publication_date': '2001/01/01',
+ 'publisher': '',
+ 'title': 'System desiderata for xml databases',
+ 'total_citations': '8'}
+2017-07-31 14:44:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:4DMP91E08xMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:4DMP91E08xMC>
+{'authors': 'Zarrin Langari, Frank Wm Tompa',
+ 'conference': 'Data Mining, 2001. ICDM 2001, Proceedings IEEE International '
+               'Conference on',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:4DMP91E08xMC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/e270/09575a71579466c44a8444bf6428fc2a391d.pdf',
+ 'publication_date': '2001/01/01',
+ 'publisher': 'IEEE',
+ 'title': 'Subject classification in the oxford English dictionary',
+ 'total_citations': '8'}
+2017-07-31 14:44:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:M3ejUd6NZC8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:M3ejUd6NZC8C>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:M3ejUd6NZC8C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1992/01/01',
+ 'publisher': 'UW Centre for the New Oxford English Dictionary and Text '
+              'Research,[University of Toronto, Ontario]',
+ 'title': "An overview of Waterloo's database software for the OED",
+ 'total_citations': '9'}
+2017-07-31 14:44:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:4TOpqqG69KYC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:4TOpqqG69KYC>
+{'authors': 'Xuerong Tang, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:4TOpqqG69KYC',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/2002/41/CS-2002-41.pdf',
+ 'publication_date': '2003/1/1',
+ 'publisher': '',
+ 'title': 'A high-level specification language for structured document '
+          'transformation',
+ 'total_citations': '9'}
+2017-07-31 14:44:17 [scrapy.extensions.logstats] INFO: Crawled 51 pages (at 25 pages/min), scraped 47 items (at 24 items/min)
+2017-07-31 14:44:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:Zph67rFs4hoC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:Zph67rFs4hoC>
+{'authors': 'Matthew Young-Lai, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:Zph67rFs4hoC',
+ 'journal': 'Information Systems',
+ 'pdf_link': '',
+ 'publication_date': '2003/5/31',
+ 'publisher': 'Pergamon',
+ 'title': 'One-pass evaluation of region algebra expressions',
+ 'total_citations': '9'}
+2017-07-31 14:44:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:MXK_kJrjxJIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:MXK_kJrjxJIC>
+{'authors': 'Amir Chinaei, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:MXK_kJrjxJIC',
+ 'journal': 'Secure Data Management',
+ 'pdf_link': 'ftp://nozdr.ru/biblio/kolxo3/Cs/CsLn/S/Secure%20Data%20Management,%202%20conf.,%20SDM%202005(LNCS3674,%20Springer,%202005)(ISBN%203540287981)(249s).pdf#page=71',
+ 'publication_date': '2005/01/01',
+ 'publisher': 'Springer Berlin/Heidelberg',
+ 'title': 'User-managed access control for health care systems',
+ 'total_citations': '9'}
+2017-07-31 14:44:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:mvPsJ3kp5DgC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:mvPsJ3kp5DgC>
+{'authors': 'Andrew Kane, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 37th international ACM SIGIR conference on '
+               'Research & development in information retrieval',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:mvPsJ3kp5DgC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2014/7/3',
+ 'publisher': 'ACM',
+ 'title': 'Skewed partial bitvectors for list intersection',
+ 'total_citations': '9'}
+2017-07-31 14:44:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:KlAtU1dfN6UC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:KlAtU1dfN6UC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': 'Proceedings of the second international conference on Systems '
+               'for Large Data Bases',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:KlAtU1dfN6UC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1976/9/8',
+ 'publisher': 'VLDB Endowment',
+ 'title': 'Choosing an efficient internal schema',
+ 'total_citations': '10'}
+2017-07-31 14:44:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:NhqRSupF_l8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:NhqRSupF_l8C>
+{'authors': 'John Stubbs, Frank William Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:NhqRSupF_l8C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1984/01/01',
+ 'publisher': 'UW Centre for the New Oxford English Dictionary',
+ 'title': 'Waterloo and the new oxford english dictionary project',
+ 'total_citations': '10'}
+2017-07-31 14:44:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:abG-DnoFyZgC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:abG-DnoFyZgC>
+{'authors': 'Nivio Ziviani, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:abG-DnoFyZgC',
+ 'journal': 'INFOR: Information Systems and Operational Research',
+ 'pdf_link': '',
+ 'publication_date': '1982/5/1',
+ 'publisher': 'Taylor & Francis',
+ 'title': 'A look at symmetric binary B-trees',
+ 'total_citations': '11'}
+2017-07-31 14:44:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:ULOm3_A8WrAC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:44:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:ULOm3_A8WrAC>
+{'authors': 'Amir Chinaei, Hamid Chinaei, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:ULOm3_A8WrAC',
+ 'journal': 'Secure Data Management',
+ 'pdf_link': 'https://www.researchgate.net/profile/Hamid_R_Chinaei/publication/221038636_A_Unified_Conflict_Resolution_Algorithm/links/56f04dd108ae584badc93141.pdf',
+ 'publication_date': '2007/01/01',
+ 'publisher': 'Springer Berlin/Heidelberg',
+ 'title': 'A unified conflict resolution algorithm',
+ 'total_citations': '13'}
+2017-07-31 14:44:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:L8Ckcad2t8MC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:L8Ckcad2t8MC>
+{'authors': 'Andrej Brodnik, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:L8Ckcad2t8MC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1993/01/01',
+ 'publisher': 'University of Waterloo',
+ 'title': 'A new architecture to support database updates through views',
+ 'total_citations': '2'}
+2017-07-31 14:44:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:bnK-pcrLprsC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:bnK-pcrLprsC>
+{'authors': 'LM Egerton-Warburton, EL Ghisalberti, JA Considine, M Zhou, FW '
+            'Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:bnK-pcrLprsC',
+ 'journal': 'Information Systems',
+ 'pdf_link': '',
+ 'publication_date': '1998/12/1',
+ 'publisher': 'Elsevier',
+ 'title': 'The suffix-signature method for searching for phrases in text',
+ 'total_citations': '2'}
+2017-07-31 14:44:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:IWHjjKOFINEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:IWHjjKOFINEC>
+{'authors': 'Shahab Kamali, Frank Wm Tompa',
+ 'conference': 'WebDB',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:IWHjjKOFINEC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/1b1a/7b18741b59befa4e34877a1c5a33a9602283.pdf',
+ 'publication_date': '2011/01/01',
+ 'publisher': '',
+ 'title': 'Grammar Inference for Web Documents.',
+ 'total_citations': '2'}
+2017-07-31 14:44:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:wbdj-CoPYUoC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:wbdj-CoPYUoC>
+{'authors': 'Grzegorz Drzadzewski, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 2015 ACM Symposium on Document Engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:wbdj-CoPYUoC',
+ 'journal': '',
+ 'pdf_link': 'http://dl.acm.org/ft_gateway.cfm?id=2797083&type=pdf',
+ 'publication_date': '2015/9/8',
+ 'publisher': 'ACM',
+ 'title': 'Enhancing exploration with a faceted browser through summarization',
+ 'total_citations': '2'}
+2017-07-31 14:44:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:J-pR_7NvFogC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:J-pR_7NvFogC>
+{'authors': 'Grzegorz Drzadzewski, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:J-pR_7NvFogC',
+ 'journal': 'Knowledge and Information Systems',
+ 'pdf_link': '',
+ 'publication_date': '2016/6/1',
+ 'publisher': 'Springer London',
+ 'title': 'Partial materialization for online analytical processing over '
+          'multi-tagged document collections',
+ 'total_citations': '2'}
+2017-07-31 14:44:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:9ZlFYXVOiuMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:9ZlFYXVOiuMC>
+{'authors': 'Doron Rotem, Frank Wm Tompa, David Kirkpatrick',
+ 'conference': 'Proceedings of the 1st ACM SIGACT-SIGMOD symposium on '
+               'Principles of database systems',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:9ZlFYXVOiuMC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1982/3/29',
+ 'publisher': 'ACM',
+ 'title': 'Foundations for multifile design by application partitioning',
+ 'total_citations': '3'}
+2017-07-31 14:44:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:JV2RwH3_ST0C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:JV2RwH3_ST0C>
+{'authors': '',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:JV2RwH3_ST0C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2013/10/15',
+ 'publisher': '',
+ 'title': 'View matching of materialized XML views',
+ 'total_citations': '3'}
+2017-07-31 14:44:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:q3oQSFYPqjQC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:44:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:q3oQSFYPqjQC>
+{'authors': 'Andrew Kane, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:q3oQSFYPqjQC',
+ 'journal': 'The 11th International Workshop on Large-Scale and Distributed '
+            'Systems for Information Retrieval',
+ 'pdf_link': 'https://cs.uwaterloo.ca/~arkane/kane2014distribution.pdf',
+ 'publication_date': '2014/01/01',
+ 'publisher': '',
+ 'title': 'Distribution by document size',
+ 'total_citations': '3'}
+2017-07-31 14:45:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:1qzjygNMrQYC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:1qzjygNMrQYC>
+{'authors': 'Richard Zanibbi, Kenny Davila, Andrew Kane, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:1qzjygNMrQYC',
+ 'journal': 'arXiv preprint arXiv:1507.06235',
+ 'pdf_link': 'https://arxiv.org/pdf/1507.06235',
+ 'publication_date': '2015/7/22',
+ 'publisher': '',
+ 'title': 'The tangent search engine: Improved similarity metrics and '
+          'scalability for math formula search',
+ 'total_citations': '3'}
+2017-07-31 14:45:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:olpn-zPbct0C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:olpn-zPbct0C>
+{'authors': 'Kenny Davila, Richard Zanibbi, Andrew Kane, Frank Wm Tompa',
+ 'conference': 'NTCIR',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:olpn-zPbct0C',
+ 'journal': '',
+ 'pdf_link': 'http://research.nii.ac.jp/ntcir/workshop/OnlineProceedings12/pdf/ntcir/MathIR/06-NTCIR12-MathIR-DavilaK_slides.pdf',
+ 'publication_date': '2016/6/10',
+ 'publisher': '',
+ 'title': 'Tangent-3 at the NTCIR-12 MathIR Task.',
+ 'total_citations': '3'}
+2017-07-31 14:45:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:Mojj43d5GZwC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:Mojj43d5GZwC>
+{'authors': 'Nava Ehsan, Frank Wm Tompa, Azadeh Shakery',
+ 'conference': 'Proceedings of the 2016 ACM Symposium on Document Engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:Mojj43d5GZwC',
+ 'journal': '',
+ 'pdf_link': 'http://dl.acm.org/ft_gateway.cfm?id=2960817&type=pdf',
+ 'publication_date': '2016/9/13',
+ 'publisher': 'ACM',
+ 'title': 'Using a dictionary and n-gram alignment to improve fine-grained '
+          'cross-language plagiarism detection',
+ 'total_citations': '3'}
+2017-07-31 14:45:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:UxriW0iASnsC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:UxriW0iASnsC>
+{'authors': 'Frank William Tompa, CC Gotlieb',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:UxriW0iASnsC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1973/01/01',
+ 'publisher': 'University of Toronto, Department of Computer Science',
+ 'title': 'Choosing a storage schema',
+ 'total_citations': '4'}
+2017-07-31 14:45:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:KxtntwgDAa4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:10 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:KxtntwgDAa4C>
+{'authors': 'Frank William Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:KxtntwgDAa4C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1977/01/01',
+ 'publisher': '',
+ 'title': 'CHOOSING A DATA STORAGE SCHEMA.',
+ 'total_citations': '4'}
+2017-07-31 14:45:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:xtRiw3GOFMkC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:xtRiw3GOFMkC>
+{'authors': 'Raúl J Ramírez, Frank W Tompa, J Ian Munro',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:xtRiw3GOFMkC',
+ 'journal': 'Acta Informatica',
+ 'pdf_link': '',
+ 'publication_date': '1982/3/1',
+ 'publisher': 'Springer Berlin/Heidelberg',
+ 'title': 'Optimum reorganization points for arbitrary database costs',
+ 'total_citations': '4'}
+2017-07-31 14:45:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:1sJd4Hv_s6UC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:1sJd4Hv_s6UC>
+{'authors': 'Frank Tompa, Raúl Ramírez',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:1sJd4Hv_s6UC',
+ 'journal': 'INFOR: Information Systems and Operational Research',
+ 'pdf_link': '',
+ 'publication_date': '1983/8/1',
+ 'publisher': 'Taylor & Francis',
+ 'title': 'An aid for the selection of efficient storage structures',
+ 'total_citations': '4'}
+2017-07-31 14:45:17 [scrapy.extensions.logstats] INFO: Crawled 74 pages (at 23 pages/min), scraped 69 items (at 22 items/min)
+2017-07-31 14:45:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:XiVPGOgt02cC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:45:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:XiVPGOgt02cC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:XiVPGOgt02cC',
+ 'journal': 'Reflections on the Future of Text, Proceedings of the Tenth '
+            'Annual Conference of UW Centre for the New OED and Text Research',
+ 'pdf_link': '',
+ 'publication_date': '1994/01/01',
+ 'publisher': '',
+ 'title': 'Not Just Another Database Project: Developments at UW',
+ 'total_citations': '4'}
+2017-07-31 14:45:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:NaGl4SEjCO4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:NaGl4SEjCO4C>
+{'authors': 'Renee Miller, Frank Tompa, Sheila McIlraith, Jacob Slonim, Eric '
+            'Yu',
+ 'conference': 'Proceedings of the 2011 Conference of the Center for Advanced '
+               'Studies on Collaborative Research',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:NaGl4SEjCO4C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/11/7',
+ 'publisher': 'IBM Corp.',
+ 'title': 'NSERC business intelligence network: selected topics',
+ 'total_citations': '0'}
+2017-07-31 14:45:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:08ZZubdj9fEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:08ZZubdj9fEC>
+{'authors': 'Raymond T Ng, Patricia C Arocena, Denilson Barbosa, Giuseppe '
+            'Carenini, Luiz Gomes, Jr, Stephan Jou, Rock Anthony Leung, '
+            'Evangelos Milios, Renée J Miller, John Mylopoulos, Rachel A '
+            'Pottinger, Frank Tompa, Eric Yu',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:08ZZubdj9fEC',
+ 'journal': 'Synthesis Lectures on Data Management',
+ 'pdf_link': 'http://people.scs.carleton.ca/~bertossi/dmbi/material/BIsynth.pdf',
+ 'publication_date': '2013/4/30',
+ 'publisher': 'Morgan & Claypool Publishers',
+ 'title': 'Perspectives on Business Intelligence',
+ 'total_citations': '0'}
+2017-07-31 14:45:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:D_sINldO8mEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:D_sINldO8mEC>
+{'authors': 'Garfield Zhiping Wu, Frank Wm Tompa',
+ 'conference': 'Data Compression Conference (DCC), 2014',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:D_sINldO8mEC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2014/3/26',
+ 'publisher': 'IEEE',
+ 'title': 'Effective and Efficient Bitmaps for Access Control',
+ 'total_citations': '0'}
+2017-07-31 14:45:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:HE397vMXCloC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:HE397vMXCloC>
+{'authors': 'Garfield Zhiping Wu, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 21st ACM on Symposium on Access Control '
+               'Models and Technologies',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:HE397vMXCloC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2016/6/6',
+ 'publisher': 'ACM',
+ 'title': 'A Space-Efficient Data Structure for Fast Access Control in ECM '
+          'Systems',
+ 'total_citations': '0'}
+2017-07-31 14:45:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:zA6iFVUQeVQC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:zA6iFVUQeVQC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:zA6iFVUQeVQC',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/1975/CS-75-16.pdf',
+ 'publication_date': '1975/05/01',
+ 'publisher': 'University of Waterloo. Department of Computer Science',
+ 'title': 'Evaluating the Efficiency of Storage Structures',
+ 'total_citations': '1'}
+2017-07-31 14:45:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:dshw04ExmUIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:dshw04ExmUIC>
+{'authors': 'Tok-Wang Ling, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:dshw04ExmUIC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1978/01/01',
+ 'publisher': 'Department of Computer Science, University of Waterloo',
+ 'title': 'Adequate Definitions for Third Normal Form',
+ 'total_citations': '1'}
+2017-07-31 14:45:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:nb7KW1ujOQ8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:nb7KW1ujOQ8C>
+{'authors': 'Tok-Wang Ling, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:nb7KW1ujOQ8C',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/1978/CS-78-35.pdf',
+ 'publication_date': '1978/07/01',
+ 'publisher': 'Department of Computer Science, University of Waterloo',
+ 'title': 'Implicit Constraints Within Relational Data Bases',
+ 'total_citations': '1'}
+2017-07-31 14:45:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:P5F9QuxV20EC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:P5F9QuxV20EC>
+{'authors': 'Frank William Tompa, Raul J Ramirez',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:P5F9QuxV20EC',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/1979/CS-79-40.pdf',
+ 'publication_date': '1979/11/15',
+ 'publisher': 'Department of Computer Science, University of Waterloo',
+ 'title': 'Selection of Efficient Storage Structures',
+ 'total_citations': '1'}
+2017-07-31 14:45:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:fQNAKQ3IYiAC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:fQNAKQ3IYiAC>
+{'authors': 'Darrell R Raymond, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:fQNAKQ3IYiAC',
+ 'journal': 'CANADIAN JOURNAL OF INFORMATION SCIENCE-REVUE CANADIENNE DES '
+            'SCIENCES DE L INFORMATION',
+ 'pdf_link': '',
+ 'publication_date': '1987/1/1',
+ 'publisher': 'CANADIAN ASSOC INFORMATION SCIENCE',
+ 'title': 'The limits of user consultation in database design',
+ 'total_citations': '1'}
+2017-07-31 14:45:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:HDshCWvjkbEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:HDshCWvjkbEC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': 'International Conference on Computer Assisted Learning',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:HDshCWvjkbEC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1990/6/11',
+ 'publisher': 'Springer, Berlin, Heidelberg',
+ 'title': 'Flexible access to text-based resources',
+ 'total_citations': '1'}
+2017-07-31 14:45:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:ZeXyd9-uunAC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:ZeXyd9-uunAC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:ZeXyd9-uunAC',
+ 'journal': 'Centre for the New OED and Text Research, University of Waterloo',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/2371/aa49a2da6e5292e0418175dfd879739449b0.pdf',
+ 'publication_date': '1992/01/01',
+ 'publisher': '',
+ 'title': 'Experiences with the OED',
+ 'total_citations': '1'}
+2017-07-31 14:45:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:2P1L_qKh6hAC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:2P1L_qKh6hAC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:2P1L_qKh6hAC',
+ 'journal': 'Transactions of the Royal Society of Canada, Series VI',
+ 'pdf_link': '',
+ 'publication_date': '1994/01/01',
+ 'publisher': '',
+ 'title': 'Recovering Information from Stored Text',
+ 'total_citations': '1'}
+2017-07-31 14:45:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:dhFuZR0502QC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:dhFuZR0502QC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:dhFuZR0502QC',
+ 'journal': 'CH Working Papers',
+ 'pdf_link': '',
+ 'publication_date': '1996/1/9',
+ 'publisher': '',
+ 'title': 'An Overview of Waterloo\'s Database Software for the" OED"',
+ 'total_citations': '1'}
+2017-07-31 14:45:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:eMMeJKvmdy0C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:eMMeJKvmdy0C>
+{'authors': 'Mei Zhou, Frank W Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:eMMeJKvmdy0C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1997/01/01',
+ 'publisher': 'Technical report, Department of Computer Science, University of '
+              'Waterloo',
+ 'title': 'The su x-signature method for searching for phrases in text',
+ 'total_citations': '1'}
+2017-07-31 14:45:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:mB3voiENLucC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:45:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:mB3voiENLucC>
+{'authors': 'Reem K Al-Halimi, Frank W Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:mB3voiENLucC',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/2003/36/relevance_measures_TR.pdf',
+ 'publication_date': '2003/01/01',
+ 'publisher': 'Tech. Rep. cs-2003-36, University of Waterloo, Canada (oct '
+              '2003). URL http://www. cs. uwaterloo. '
+              'ca/research/tr/2003/36/relevance_measures_TR. pdf',
+ 'title': 'Using word position in documents for topic characterization',
+ 'total_citations': '1'}
+2017-07-31 14:46:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:GnPB-g6toBAC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:46:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:GnPB-g6toBAC>
+{'authors': 'Leslie Dolman, Frank Tompa, Iluju Kiringa, Rachel Pottinger, John '
+            'Mylopoulos',
+ 'conference': 'Proceedings of the 2010 Conference of the Center for Advanced '
+               'Studies on Collaborative Research',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:GnPB-g6toBAC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2010/11/1',
+ 'publisher': 'IBM Corp.',
+ 'title': 'Next generation business intelligence (BI) tools',
+ 'total_citations': '1'}
+2017-07-31 14:46:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:_B80troHkn4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:_B80troHkn4C>
+{'authors': 'Frank William Tompa, University of Western Ontario. Dept. of '
+            'Computer Science, Derick Wood',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:_B80troHkn4C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1993/01/01',
+ 'publisher': 'London, Ont.: Department of Computer Science, University of '
+              'Western Ontario',
+ 'title': 'Markup Reconsidered',
+ 'total_citations': '0'}
+2017-07-31 14:46:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:SeFeTyx0c_EC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:SeFeTyx0c_EC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:SeFeTyx0c_EC',
+ 'journal': 'Digital Studies/Le champ numérique',
+ 'pdf_link': '',
+ 'publication_date': '1996/1/9',
+ 'publisher': '',
+ 'title': "An Overview of Waterloo's Database Software for the OED [1992, "
+          'rptd. 1996, 2008]',
+ 'total_citations': '0'}
+2017-07-31 14:46:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:O3NaXMp0MMsC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:O3NaXMp0MMsC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:O3NaXMp0MMsC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1997/11/01',
+ 'publisher': '',
+ 'title': 'Department of Computer Science University of Waterloo Waterloo, ON, '
+          'Canada',
+ 'total_citations': '0'}
+2017-07-31 14:46:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:YFjsv_pBGBYC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:YFjsv_pBGBYC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:YFjsv_pBGBYC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2001/01/01',
+ 'publisher': '',
+ 'title': 'Requirements for XML document database systems. Presentation given '
+          'in the First ACM Symposium on Document Engineering. Atlanta, '
+          'Georgia 10.11. 2001',
+ 'total_citations': '0'}
+2017-07-31 14:46:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:pqnbT2bcN3wC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:pqnbT2bcN3wC>
+{'authors': 'Frank Tompa, Airi Salminen',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:pqnbT2bcN3wC',
+ 'journal': '',
+ 'pdf_link': 'https://jyx.jyu.fi/dspace/bitstream/handle/123456789/40465/IntroductionToXML_11072001.pdf?sequence=1',
+ 'publication_date': '2001/01/01',
+ 'publisher': '',
+ 'title': 'Introduction to XML. Presentation of a one-day course. Institute '
+          'for Computer Research, University of Waterloo, July 11, 2001',
+ 'total_citations': '0'}
+2017-07-31 14:46:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:4JMBOYKVnBMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:4JMBOYKVnBMC>
+{'authors': 'Robert Warren, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:4JMBOYKVnBMC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/8fa4/09544d30554b70134b65bead317c98fc22ec.pdf',
+ 'publication_date': '2005/8/19',
+ 'publisher': '',
+ 'title': 'Multi column matching for database schema translation',
+ 'total_citations': '0'}
+2017-07-31 14:46:17 [scrapy.extensions.logstats] INFO: Crawled 99 pages (at 25 pages/min), scraped 92 items (at 23 items/min)
+2017-07-31 14:46:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:l7t_Zn2s7bgC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:l7t_Zn2s7bgC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:l7t_Zn2s7bgC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2009/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Document Databases',
+ 'total_citations': '0'}
+2017-07-31 14:46:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:tOudhMTPpwUC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:tOudhMTPpwUC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:tOudhMTPpwUC',
+ 'journal': 'Encyclopedia of Database Systems',
+ 'pdf_link': '',
+ 'publication_date': '2009/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Hypertexts',
+ 'total_citations': '0'}
+2017-07-31 14:46:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:LPZeul_q3PIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:LPZeul_q3PIC>
+{'authors': 'Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:LPZeul_q3PIC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2009/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Enterprise Content Management',
+ 'total_citations': '0'}
+2017-07-31 14:46:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:maZDTaKrznsC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:maZDTaKrznsC>
+{'authors': 'Ahmed A Ataullah, Frank Wm Tompa',
+ 'conference': 'Requirements Engineering and Law (RELAW), 2009 Second '
+               'International Workshop on',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:maZDTaKrznsC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/5e1f/837b0268f2a25bf53b6d5c7cd4d5d6231a59.pdf',
+ 'publication_date': '2009/9/1',
+ 'publisher': 'IEEE',
+ 'title': 'Records Retention in Relational Database Systems: Bridging the gap '
+          'between laws and enforcement actions',
+ 'total_citations': '0'}
+2017-07-31 14:46:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:TQgYirikUcIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:TQgYirikUcIC>
+{'authors': 'Darren Lunn, Mark Bernstein, Cathy Marshall, J Nathan Matias, '
+            'James M Nyce, Frank Tompa',
+ 'conference': 'Proceedings of the 21st ACM conference on Hypertext and '
+               'hypermedia',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:TQgYirikUcIC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2010/6/13',
+ 'publisher': 'ACM',
+ 'title': 'Past visions of hypertext and their influence on us today',
+ 'total_citations': '0'}
+2017-07-31 14:46:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:RHpTSmoSYBkC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:RHpTSmoSYBkC>
+{'authors': 'Luiz Gomes, Frank W Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:RHpTSmoSYBkC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/0b79/bbe8c74263e7ce5cb4a440c8a85b2b781437.pdf',
+ 'publication_date': '2010/8/28',
+ 'publisher': '',
+ 'title': 'Information Extraction in the Business Intelligence Context',
+ 'total_citations': '0'}
+2017-07-31 14:46:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:e5wmG9Sq2KIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:e5wmG9Sq2KIC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:e5wmG9Sq2KIC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Data-Centric and Multimedia Components',
+ 'total_citations': '0'}
+2017-07-31 14:46:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:_Qo2XoVZTnwC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:_Qo2XoVZTnwC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:_Qo2XoVZTnwC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Fundamentals',
+ 'total_citations': '0'}
+2017-07-31 14:46:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:TFP_iSt0sucC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:TFP_iSt0sucC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:TFP_iSt0sucC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Setting the Stage',
+ 'total_citations': '0'}
+2017-07-31 14:46:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:k_IJM867U9cC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:46:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:k_IJM867U9cC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:k_IJM867U9cC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Data Interchange',
+ 'total_citations': '0'}
+2017-07-31 14:46:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:R3hNpaxXUhUC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:46:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:R3hNpaxXUhUC>
+{'authors': 'FW Tompa, GE Blake, IJ Davis, Kuikka Kilpelainen, MP Consens, PA '
+            'Larson, T Snider',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:R3hNpaxXUhUC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Text/Relational Database Management Systems: Overview and Proposed '
+          'SQL Extensions',
+ 'total_citations': '0'}
+2017-07-31 14:46:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:j3f4tGmQtD8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:46:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:j3f4tGmQtD8C>
+{'authors': 'T Snider, FW Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:j3f4tGmQtD8C',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/e43c/9e0c079810a013f10ade3b3219ae9b980999.pdf',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Text/Relational Database Management Systems: Harmonizing SQL and '
+          'SGML',
+ 'total_citations': '0'}
+2017-07-31 14:46:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:hMod-77fHWUC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:46:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:hMod-77fHWUC>
+{'authors': 'Amir H Chinaei, Ken Barker, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:hMod-77fHWUC',
+ 'journal': '',
+ 'pdf_link': 'http://94.142.32.98/conferences/ICIT09/PaperList/Papers/Computer%20and%20Network%20Security/509.pdf',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Space of Access Control Administration Models',
+ 'total_citations': '0'}
+2017-07-31 14:46:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:BqipwSGYUEgC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:46:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:BqipwSGYUEgC>
+{'authors': 'FW Tompa, JA Blakeley, PA Larson',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:BqipwSGYUEgC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Efficiently Updating Materialized Views',
+ 'total_citations': '0'}
+2017-07-31 14:46:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:vV6vV6tmYwMC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:46:55 [scrapy.core.scraper] ERROR: Error processing {'authors': 'Zarrin Langari, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:vV6vV6tmYwMC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Subject Classiﬁcation in the Oxford English Dictionary',
+ 'total_citations': '0'}
+Traceback (most recent call last):
+  File "/root/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 653, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/root/work/Research-Scraper/web/spiders/AuthorSpider.py", line 51, in process_item
+    item['total_citations'], item['gs_link'], item['pdf_link']))
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xEF\\xAC\\x81cat...' for column 'title' at row 1")
+2017-07-31 14:46:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:70eg2SAEIzsC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:46:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:70eg2SAEIzsC>
+{'authors': 'FW Tompa, GE Blake, MP Consens, P Kilpelainen, PA Larson, T '
+            'Snider',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:70eg2SAEIzsC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Text/Relational Database Management Systems: Harmonizing SQL and '
+          'SGML',
+ 'total_citations': '0'}
+2017-07-31 14:46:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:p2g8aNsByqUC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:46:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:p2g8aNsByqUC>
+{'authors': 'Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:p2g8aNsByqUC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Structured Text Database Systems',
+ 'total_citations': '0'}
+2017-07-31 14:47:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:4fKUyHm3Qg0C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:4fKUyHm3Qg0C>
+{'authors': 'AM Salminen, Frank Wm Tompa, Kalle Lyytlnen, Richard Welke, '
+            'Philip A Bernstein, Thomas Bergstraesser, Jason Carbon, Shankar '
+            'Pal, Paul Sanders, David Shutt, Vincent Englebert, Jean-Luc '
+            'Halnaut, Jos Van Hlllegersberg, Kuldeep Kumar, Hans W Nlssen, '
+            'Matthfas Jarke, Dickson KW Chfu, Qfng Li, Kamalakar Karlapalem',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:4fKUyHm3Qg0C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'ADVANCED INFORMATION SYSTEMS ENGINEERING',
+ 'total_citations': '0'}
+2017-07-31 14:47:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:V3AGJWp-ZtQC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:V3AGJWp-ZtQC>
+{'authors': 'Darren Lunn, Mark Bernstein, Cathy Marshall, J Nathan Matias, '
+            'James M Nyce, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:V3AGJWp-ZtQC',
+ 'journal': '',
+ 'pdf_link': 'https://www.researchgate.net/profile/Darren_Lunn/publication/221267422_Past_visions_of_hypertext_and_their_influence_on_us_today/links/0deec532d61dc95e01000000.pdf',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Panel Session: Past Visions of Hypertext and Their Influence on Us '
+          'Today',
+ 'total_citations': '0'}
+2017-07-31 14:47:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:tkaPQYYpVKoC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:tkaPQYYpVKoC>
+{'authors': 'University of Waterloo. Faculty of Mathematics, F Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:tkaPQYYpVKoC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1978/01/01',
+ 'publisher': 'Department of Computer Science, University of Waterloo',
+ 'title': 'Adequate Definitions for Third Normal Form',
+ 'total_citations': '0'}
+2017-07-31 14:47:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:u9iWguZQMMsC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:u9iWguZQMMsC>
+{'authors': 'Raul J Ramirez, University of Waterloo. Faculty of Mathematics',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:u9iWguZQMMsC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1979/01/01',
+ 'publisher': 'Faculty of Mathematics, University of Waterloo',
+ 'title': 'Selection of Efficient Storage Structures',
+ 'total_citations': '0'}
+2017-07-31 14:47:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:uWQEDVKXjbEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:10 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:uWQEDVKXjbEC>
+{'authors': 'Frank William Tompa, University of Waterloo. Dept. of Computer '
+            'Science',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:uWQEDVKXjbEC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1980/01/01',
+ 'publisher': 'Department of Computer Science, University of Waterloo',
+ 'title': 'A Look at Symmetric Binary B-trees',
+ 'total_citations': '0'}
+2017-07-31 14:47:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:Tiz5es2fbqcC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:Tiz5es2fbqcC>
+{'authors': 'Raul J Ramirez, University of Waterloo. Dept. of Computer Science',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:Tiz5es2fbqcC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1980/01/01',
+ 'publisher': 'Department of Computer Science, University of Waterloo',
+ 'title': 'An Aid for the Selection of Efficient Storage Structures',
+ 'total_citations': '0'}
+2017-07-31 14:47:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:isC4tDSrTZIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:isC4tDSrTZIC>
+{'authors': 'Gaston H.  Gonnet, Per-Aake Larson, J. Ian  Munro, Doron Rotem, '
+            'David J.  Taylor, Frank Wm.  Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:isC4tDSrTZIC',
+ 'journal': 'IEEE Database Eng. Bull.',
+ 'pdf_link': '',
+ 'publication_date': '1982/01/01',
+ 'publisher': '',
+ 'title': 'Database Storage Structures Research at the University of Waterloo',
+ 'total_citations': '0'}
+2017-07-31 14:47:17 [scrapy.extensions.logstats] INFO: Crawled 123 pages (at 24 pages/min), scraped 115 items (at 23 items/min)
+2017-07-31 14:47:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:M3NEmzRMIkIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:M3NEmzRMIkIC>
+{'authors': 'D Badal, A Cardenas, P Mantey, F Tompa, D Tsichritzis, Starvos '
+            'Chairman-Christodoulakis',
+ 'conference': 'ACM SIGMOD Record',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:M3NEmzRMIkIC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1985/5/1',
+ 'publisher': 'ACM',
+ 'title': 'Multimedia database management (panel session)',
+ 'total_citations': '0'}
+2017-07-31 14:47:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:RYcK_YlVTxYC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:RYcK_YlVTxYC>
+{'authors': 'Fr Ank Wm Tompa, Darrell R Raymond, Alberto J Cañas, Fr Ank R '
+            'Safayeni',
+ 'conference': 'Department of Computer Science, University of Waterloo',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:RYcK_YlVTxYC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1986/01/01',
+ 'publisher': '',
+ 'title': 'Measuring the Effectiveness of Personal Database Structures',
+ 'total_citations': '0'}
+2017-07-31 14:47:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:738O_yMBCRsC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:22 [scrapy.core.scraper] ERROR: Error processing {'authors': 'Alberto J Canas, Frank Wm Tompa, Frank R Safayeni',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:738O_yMBCRsC',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/1986/CS-86-60.pdf',
+ 'publication_date': '1986/11/14',
+ 'publisher': '',
+ 'title': 'EE §§ ! Eﬁ § E § EE § E-WEE?',
+ 'total_citations': '0'}
+Traceback (most recent call last):
+  File "/root/anaconda3/lib/python3.6/site-packages/twisted/internet/defer.py", line 653, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/root/work/Research-Scraper/web/spiders/AuthorSpider.py", line 51, in process_item
+    item['total_citations'], item['gs_link'], item['pdf_link']))
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/root/anaconda3/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xEF\\xAC\\x81 \\xC2\\xA7...' for column 'title' at row 1")
+2017-07-31 14:47:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:XiSMed-E-HIC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:XiSMed-E-HIC>
+{'authors': 'Frank Tompa, Darrell Raymond',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:XiSMed-E-HIC',
+ 'journal': 'Trial',
+ 'pdf_link': '',
+ 'publication_date': '1991/04/01',
+ 'publisher': '',
+ 'title': 'Flexible text visualization with applications to CASE',
+ 'total_citations': '0'}
+2017-07-31 14:47:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:vRqMK49ujn8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:vRqMK49ujn8C>
+{'authors': 'A APOSTOLICO, M CROCHEMORE, Z GALIL, G GONNET, D GUSFIELD, D '
+            'HIRSCHBERG, U MANBER, EW MYERS, F TOMPA, E UKKONEN',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:vRqMK49ujn8C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1992/1/1',
+ 'publisher': 'SPRINGER VERLAG',
+ 'title': 'COMBINATORIAL PATTERN-MATCHING-3RD ANNUAL SYMPOSIUM TUCSON, '
+          'ARIZONA, USA, APRIL 29 MAY 1, 1992 PROCEEDINGS-FOREWORD',
+ 'total_citations': '0'}
+2017-07-31 14:47:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:Y5dfb0dijaUC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=120&pagesize=20)
+2017-07-31 14:47:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:Y5dfb0dijaUC>
+{'authors': 'Frank William Tompa, University of Waterloo. Dept. of Computer '
+            'Science, University of Waterloo. Faculty of Mathematics',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=120&citation_for_view=sOl6-dEAAAAJ:Y5dfb0dijaUC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1992/01/01',
+ 'publisher': 'University of Waterloo, Computer Science Department',
+ 'title': 'Applying Database Dependency Theory to Software Engineering',
+ 'total_citations': '0'}
+2017-07-31 14:47:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:J_g5lzvAfSwC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:47:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:J_g5lzvAfSwC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:J_g5lzvAfSwC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Metadata',
+ 'total_citations': '0'}
+2017-07-31 14:47:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:35N4QoGY0k4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:47:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:35N4QoGY0k4C>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:35N4QoGY0k4C',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Document Management',
+ 'total_citations': '0'}
+2017-07-31 14:47:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:g5m5HwL7SMYC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:47:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:g5m5HwL7SMYC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:g5m5HwL7SMYC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Adopting XML for Large-Scale Information',
+ 'total_citations': '0'}
+2017-07-31 14:47:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:eflP2zaiRacC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=100&pagesize=20)
+2017-07-31 14:47:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:eflP2zaiRacC>
+{'authors': 'CACM Staff',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=100&citation_for_view=sOl6-dEAAAAJ:eflP2zaiRacC',
+ 'journal': 'Communications of the ACM',
+ 'pdf_link': '',
+ 'publication_date': '2011/2/1',
+ 'publisher': 'ACM',
+ 'title': 'ACM Fellows honored',
+ 'total_citations': '0'}
+2017-07-31 14:47:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:ldfaerwXgEUC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:47:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:ldfaerwXgEUC>
+{'authors': 'Airi Salminen, Frank Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:ldfaerwXgEUC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2011/01/01',
+ 'publisher': 'Springer US',
+ 'title': 'Why Use XML?',
+ 'total_citations': '1'}
+2017-07-31 14:47:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:-f6ydRqryjwC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:47:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:-f6ydRqryjwC>
+{'authors': 'Ahmed A Ataullah, Frank Wm Tompa',
+ 'conference': 'Policies for Distributed Systems and Networks (POLICY), 2011 '
+               'IEEE International Symposium on',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:-f6ydRqryjwC',
+ 'journal': '',
+ 'pdf_link': 'https://cs.uwaterloo.ca/~fwtompa/.papers/Ataullah-Policy11.pdf',
+ 'publication_date': '2011/6/6',
+ 'publisher': 'IEEE',
+ 'title': 'Lifecycle management of relational records for external auditing '
+          'and regulatory compliance',
+ 'total_citations': '1'}
+2017-07-31 14:47:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:u_35RYKgDlwC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:47:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:u_35RYKgDlwC>
+{'authors': 'Grzegorz Drzadzewski, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 5th Ph. D. workshop on Information and '
+               'knowledge',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:u_35RYKgDlwC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2012/11/2',
+ 'publisher': 'ACM',
+ 'title': 'Exploring and analyzing documents with OLAP',
+ 'total_citations': '1'}
+2017-07-31 14:47:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:K3LRdlH-MEoC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=80&pagesize=20)
+2017-07-31 14:47:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:K3LRdlH-MEoC>
+{'authors': 'Frank Wm Tompa, JoséI Icaza',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=80&citation_for_view=sOl6-dEAAAAJ:K3LRdlH-MEoC',
+ 'journal': 'Information sciences',
+ 'pdf_link': '',
+ 'publication_date': '1990/4/1',
+ 'publisher': 'Elsevier',
+ 'title': 'Adaptive selection of query execution strategies by learning '
+          'automata',
+ 'total_citations': '2'}
+2017-07-31 14:47:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:qUcmZB5y_30C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:47:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:qUcmZB5y_30C>
+{'authors': 'Amir H Chinaei, Ken Barker, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:qUcmZB5y_30C',
+ 'journal': 'Ubiquitous Communication and Computing Journal (UBICC)',
+ 'pdf_link': 'https://www.researchgate.net/profile/Ken_Barker/publication/255468069_Comparison_of_Access_Control_Administration_Models/links/0a85e53b42802a3e66000000.pdf',
+ 'publication_date': '2009/01/01',
+ 'publisher': '',
+ 'title': 'Comparison of access control administration models',
+ 'total_citations': '4'}
+2017-07-31 14:47:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:hFOr9nPyWt4C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:47:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:hFOr9nPyWt4C>
+{'authors': 'Ahmed Ataullah, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:hFOr9nPyWt4C',
+ 'journal': 'Proceedings of the VLDB Endowment',
+ 'pdf_link': 'http://www.vldb.org/pvldb/vol4/p921-ataullah.pdf',
+ 'publication_date': '2011/01/01',
+ 'publisher': '',
+ 'title': 'Business policy modeling and enforcement in databases',
+ 'total_citations': '4'}
+2017-07-31 14:47:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:tS2w5q8j5-wC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:47:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:tS2w5q8j5-wC>
+{'authors': 'Andrew Kane, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:tS2w5q8j5-wC',
+ 'journal': 'Literary and Linguistic Computing',
+ 'pdf_link': '',
+ 'publication_date': '2011/5/4',
+ 'publisher': 'EADH: The European Association for Digital Humanities',
+ 'title': 'Janus: the intertextuality search engine for the electronic '
+          'Manipulus florum project',
+ 'total_citations': '5'}
+2017-07-31 14:47:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:t6usbXjVLHcC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=60&pagesize=20)
+2017-07-31 14:47:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:t6usbXjVLHcC>
+{'authors': 'Richard Zanibbi, Kenny Davila, Andrew Kane, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 39th International ACM SIGIR conference on '
+               'Research and Development in Information Retrieval',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=60&citation_for_view=sOl6-dEAAAAJ:t6usbXjVLHcC',
+ 'journal': '',
+ 'pdf_link': 'http://www.cs.rit.edu/~rlaz/files/sigir-tangent.pdf',
+ 'publication_date': '2016/7/7',
+ 'publisher': 'ACM',
+ 'title': 'Multi-stage math formula search: Using appearance-based similarity '
+          'metrics at scale',
+ 'total_citations': '5'}
+2017-07-31 14:48:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:geHnlv5EZngC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:48:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:geHnlv5EZngC>
+{'authors': 'Yashar Mehdad, Giuseppe Carenini, Frank Wm Tompa, Raymond T Ng',
+ 'conference': 'ENLG',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:geHnlv5EZngC',
+ 'journal': '',
+ 'pdf_link': 'https://www.aclweb.org/anthology/W/W13/W13-21.pdf#page=152',
+ 'publication_date': '2013/8/8',
+ 'publisher': '',
+ 'title': 'Abstractive Meeting Summarization with Entailment and Fusion.',
+ 'total_citations': '13'}
+2017-07-31 14:48:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:EUQCXRtRnyEC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:48:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:EUQCXRtRnyEC>
+{'authors': 'Frank W Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:EUQCXRtRnyEC',
+ 'journal': 'Acta Informatica',
+ 'pdf_link': '',
+ 'publication_date': '1980/3/1',
+ 'publisher': 'Springer Berlin/Heidelberg',
+ 'title': 'A practical example of the specification of abstract data types',
+ 'total_citations': '15'}
+2017-07-31 14:48:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:5nxA0vEk-isC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:48:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:5nxA0vEk-isC>
+{'authors': 'Airi Salminen, Frank Wm Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:5nxA0vEk-isC',
+ 'journal': 'Information Systems',
+ 'pdf_link': 'https://cs.uwaterloo.ca/research/tr/1996/40/CS-96-40.pdf',
+ 'publication_date': '1999/3/1',
+ 'publisher': 'Pergamon',
+ 'title': 'Grammars++ for modelling information in text',
+ 'total_citations': '15'}
+2017-07-31 14:48:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:3fE2CSJIrl8C> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=40&pagesize=20)
+2017-07-31 14:48:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:3fE2CSJIrl8C>
+{'authors': 'Hui Zhang, Frank Wm Tompa',
+ 'conference': 'Proceedings of the 2004 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=40&citation_for_view=sOl6-dEAAAAJ:3fE2CSJIrl8C',
+ 'journal': '',
+ 'pdf_link': 'http://people.inf.elte.hu/kiss/cikkek/070%20Querying%20XML%20documents%20by%20dynamic%20schredding%20(10%20oldal).pdf',
+ 'publication_date': '2004/10/28',
+ 'publisher': 'ACM',
+ 'title': 'Querying XML documents by dynamic shredding',
+ 'total_citations': '15'}
+2017-07-31 14:48:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:Se3iqnhoufwC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:48:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:Se3iqnhoufwC>
+{'authors': 'Blake Consens, GE Blake, MP Consens, IJ Davis, P Kilpelainen, E '
+            'Kuikka, PA Larson, T Snider, FW Tompa',
+ 'conference': 'Department of Computer Science, University of Waterloo',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:Se3iqnhoufwC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '1995/01/01',
+ 'publisher': '',
+ 'title': 'Text/relational database management systems: Overview and proposed '
+          'sql extensions',
+ 'total_citations': '29'}
+2017-07-31 14:48:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:LkGwnXOMwfcC> (referer: https://scholar.google.com/citations?user=sOl6-dEAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-07-31 14:48:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:LkGwnXOMwfcC>
+{'authors': 'Hui Zhang, Frank Wm.  Tompa',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=sOl6-dEAAAAJ&cstart=20&citation_for_view=sOl6-dEAAAAJ:LkGwnXOMwfcC',
+ 'journal': 'Computer Systems Science and Engineering',
+ 'pdf_link': '',
+ 'publication_date': '2003/9/1',
+ 'publisher': 'CRL PUBLISHING LTD',
+ 'title': 'XQuery rewriting at the relational algebra level',
+ 'total_citations': '30'}
+2017-07-31 14:48:13 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-07-31 14:48:13 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 82950,
+ 'downloader/request_count': 147,
+ 'downloader/request_method_count/GET': 147,
+ 'downloader/response_bytes': 2470649,
+ 'downloader/response_count': 147,
+ 'downloader/response_status_count/200': 147,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 7, 31, 14, 48, 13, 869979),
+ 'item_scraped_count': 138,
+ 'log_count/DEBUG': 286,
+ 'log_count/ERROR': 2,
+ 'log_count/INFO': 12,
+ 'memusage/max': 54882304,
+ 'memusage/startup': 44855296,
+ 'request_depth_max': 7,
+ 'response_received_count': 147,
+ 'scheduler/dequeued': 147,
+ 'scheduler/dequeued/memory': 147,
+ 'scheduler/enqueued': 147,
+ 'scheduler/enqueued/memory': 147,
+ 'start_time': datetime.datetime(2017, 7, 31, 14, 42, 17, 626044)}
+2017-07-31 14:48:13 [scrapy.core.engine] INFO: Spider closed (finished)

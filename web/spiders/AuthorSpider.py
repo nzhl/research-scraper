@@ -136,13 +136,13 @@ class AuthorSpider(Spider):
         return paper
 
 def start_crawler(url, author_id):
-    if not isdir('nottingham/spiders/log'):
-        mkdir('nottingham/spiders/log')
+    if not isdir('web/spiders/log'):
+        mkdir('web/spiders/log')
     process = CrawlerProcess({ 
         'DOWNLOAD_DELAY':2,
         'USER-AGENT': 'Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) '
                       'Presto/2.8.131 Version/11.11',
-        'LOG_FILE': 'nottingham/spiders/log/%s.log' % author_id,
+        'LOG_FILE': 'web/spiders/log/%s.log' % author_id,
         'LOG_STDOUT': True,
         'ITEM_PIPELINES': {'AuthorSpider.DBPipeline':300,}
     })
