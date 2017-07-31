@@ -75,9 +75,9 @@
         methods: {
             search_all: function(){
                 if (this.search_by == "authors"){
-                    url = '/api/authors/?fields=id,name,gs_link';
+                    url = '/api/authors/';
                 } else{
-                    url = '/api/groups/?fields=id,name,description,group_link';
+                    url = '/api/groups/';
                 }
                 axios.get(url)
                     .then(function (response){
