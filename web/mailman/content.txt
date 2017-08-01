@@ -1,6 +1,8 @@
 Hi %s,
-
-    This is a registration invitation from %s. Your invitation code is %s, please finish your registraction at <a href="https://www.google.com> here</a>.
+  
+    This is a registration invitation from %s.
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Your invitation code is %s, please finish your registraction at http://35.176.109.132:5000.
 
 Best wishes,
 Research Scraper

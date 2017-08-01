@@ -12,7 +12,7 @@ class Mailman(object):
         self.sender = SMTP(self.account, self.password)
 
     def send_invitation(self, email, name, author_id):
-        with open('content.txt') as f:
+        with open('web/mailman/content.txt') as f:
             raw_content = f.read()
         content = raw_content % (name, session['name'], author_id)
-        self.sender.send(email, subject, content)
+        self.sender.send(email, self.subject, content)

@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify, g, session
 from flask.views import MethodView
 
 from ..mailman import Mailman
+from .authors import insert_raw_author
 
 def select_all_groups():
     sql = "SELECT * FROM groups"
