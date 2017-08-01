@@ -1,6 +1,7 @@
-
 from flask import Blueprint, request, jsonify, g, session
 from flask.views import MethodView
+
+from ..mailman import Mailman
 
 def select_all_groups():
     sql = "SELECT * FROM groups"
@@ -54,6 +55,16 @@ def insert_group(group):
         cursor.execute(sql, (session['id'], group_id))
     g.db.commit()
 
+    if not group['extra_authors']:
+        return
+    mailman = Mailman()
+    sql = "INSERT INTO authors_and_groups (author_id,group_id) VALUES (%s,%s)"
+    with g.db.cursor() as cursor:
+        for author in group['extra_authors']:
+            author_id = insert_raw_author()
+            cursor.execute(sql, (author_id, group_id))
+            mailman.send_invitation(author['email'], author['name'], author_id)
+
 
 def update_group(group):
     sql = "UPDATE groups SET name=%s, description=%s, group_link=%s WHERE id=%s"
@@ -62,6 +73,7 @@ def update_group(group):
             group['group_link'], group['group_id'],)
         )
     g.db.commit()
+    
 
 def update_filter(group):
     sql = ("UPDATE authors_and_groups SET before_date=%s, after_date=%s WHERE "

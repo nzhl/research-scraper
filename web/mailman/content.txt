@@ -1,0 +1,6 @@
+Hi %s,
+
+    This is a registration invitation from %s. Your invitation code is %s, please finish your registraction at <a href="https://www.google.com> here</a>.
+
+Best wishes,
+Research Scraper

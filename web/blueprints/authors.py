@@ -67,6 +67,18 @@ def insert_author(author):
         author = cursor.fetchone()
     return author
 
+def insert_raw_author():
+    sql = "INSERT INTO authors (is_registered) VALUES (0)"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql)
+        g.db.commit()
+        sql = "SELECT LAST_INSERT_ID()"
+        cursor.execute(sql)
+        return cursor.fetchone()['LAST_INSERT_ID()']
+    
+        
+
+
 class AuthorView(MethodView):
     def get(self, author_id = None):
         if author_id != None:

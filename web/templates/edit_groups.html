@@ -154,12 +154,22 @@
                 <input v-model="description" class="form-control" type="text" /><br/>
                 <p class="text-success">Group Link :</p>
                 <input v-model="group_link" class="form-control" type="text" /><br/>
-                <p class="text-success">Authors :</p>
+                <p class="text-success">Member :</p>
                 <select v-model="selected" class="form-control" multiple >
                     <template v-for="author in authors">
                         <option v-if="author.id != id"  v-bind:value="author.id" class="text-muted">{{author.name}}</option>
                     </template>
                 </select><br/>
+                <p class="text-success">Invite more authors:</p>
+                <template v-for="index in invitations_number">
+                    <h4>Extra author {{index}}</h4>
+                    <p class="text-success">Author Name :</p>
+                    <input v-bind:id="'invitation_name' + index" class="form-control" type="text"/><br/>
+                    <p class="text-success">Email Address :</p>
+                    <input v-bind:id="'invitation_email' + index" class="form-control" type="email"/><br/>
+                </template>
+                <button v-on:click="add_invitations_number">Invite one more</button>
+            
             </div>
             <div class="modal-footer">
                 <button v-on:click="create" type="button" class="btn btn-primary">
@@ -356,22 +366,35 @@
             description: "",
             group_link: "",
             authors: [],
-            selected: []
+            selected: [],
+            invitations_number: 0,
         },
         methods: {
             create: function(){
-                this.selected.push(id)
+                this.selected.push(id);
+                var extra_authors = []
+                for(var index = 1; index <= this.invitations_number; ++index){
+                    var name_id = 'invitation_name' + index;
+                    var email_id = 'invitation_email' + index;
+                    var name = document.getElementById(name_id).value
+                    var email = document.getElementById(email_id).value
+                    extra_authors.push({name: name, email: email})
+                }
                 axios.post("/api/groups/", {
-                    'name': this.name,
-                    'description': this.description,
-                    'group_link': this.group_link,
-                    'selected': this.selected,
+                    name: this.name,
+                    description: this.description,
+                    group_link: this.group_link,
+                    selected: this.selected,
+                    extra_authors: extra_authors
                 }).then(function(response){
                     alert("Group successfully added !")
                     location.reload()
                 }).catch(function(error){
                     alert("Unknown server error !")
                 })
+            },
+            add_invitations_number: function(){
+                this.invitations_number += 1;
             }
         }
     })

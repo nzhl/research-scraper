@@ -9,5 +9,6 @@ setup(
             'flask',
             'pymysql',
             'scrapy',
+            'yagmail'
         ],
 )
