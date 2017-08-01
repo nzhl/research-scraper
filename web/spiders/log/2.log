@@ -1,0 +1,308 @@
+2017-08-01 17:01:52 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: scrapybot)
+2017-08-01 17:01:52 [scrapy.utils.log] INFO: Overridden settings: {'DOWNLOAD_DELAY': 2, 'LOG_FILE': 'web/spiders/log/2.log', 'LOG_STDOUT': True}
+2017-08-01 17:01:52 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2017-08-01 17:01:52 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-08-01 17:01:52 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-08-01 17:01:52 [scrapy.middleware] INFO: Enabled item pipelines:
+['AuthorSpider.DBPipeline']
+2017-08-01 17:01:52 [scrapy.core.engine] INFO: Spider opened
+2017-08-01 17:01:52 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-08-01 17:01:52 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-08-01 17:01:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en> (referer: None)
+2017-08-01 17:01:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:_FxGoFyzp5QC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:01:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:_FxGoFyzp5QC>
+{'authors': 'Steven R Bagley, David F Brailsford, Brian W Kernighan',
+ 'conference': 'Proceedings of the 2013 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:_FxGoFyzp5QC',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/28165/1/eprint-202doceng13.pdf',
+ 'publication_date': '2013/9/10',
+ 'publisher': 'ACM',
+ 'title': 'Revisiting a summer vacation: digital restoration and typesetter '
+          'forensics',
+ 'total_citations': '0'}
+2017-08-01 17:01:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:roLk4NBRz8UC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:01:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:roLk4NBRz8UC>
+{'authors': 'Steven R Bagley, Matthew RB Hardy',
+ 'conference': 'Proceedings of the 2014 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:roLk4NBRz8UC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2014/9/16',
+ 'publisher': 'ACM',
+ 'title': 'DOCENG 2014: PDF tutorial',
+ 'total_citations': '0'}
+2017-08-01 17:01:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:UebtZRa9Y70C> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:01:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:UebtZRa9Y70C>
+{'authors': 'Martin Bailey',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:UebtZRa9Y70C',
+ 'journal': 'Nursery World',
+ 'pdf_link': '',
+ 'publication_date': '2016/5/15',
+ 'publisher': 'MA Education Ltd',
+ 'title': 'At a touch',
+ 'total_citations': '0'}
+2017-08-01 17:02:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Y0pCki6q_DkC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Y0pCki6q_DkC>
+{'authors': 'Steven Richard Bagley',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Y0pCki6q_DkC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2005/01/01',
+ 'publisher': '',
+ 'title': 'A component-based model for creating and manipulating digital '
+          'documents',
+ 'total_citations': '1'}
+2017-08-01 17:02:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:zYLM7Y9cAGgC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:zYLM7Y9cAGgC>
+{'authors': 'Steven R Bagley',
+ 'conference': 'Proceedings of the 10th ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:zYLM7Y9cAGgC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2010/9/21',
+ 'publisher': 'ACM',
+ 'title': 'Lessons from the dragon: compiling PDF to machine code',
+ 'total_citations': '1'}
+2017-08-01 17:02:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:2osOgNQ5qMEC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:2osOgNQ5qMEC>
+{'authors': 'Steven R Bagley',
+ 'conference': 'Proceedings of the 2006 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:2osOgNQ5qMEC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2006/10/10',
+ 'publisher': 'ACM',
+ 'title': 'COG extractor',
+ 'total_citations': '2'}
+2017-08-01 17:02:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:IjCSPb-OGe4C> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:IjCSPb-OGe4C>
+{'authors': 'Alexander Macdonald, David Brailsford, Steven Bagley, John Lumley',
+ 'conference': 'Proceedings of the 2007 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:IjCSPb-OGe4C',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/930/1/PhDThesis_ReikoRaute.pdf',
+ 'publication_date': '2007/8/28',
+ 'publisher': 'ACM',
+ 'title': 'Speculative document evaluation',
+ 'total_citations': '2'}
+2017-08-01 17:02:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:UeHWp8X0CEIC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:UeHWp8X0CEIC>
+{'authors': 'James A Ollis, Steven R Bagley, David F Brailsford',
+ 'conference': 'Proceedings of the eighth ACM symposium on Document '
+               'engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:UeHWp8X0CEIC',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/28098/1/eprints-final2008.pdf',
+ 'publication_date': '2008/9/16',
+ 'publisher': 'ACM',
+ 'title': 'Tracking sub-page components in document workflows',
+ 'total_citations': '2'}
+2017-08-01 17:02:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:LkGwnXOMwfcC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:LkGwnXOMwfcC>
+{'authors': 'Jacob Hughes, David F Brailsford, Steven R Bagley, Clive E Adams',
+ 'conference': 'Proceedings of the 2014 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:LkGwnXOMwfcC',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/28168/1/eprinthughes13.pdf',
+ 'publication_date': '2014/9/16',
+ 'publisher': 'ACM',
+ 'title': 'Generating summary documents for a variable-quality PDF document '
+          'collection',
+ 'total_citations': '2'}
+2017-08-01 17:02:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:YsMSGLbcyi4C> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:YsMSGLbcyi4C>
+{'authors': 'Alexander J Pinkney, Steven R Bagley, David F Brailsford',
+ 'conference': 'Proceedings of the 2013 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:YsMSGLbcyi4C',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/28167/1/eprintjustify2013.pdf',
+ 'publication_date': '2013/9/10',
+ 'publisher': 'ACM',
+ 'title': 'No need to justify your choice: pre-compiling line breaks to '
+          'improve eBook readability',
+ 'total_citations': '3'}
+2017-08-01 17:02:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Tyk-4Ss8FVUC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Tyk-4Ss8FVUC>
+{'authors': 'Steven R Bagley, David F Brailsford',
+ 'conference': 'Proceedings of the 2005 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Tyk-4Ss8FVUC',
+ 'journal': '',
+ 'pdf_link': '',
+ 'publication_date': '2005/11/2',
+ 'publisher': 'ACM',
+ 'title': 'The COG scrapbook',
+ 'total_citations': '4'}
+2017-08-01 17:02:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:qjMakFHDy7sC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:qjMakFHDy7sC>
+{'authors': 'Alexander J Pinkney, Steven R Bagley, David F Brailsford',
+ 'conference': 'Proceedings of the 11th ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:qjMakFHDy7sC',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/28128/1/eprint-reflow2011.pdf',
+ 'publication_date': '2011/9/19',
+ 'publisher': 'ACM',
+ 'title': 'Reflowable documents composed from pre-rendered atomic components',
+ 'total_citations': '5'}
+2017-08-01 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:9yKSN-GCB0IC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:9yKSN-GCB0IC>
+{'authors': 'Steven R Bagley, David F Brailsford',
+ 'conference': 'Proceedings of the 2004 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:9yKSN-GCB0IC',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/188/1/ppml04.pdf',
+ 'publication_date': '2004/10/28',
+ 'publisher': 'ACM',
+ 'title': 'Page Composition using PPML as a Link-editing Script',
+ 'total_citations': '6'}
+2017-08-01 17:02:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:d1gkVwhDpl0C> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:d1gkVwhDpl0C>
+{'authors': 'Steven R Bagley, David F Brailsford, James A Ollis',
+ 'conference': 'Proceedings of the 2007 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:d1gkVwhDpl0C',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/931/1/Final_Full_Version.pdf',
+ 'publication_date': '2007/8/28',
+ 'publisher': 'ACM',
+ 'title': 'Extracting reusable document components for variable data printing',
+ 'total_citations': '6'}
+2017-08-01 17:02:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:u-x6o8ySG0sC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:u-x6o8ySG0sC>
+{'authors': 'Alexander J Macdonald, David F Brailsford, Steven R Bagley',
+ 'conference': 'Proceedings of the 2005 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:u-x6o8ySG0sC',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/280/1/svgcog05.pdf',
+ 'publication_date': '2005/11/2',
+ 'publisher': 'ACM',
+ 'title': 'Encapsulating and manipulating component object graphics (COGs) '
+          'using SVG',
+ 'total_citations': '10'}
+2017-08-01 17:02:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:u5HHmVD_uO8C> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:u5HHmVD_uO8C>
+{'authors': 'Steven R Bagley, David F Brailsford, Matthew RB Hardy',
+ 'conference': 'Proceedings of the 2003 ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:u5HHmVD_uO8C',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/archive/00000192/01/cogpaper.pdf',
+ 'publication_date': '2003/11/20',
+ 'publisher': 'ACM',
+ 'title': 'Creating reusable well-structured PDF as a sequence of component '
+          'object graphic (COG) elements',
+ 'total_citations': '37'}
+2017-08-01 17:02:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en&cstart=20&pagesize=20> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:ufrVoPGSRksC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:ufrVoPGSRksC>
+{'authors': 'Steven R Bagley',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:ufrVoPGSRksC',
+ 'journal': 'Proceedings of the ACM Symposium on Document Engineering',
+ 'pdf_link': '',
+ 'publication_date': '2005/01/01',
+ 'publisher': 'ACM Press',
+ 'title': 'Demo Abstract: The COG Scrapbook Steven R. Bagley Document '
+          'Engineering Laboratory School of Computer Science University of '
+          'Nottingham',
+ 'total_citations': '0'}
+2017-08-01 17:02:36 [scrapy.crawler] INFO: Received SIG_SETMASK, shutting down gracefully. Send again to force 
+2017-08-01 17:02:36 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2017-08-01 17:02:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:WF5omc3nYNoC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:WF5omc3nYNoC>
+{'authors': 'SR Bagley',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:WF5omc3nYNoC',
+ 'journal': 'Document Engineering: Proceedings of the 2006 ACM symposium on '
+            'Document engineering',
+ 'pdf_link': '',
+ 'publication_date': '2006/01/01',
+ 'publisher': '',
+ 'title': 'Demonstrations',
+ 'total_citations': '0'}
+2017-08-01 17:02:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Se3iqnhoufwC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Se3iqnhoufwC>
+{'authors': 'James A Ollis, Steven R Bagley, David F Brailsford',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:Se3iqnhoufwC',
+ 'journal': '',
+ 'pdf_link': 'https://pdfs.semanticscholar.org/8b7c/09a96ac095559785075b7c7540e0ae75c1e8.pdf',
+ 'publication_date': '2008/01/01',
+ 'publisher': '',
+ 'title': 'TRACKING SUB-PAGE COMPONENTS WITHIN DOCUMENT WORKFLOWS',
+ 'total_citations': '0'}
+2017-08-01 17:02:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:W7OEmFMy1HYC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en)
+2017-08-01 17:02:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:W7OEmFMy1HYC>
+{'authors': 'James A Ollis, David F Brailsford, Steven R Bagley',
+ 'conference': 'Proceedings of the 10th ACM symposium on Document engineering',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&citation_for_view=8qvcFYcAAAAJ:W7OEmFMy1HYC',
+ 'journal': '',
+ 'pdf_link': 'http://eprints.nottingham.ac.uk/28123/1/eprints-shortpaper10.pdf',
+ 'publication_date': '2010/9/21',
+ 'publisher': 'ACM',
+ 'title': 'Optimized reprocessing of documents using stored processor state',
+ 'total_citations': '0'}
+2017-08-01 17:02:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&cstart=20&citation_for_view=8qvcFYcAAAAJ:hqOjcs7Dif8C> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-08-01 17:02:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&cstart=20&citation_for_view=8qvcFYcAAAAJ:hqOjcs7Dif8C>
+{'authors': 'Steven R Bagley',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&cstart=20&citation_for_view=8qvcFYcAAAAJ:hqOjcs7Dif8C',
+ 'journal': '',
+ 'pdf_link': 'http://g51csa.cs.nott.ac.uk/Distribution/Lectures/CSA-2014-Lecture10.pdf',
+ 'publication_date': None,
+ 'publisher': '',
+ 'title': 'Central Processing Unit',
+ 'total_citations': '0'}
+2017-08-01 17:02:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&cstart=20&citation_for_view=8qvcFYcAAAAJ:0EnyYjriUFMC> (referer: https://scholar.google.com/citations?user=8qvcFYcAAAAJ&hl=en&cstart=20&pagesize=20)
+2017-08-01 17:02:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&cstart=20&citation_for_view=8qvcFYcAAAAJ:0EnyYjriUFMC>
+{'authors': 'Steven R Bagley',
+ 'conference': '',
+ 'gs_link': 'https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=8qvcFYcAAAAJ&cstart=20&citation_for_view=8qvcFYcAAAAJ:0EnyYjriUFMC',
+ 'journal': '',
+ 'pdf_link': 'http://g51csa.cs.nott.ac.uk/Distribution/Lectures/CSA-2014-Lecture05.pdf',
+ 'publication_date': '1992/1/1',
+ 'publisher': '',
+ 'title': 'Addition',
+ 'total_citations': '0'}
+2017-08-01 17:02:45 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 12703,
+ 'downloader/request_count': 24,
+ 'downloader/request_method_count/GET': 24,
+ 'downloader/response_bytes': 403492,
+ 'downloader/response_count': 24,
+ 'downloader/response_status_count/200': 24,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2017, 8, 1, 17, 2, 45, 790762),
+ 'item_scraped_count': 22,
+ 'log_count/DEBUG': 47,
+ 'log_count/INFO': 8,
+ 'memusage/max': 43737088,
+ 'memusage/startup': 43737088,
+ 'request_depth_max': 2,
+ 'response_received_count': 24,
+ 'scheduler/dequeued': 24,
+ 'scheduler/dequeued/memory': 24,
+ 'scheduler/enqueued': 24,
+ 'scheduler/enqueued/memory': 24,
+ 'start_time': datetime.datetime(2017, 8, 1, 17, 1, 52, 171118)}
+2017-08-01 17:02:45 [scrapy.core.engine] INFO: Spider closed (shutdown)

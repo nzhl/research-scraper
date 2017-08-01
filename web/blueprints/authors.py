@@ -37,7 +37,7 @@ def select_author_by_id(author_id):
     return author
 
 def select_all_authors():
-    sql = "SELECT " + ALLOWED_FIELDS + " FROM authors"
+    sql = "SELECT " + ALLOWED_FIELDS + " FROM authors WHERE is_registered=True"
     with g.db.cursor() as cursor:
         cursor.execute(sql)
         authors = cursor.fetchall()
@@ -45,7 +45,7 @@ def select_all_authors():
 
 def select_authors_by_group(group_id):
     sql = ("SELECT " + ALLOWED_FIELDS + " FROM authors_and_groups "
-           "INNER JOIN authors ON author_id=id WHERE group_id=%s")
+           "INNER JOIN authors ON author_id=id WHERE group_id=%s AND is_registered=True")
     with g.db.cursor() as cursor:
         #print(cursor.mogrify(sql, (group_id,)))
         cursor.execute(sql, (group_id,))
@@ -60,11 +60,23 @@ def insert_author(author):
         cursor.execute(sql, (author['name'], author['account'],
                              author['password'], author['gs_link'],)
         )
-    g.db.commit()
-    with g.db.cursor() as cursor:
         sql = "SELECT * FROM authors WHERE account=%s AND password=%s"
         cursor.execute(sql, (author['account'], author['password']))
         author = cursor.fetchone()
+    g.db.commit()
+    return author
+
+def insert_author_with_code(author):
+    sql = ("UPDATE authors SET name=%s, account=%s, password=%s, gs_link=%s, "
+           "is_registered=1 WHERE id=%s")
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (author['name'], author['account'],
+                             author['password'], author['gs_link'],
+                             author['invitation_code'],))
+        sql = "SELECT * FROM authors WHERE account=%s AND password=%s"
+        cursor.execute(sql, (author['account'], author['password']))
+        author = cursor.fetchone()
+    g.db.commit()
     return author
 
 def insert_raw_author():
@@ -94,10 +106,15 @@ class AuthorView(MethodView):
 
     def post(self):
         author = request.get_json()
-        author = insert_author(author)
+    
+        if author['invitation_code']:
+            author = insert_author_with_code(author)
+        else:
+            author = insert_author(author)
+
         Popen(["python", "web/spiders/AuthorSpider.py",
-               author['gs_link'], str(author['id'])
-              ])
+               author['gs_link'], str(author['id']) ]
+        )
         
         # redirect with HTTP method preserved 
         # https://stackoverflow.com/questions/15473626/make-a-post-request-while-redirecting-in-flask

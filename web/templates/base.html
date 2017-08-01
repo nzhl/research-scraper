@@ -107,6 +107,8 @@
                         <input v-model="password" class="form-control" type="password" /><br/>
                         <p class="text-success">Google Scholar Address :</p>
                         <input v-model="gs_link" class="form-control" type="url" /><br/>
+                        <p class="text-success">Invitation Code (optional):</p>
+                        <input v-model="invitation_code" class="form-control" type="text" /><br/>
                     </div>
                     <div class="modal-footer">
                         <button v-on:click="register" type="button" class="btn btn-primary">
@@ -150,7 +152,8 @@
                     is_registered: "1",
                     account: "",
                     password: "",
-                    gs_link: ""
+                    gs_link: "",
+                    invitation_code: ""
                 },
                 methods: {
                     register: function(){
@@ -160,7 +163,8 @@
                                 'is_registered': this.is_registered,
                                 'account': this.account,
                                 'password': this.password,
-                                'gs_link': this.gs_link
+                                'gs_link': this.gs_link,
+                                'invitation_code': this.invitation_code
                             }
                         ).then(function (response){
                             location.reload()

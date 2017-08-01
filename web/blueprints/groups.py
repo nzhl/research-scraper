@@ -54,17 +54,17 @@ def insert_group(group):
         sql = ("UPDATE authors_and_groups SET is_manager=1 WHERE "
                "author_id=%s AND group_id=%s")
         cursor.execute(sql, (session['id'], group_id))
-    g.db.commit()
 
-    if not group['extra_authors']:
-        return
-    mailman = Mailman()
-    sql = "INSERT INTO authors_and_groups (author_id,group_id) VALUES (%s,%s)"
-    with g.db.cursor() as cursor:
-        for author in group['extra_authors']:
-            author_id = insert_raw_author()
-            cursor.execute(sql, (author_id, group_id))
-            mailman.send_invitation(author['email'], author['name'], author_id)
+        if group['extra_authors']:
+            mailman = Mailman()
+            sql = ("INSERT INTO authors_and_groups "
+                   "(author_id,group_id) VALUES (%s,%s)")
+            for author in group['extra_authors']:
+                author_id = insert_raw_author()
+                cursor.execute(sql, (author_id, group_id))
+                mailman.send_invitation(author['email'],
+                                        author['name'], author_id)
+    g.db.commit()
 
 
 def update_group(group):
