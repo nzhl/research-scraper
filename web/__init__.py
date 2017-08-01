@@ -6,13 +6,17 @@ This file mainly focus on:
     3. Register different path to different handler.
 '''
 
+from logging.handlers import RotatingFileHandler
+from logging import DEBUG, getLogger
+from datetime import date
+
 from flask import Flask, g, render_template, current_app, session
 from flask.json import JSONEncoder
+
 from .blueprints.sessions import sessions_blueprint
 from .blueprints.authors import authors_blueprint
 from .blueprints.papers import papers_blueprint
 from .blueprints.groups import groups_blueprint
-from datetime import date
 import pymysql
 
 
@@ -43,6 +47,10 @@ class CustomJSONEncoder(JSONEncoder):
 
 app = Flask(__name__)
 app.json_encoder = CustomJSONEncoder
+
+handler = RotatingFileHandler('web.log', maxBytes=10000, backupCount=1)
+handler.setLevel(DEBUG)
+getLogger('werkzeug').addHandler(handler)
 
 app.config.update(dict(
     SECRET_KEY='development key',
