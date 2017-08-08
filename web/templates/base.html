@@ -274,7 +274,8 @@
 
     function jump_group_management() {
         if(id == -1){
-            alert("Please login first !")
+            alert("Please login first !");
+            $('#login_tool').modal('show')
         }
         else{
             window.location.href = "/edit_groups/"

@@ -99,3 +99,9 @@
 172.17.0.1 - - [08/Aug/2017 11:10:11] "GET /api/authors/ HTTP/1.1" 200 -
 172.17.0.1 - - [08/Aug/2017 11:10:21] "GET /edit_groups/ HTTP/1.1" 200 -
 172.17.0.1 - - [08/Aug/2017 11:10:21] "GET /api/groups/?author_id=2 HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+172.17.0.1 - - [08/Aug/2017 11:16:15] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2017 11:16:16] "GET /api/authors/ HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2017 11:16:22] "DELETE /api/sessions/ HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2017 11:16:22] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2017 11:16:22] "GET /api/authors/ HTTP/1.1" 200 -
