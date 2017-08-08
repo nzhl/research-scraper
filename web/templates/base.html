@@ -60,7 +60,7 @@
 <div class="tabbable tabs-left">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#1" data-toggle="tab"><span class="glyphicon glyphicon-book"></span> Introduction </a></li>
-        <li><a href="#2" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Search Papers</a></li>
+        <li><a href="#2" data-toggle="tab" id="search_tab"><span class="glyphicon glyphicon-search"></span> Search Papers</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="1">
@@ -126,10 +126,10 @@
                                 in this group or search a specific one.
                             </li>
                         </ul>
-                        <h3 >Can't Wait, <button class="btn-success">try it now !</button> </h3>
+                        <h3 >Can't Wait, <button class="btn-success" onclick="toggle_tab()">try it now !</button> </h3>
                     </div>
                     <div class="col-md-5">
-                        <img class="featurette-image img-responsive center-block" src="../static/images/grp.gif" style="width: 500px; height: 500px">
+                        <img class="featurette-image img-responsive center-block" src="../static/images/grp.gif">
                     </div>
                 </div>
 
@@ -151,12 +151,14 @@
                                     <li>
                                         https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en : this is a correct format.
                                     </li>
+                                    <!--
                                     <li>
                                         https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=en&cstart=20&pagesize=20 : This one contains start page and pagesize, it will confuse the crawler.
                                     </li>
                                     <li>
                                         https://scholar.google.com/citations?user=tAQTJRIAAAAJ&hl=CN : the language specify in the url must be English. Here hl=CN is used, it will make the page loaded by crawler show as Chinese.
                                     </li>
+                                    -->
                                 </ol>
                             </li>
                             <li>
@@ -164,10 +166,10 @@
                                 with the one which has already added into that group. So be sure you input the invitation code correctly.
                             </li>
                         </ul>
-                        <h3 >Start your <button class="btn-success">Registration Now !</button></h3>
+                        <h3 >Start your <button class="btn-success" onclick="toggle_register()">Registration Now !</button></h3>
                     </div>
                     <div class="col-md-5 col-md-pull-7">
-                        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="TODO : registration gif">
+                        <img class="featurette-image img-responsive center-block" src="../static/images/grp.gif" alt="TODO : registration gif">
                     </div>
                 </div>
 
@@ -177,9 +179,10 @@
                     <div class="col-md-7">
                         <h2 class="featurette-heading">Group Management</h2>
                         <p class="lead">TODO : group...</p>
+                        <h3 >Enter the <button class="btn-success" onclick="jump_group_management()">Group Mangement Page !</button></h3>
                     </div>
                     <div class="col-md-5">
-                        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="TODO :group manage gif">
+                        <img class="featurette-image img-responsive center-block" src="../static/images/grp.gif" alt="TODO :group manage gif">
                     </div>
                 </div>
 
@@ -256,6 +259,28 @@
 {% endif %}
 
 <script>
+    function toggle_tab() {
+        $('#search_tab').tab('show');
+    }
+
+    function toggle_register() {
+        if(id == -1){
+            $('#register_tool').modal('show')
+        }
+        else{
+            alert("You have already login, please logout first !")
+        }
+    }
+
+    function jump_group_management() {
+        if(id == -1){
+            alert("Please login first !")
+        }
+        else{
+            window.location.href = "/edit_groups/"
+        }
+    }
+
     {% if not 'name' in session %}
     var login_tool = new Vue({
         el: '#login_tool',
@@ -278,7 +303,8 @@
                 })
             }
         }
-    })
+    });
+
 
     var register_tool = new Vue({
         el: '#register_tool',
@@ -308,8 +334,9 @@
                 })
             }
         }
-    })
+    });
     {% else %}
+    window.onload = toggle_tab;
 
     var logout_tool = new Vue({
         el: "#logout_tool",
