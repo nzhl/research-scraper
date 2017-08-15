@@ -167,11 +167,11 @@ class GroupView(MethodView):
         elif data['type'] == "filter":
             update_filter(data)
         elif data['type'] == "hide":
-            delete_show(data)
-            insert_hide(data)
+            if not delete_show(data):
+                insert_hide(data)
         elif data['type'] == "show":
-            delete_hide(data)
-            insert_show(data)
+            if not delete_hide(data):
+                insert_show(data)
         return ("", 200, {})
 
     def delete(self, group_id):

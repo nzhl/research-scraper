@@ -12,18 +12,18 @@
             <caption> You participate {{groups.length}} groups in total.</caption>
             <thead>
                 <tr>
-                    <th>name</th>
-                    <th>papers list</th>
-                    <th>member</th>
-                    <th>filter</th>
-                    <th>profile</th>
+                    <th>group name</th>
+                    <th>papers in group</th>
+                    <th>group member</th>
+                    <th>date filter for this group</th>
+                    <th>group profile</th>
                 </tr>
             </thead>
             <tbody>
                 <template v-for="(group,index) in groups">
                     <tr>
                         <td >{{group['name']}}</td>
-                        <td><a v-bind:href="'/groups/' + group['id']">papers list</a></td>
+                        <td><a v-bind:href="'/groups/' + group['id']">papers</a></td>
                         <td>
                             <button v-on:click="member_before_edit" v-bind:index="index" data-toggle="modal" data-target="#member_edit_tool">member</button>
                         </td>

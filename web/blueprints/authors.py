@@ -89,11 +89,10 @@ def insert_raw_author():
         return cursor.fetchone()['LAST_INSERT_ID()']
     
 def update_gs_link(data):
-    sql = "UPDATE authors SET gs_link=%s WHERE id= %s"
+    sql = "UPDATE authors SET gs_link=%s WHERE id=%s"
     with g.db.cursor() as cursor:
         cursor.execute(sql, (data['gs_link'], data['id']))
-        sql = ("DELETE FROM papers WHERE id IN (SELECT paper_id "
-               "FROM authors_and_papers WHERE author_id=%s)")
+        sql = "DELETE FROM authors_and_papers WHERE author_id=%s"
         cursor.execute(sql, (data['id'],))
     g.db.commit()
 

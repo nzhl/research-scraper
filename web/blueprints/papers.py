@@ -25,11 +25,12 @@ def select_papers_by_author(author_id):
 def select_papers_by_group(group_id, show_hidden):
     papers = []
     if not show_hidden:
-        sql = ("SELECT d.* from (SELECT paper_id, before_date, after_date FROM "
-               "authors_and_papers AS a INNER JOIN authors_and_groups AS b ON "
-               "a.author_id=b.author_id WHERE group_id=%s) AS c INNER JOIN "
-               "papers AS d ON paper_id=id AND publication_date >= after_date "
-               "AND publication_date <= before_date")
+        sql = ("SELECT DISTINCT d.* from (SELECT paper_id, before_date, "
+               "after_date FROM authors_and_papers AS a INNER JOIN "
+               "authors_and_groups AS b ON a.author_id=b.author_id WHERE "
+               "group_id=%s) AS c INNER JOIN papers AS d ON paper_id=id "
+               "AND publication_date >= after_date AND publication_date "
+               "<= before_date")
         with g.db.cursor() as cursor:
             cursor.execute(sql, (group_id,))
             papers = cursor.fetchall()
@@ -53,11 +54,12 @@ def select_papers_by_group(group_id, show_hidden):
                 else:
                     re.append(paper)
     else:
-        sql = ("SELECT d.* from (SELECT paper_id, before_date, after_date FROM "
-               "authors_and_papers AS a INNER JOIN authors_and_groups AS b ON "
-               "a.author_id=b.author_id WHERE group_id=%s) AS c INNER JOIN "
-               "papers AS d ON paper_id=id AND (publication_date < after_date "
-               "OR publication_date > before_date)")
+        sql = ("SELECT DISTINCT d.* from (SELECT paper_id, before_date, "
+               "after_date FROM authors_and_papers AS a INNER JOIN "
+               "authors_and_groups AS b ON a.author_id=b.author_id WHERE "
+               "group_id=%s) AS c INNER JOIN papers AS d ON paper_id=id "
+               "AND (publication_date < after_date OR publication_date >"
+               " before_date)")
         with g.db.cursor() as cursor:
             cursor.execute(sql, (group_id,))
             papers = cursor.fetchall()
