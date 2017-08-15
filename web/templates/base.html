@@ -27,25 +27,30 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li><a onclick="toggle_help()"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
 
             {% if 'name' not in session %}
-            <li > <a data-toggle="modal" data-target="#login_tool">Login</a> </li>
-            <li > <a data-toggle="modal" data-target="#register_tool">Register</a> </li>
+            <li > <a data-toggle="modal" data-target="#login_tool"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
+            <li > <a data-toggle="modal" data-target="#register_tool"><span class="glyphicon glyphicon-registration-mark "></span> Register</a> </li>
 
             {% else %}
             <li class="dropdown" id="logout_tool">
-                <a class="dropdown-toggle" data-toggle="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" v-text="name">
                     <span class="glyphicon glyphicon-user"></span>
-                    {% raw %} {{name}} {% endraw %}
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu" >
                     <li>
-                        <a v-bind:href="'/authors/' + id">Paper</a>
+                        <a v-bind:href="'/authors/' + id">View All Your Papers</a>
                     </li>
                     <li>
-                        <a href="/edit_groups/">Group</a>
+                        <a href="/edit_groups/">Change Group Settings</a>
                     </li>
+                    <li >
+                         <a data-toggle="modal" data-target="#gs_update_tool">
+                             Update Goole Scholar Link
+                        </a>
+                     </li>
                     <li class="divider"></li>
                     <li role="presentation">
                         <a v-on:click="logout" role="menuitem" tabindex="-1" >Logout</a>
@@ -59,7 +64,7 @@
 </nav>
 <div class="tabbable tabs-left">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#1" data-toggle="tab"><span class="glyphicon glyphicon-book"></span> Introduction </a></li>
+        <li class="active"><a href="#1" data-toggle="tab" id="help_tab"><span class="glyphicon glyphicon-book"></span> Introduction </a></li>
         <li><a href="#2" data-toggle="tab" id="search_tab"><span class="glyphicon glyphicon-search"></span> Search Papers</a></li>
     </ul>
     <div class="tab-content">
@@ -198,6 +203,30 @@
     </div>
 </div>
 
+<div class="modal fade" id="gs_update_tool" tabindex="-1" role="dialog" aria-labelledby="gs_label" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="gs_label">
+                    Update Google Scholar Link
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger">Warning : Once update all the papers downloaded according to the previous url will be deleted !</p>
+                <p class="text-success">Google Scholar Address :</p>
+                <input v-model="gs_link" class="form-control" type="url" /><br/>
+            </div>
+            <div class="modal-footer">
+                <button v-on:click="gs_update" type="button" class="btn btn-danger">
+                    Update
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% if 'name' not in session %}
 <div class="modal fade" id="login_tool" tabindex="-1" role="dialog" aria-labelledby="login_label" aria-hidden="true">
@@ -259,7 +288,10 @@
 {% endif %}
 
 <script>
-    function toggle_tab() {
+    function toggle_help() {
+        $('#help_tab').tab('show');
+    }
+    function toggle_search() {
         $('#search_tab').tab('show');
     }
 
@@ -336,8 +368,29 @@
             }
         }
     });
+
     {% else %}
-    window.onload = toggle_tab;
+
+    var gs_update_tool = new Vue({
+        el: '#gs_update_tool',
+        data: {
+            gs_link: "",
+        },
+        methods: {
+            gs_update: function(){
+                axios.put('/api/authors/',
+                    {
+                        'type': "gs_link",
+                        'gs_link': this.gs_link,
+                    }
+                ).then(function (response){
+                    location.reload()
+                }).catch(function(error){
+                    alert("Unknown server error !")
+                })
+            }
+        }
+    });
 
     var logout_tool = new Vue({
         el: "#logout_tool",
@@ -357,6 +410,8 @@
         }
     });
     {% endif %}
+
+    window.onload = toggle_search;
 </script>
 
 

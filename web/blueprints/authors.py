@@ -88,7 +88,14 @@ def insert_raw_author():
         cursor.execute(sql)
         return cursor.fetchone()['LAST_INSERT_ID()']
     
-        
+def update_gs_link(data):
+    sql = "UPDATE authors SET gs_link=%s WHERE id= %s"
+    with g.db.cursor() as cursor:
+        cursor.execute(sql, (data['gs_link'], data['id']))
+        sql = ("DELETE FROM papers WHERE id IN (SELECT paper_id "
+               "FROM authors_and_papers WHERE author_id=%s)")
+        cursor.execute(sql, (data['id'],))
+    g.db.commit()
 
 
 class AuthorView(MethodView):
@@ -120,6 +127,20 @@ class AuthorView(MethodView):
         # https://stackoverflow.com/questions/15473626/make-a-post-request-while-redirecting-in-flask
         return redirect('api/sessions/', code=307)
 
+    def put(self):
+        data = request.get_json()
+        if 'id' not in session:
+            return ("", 404, {})
+        data['id'] = session['id']
+        if data['type'] == "gs_link":
+            update_gs_link(data)
+            Popen(["python", "web/spiders/AuthorSpider.py",
+                   data['gs_link'], str(data['id']) ]
+            )
+        else:
+            pass
+        return ("", 200, {})
+
 
 authors_blueprint = Blueprint('authors', __name__, url_prefix='/api')
 authors_view = AuthorView.as_view('authors')
@@ -129,4 +150,4 @@ authors_blueprint.add_url_rule('/authors/<int:author_id>',
         methods=['GET'])
 authors_blueprint.add_url_rule('/authors/',
         view_func=authors_view,
-        methods=['GET', 'POST'])
+        methods=['GET', 'POST', 'PUT'])
